@@ -2,6 +2,8 @@ import React from "react";
 import {observer} from "mobx-react-lite";
 import {Container, Heading, Wrap, WrapItem, Center, Text} from "@chakra-ui/layout";
 
+
+
 export const WhyUs = observer(() => {
     return(
         <Container
