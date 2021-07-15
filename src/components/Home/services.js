@@ -8,7 +8,7 @@ export const Services = observer(() => {
     return(
         <Container
             maxW="container.lg"
-            marginTop={'1rem'}
+            my={'1rem'}
         >
             <Heading marginBottom={'1.2rem'}>Наши услуги</Heading>
             <VStack
