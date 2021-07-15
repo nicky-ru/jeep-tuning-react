@@ -4,6 +4,7 @@ import {Divider} from "@chakra-ui/layout";
 import {Jumbotron} from "../../components/Home/jumbotron";
 import {Services} from "../../components/Home/services";
 import {WhyUs} from "../../components/Home/whyUs";
+import {Brands} from "../../components/Home/brands";
 
 export const Home = observer(() => {
     return(
@@ -12,6 +13,8 @@ export const Home = observer(() => {
             <Services/>
             <Divider/>
             <WhyUs/>
+            <Divider/>
+            <Brands/>
         </>
     )
 })
