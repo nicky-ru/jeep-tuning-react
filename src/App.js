@@ -5,13 +5,6 @@ import { Box, Text } from '@chakra-ui/layout';
 import { ChakraProvider, Button, Container, Center } from "@chakra-ui/react";
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-// import Amplify, {API, graphqlOperation} from 'aws-amplify';
-// import {createModel} from "./graphql/mutations";
-// import {listModels} from "./graphql/queries";
-//
-// import awsExports from "./aws-exports";
-// Amplify.configure(awsExports);
-
 import {Header} from "./components/Header";
 import {Footer} from "./components/Footer";
 import {Home} from "./pages/Home";

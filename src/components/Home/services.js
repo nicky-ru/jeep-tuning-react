@@ -30,7 +30,7 @@ export const Services = observer(() => {
                         <Button type={"button"}>Записаться</Button>
                     </Link>
                 </Box>
-                <Box key={'first'}
+                <Box key={'sec'}
                      border={"1px"}
                      borderColor={"dark.100"}
                      borderRadius={16}
