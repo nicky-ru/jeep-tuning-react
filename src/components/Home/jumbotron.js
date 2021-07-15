@@ -5,9 +5,10 @@ import {Heading, Center, useColorModeValue} from "@chakra-ui/react";
 export const Jumbotron = observer(() => {
     return(
         <Center
-            bgImage="url('https://i.ibb.co/k38bmfG/background.webp')"
+            bgImage="url('https://i.ibb.co/HzKWHv8/bl-De7-CFXPZ8-copy.webp')"
+            bgRepeat={'round'}
             /*bg={'tomato'}*/
-            h={'200px'}
+            h={'250px'}
         >
             <Heading
                 borderRadius={'md'}
