@@ -18,6 +18,7 @@ export const Home = observer(() => {
             <Brands/>
             <Divider/>
             <Contacts/>
+            <Divider/>
         </>
     )
 })
