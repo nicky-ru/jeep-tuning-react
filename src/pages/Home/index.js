@@ -1,13 +1,13 @@
 import React from "react";
 import {observer} from "mobx-react-lite";
-import {FastAction} from "../../components/Home/fastAction";
 import {Jumbotron} from "../../components/Home/jumbotron";
+import {Services} from "../../components/Home/services";
 
 export const Home = observer(() => {
     return(
         <>
             <Jumbotron/>
-            <FastAction/>
+            <Services/>
         </>
     )
 })
