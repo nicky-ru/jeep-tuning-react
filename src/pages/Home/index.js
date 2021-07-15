@@ -5,6 +5,7 @@ import {Jumbotron} from "../../components/Home/jumbotron";
 import {Services} from "../../components/Home/services";
 import {WhyUs} from "../../components/Home/whyUs";
 import {Brands} from "../../components/Home/brands";
+import {Contacts} from "../../components/Home/contacts";
 
 export const Home = observer(() => {
     return(
@@ -15,6 +16,8 @@ export const Home = observer(() => {
             <WhyUs/>
             <Divider/>
             <Brands/>
+            <Divider/>
+            <Contacts/>
         </>
     )
 })
