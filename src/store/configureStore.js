@@ -10,7 +10,9 @@ export default initialState => {
     const createdStore = createStore(
         rootReducer,
         initialState,
-        compose(applyMiddleware(thunk,), window.__REDUX_DEVTOOLS_EXTENSION__())
+        compose(applyMiddleware(thunk,),
+            // window.__REDUX_DEVTOOLS_EXTENSION__()
+        )
     );
     store = createdStore;
     return store;
