@@ -1,9 +1,10 @@
 import React from 'react'
 import { observer } from 'mobx-react-lite';
-import { Box, Flex, Container, Stack, useDisclosure, IconButton, useColorModeValue, useColorMode, Heading, Text, Link } from '@chakra-ui/react'
+import { Box, Flex, Container, Stack, useDisclosure, IconButton, useColorModeValue, useColorMode, Heading, Text, Link, Button } from '@chakra-ui/react'
 import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons';
 import {Link as ReachLink} from 'react-router-dom';
 import { IoMoon, IoSunny } from 'react-icons/io5';
+import {EmailIcon, ArrowForwardIcon} from "@chakra-ui/icons";
 
 export const Header = observer(() => {
     const { isOpen: isMobileNavOpen, onToggle } = useDisclosure();
@@ -41,8 +42,14 @@ export const Header = observer(() => {
                     </Flex>
 
                     <Stack direction={'row'} align={'center'} spacing={2} flex={{ base: 1, md: 'auto' }} justify={'flex-end'}>
+                        <Button leftIcon={<EmailIcon />} variant="solid">
+                            Email
+                        </Button>
+                        <Button rightIcon={<ArrowForwardIcon />} variant="outline">
+                            Позвонить
+                        </Button>
                         <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
-                            <Text>Phone number</Text>
+                            <Text>+79108210000</Text>
                         </Flex>
                         <IconButton borderRadius="12" aria-label={'Toggle Color Mode'} onClick={toggleColorMode} icon={colorMode === 'light' ? <IoMoon size={18} /> : <IoSunny size={18} />} />
                     </Stack>
