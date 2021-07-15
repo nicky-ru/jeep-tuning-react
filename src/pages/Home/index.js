@@ -1,7 +1,13 @@
 import React from "react";
 import {observer} from "mobx-react-lite";
-import {Container} from "@chakra-ui/layout";
+import {FastAction} from "../../components/Home/fastAction";
+import {Jumbotron} from "../../components/Home/jumbotron";
 
 export const Home = observer(() => {
-    return(<Container>Home</Container>)
+    return(
+        <>
+            <Jumbotron/>
+            <FastAction/>
+        </>
+    )
 })
