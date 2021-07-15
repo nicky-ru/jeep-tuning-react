@@ -1,3 +1,5 @@
 export default {
-    advantages: [],
+    advantages: {
+        list: [],
+    },
 }
