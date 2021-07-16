@@ -1,14 +1,89 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const onCreateService = /* GraphQL */ `
+  subscription OnCreateService {
+    onCreateService {
+      id
+      name
+      description
+      price
+      uzelID
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateService = /* GraphQL */ `
+  subscription OnUpdateService {
+    onUpdateService {
+      id
+      name
+      description
+      price
+      uzelID
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteService = /* GraphQL */ `
+  subscription OnDeleteService {
+    onDeleteService {
+      id
+      name
+      description
+      price
+      uzelID
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onCreateUzel = /* GraphQL */ `
+  subscription OnCreateUzel {
+    onCreateUzel {
+      id
+      name
+      createdAt
+      updatedAt
+      Services {
+        nextToken
+      }
+    }
+  }
+`;
+export const onUpdateUzel = /* GraphQL */ `
+  subscription OnUpdateUzel {
+    onUpdateUzel {
+      id
+      name
+      createdAt
+      updatedAt
+      Services {
+        nextToken
+      }
+    }
+  }
+`;
+export const onDeleteUzel = /* GraphQL */ `
+  subscription OnDeleteUzel {
+    onDeleteUzel {
+      id
+      name
+      createdAt
+      updatedAt
+      Services {
+        nextToken
+      }
+    }
+  }
+`;
 export const onCreateAdvantage = /* GraphQL */ `
   subscription OnCreateAdvantage {
     onCreateAdvantage {
       id
       name
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -19,9 +94,6 @@ export const onUpdateAdvantage = /* GraphQL */ `
     onUpdateAdvantage {
       id
       name
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -32,9 +104,6 @@ export const onDeleteAdvantage = /* GraphQL */ `
     onDeleteAdvantage {
       id
       name
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -46,9 +115,6 @@ export const onCreateModel = /* GraphQL */ `
       id
       brandID
       name
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -60,9 +126,6 @@ export const onUpdateModel = /* GraphQL */ `
       id
       brandID
       name
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -74,9 +137,6 @@ export const onDeleteModel = /* GraphQL */ `
       id
       brandID
       name
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -87,14 +147,11 @@ export const onCreateBrand = /* GraphQL */ `
     onCreateBrand {
       id
       name
-      _version
-      _deleted
-      _lastChangedAt
+      image
       createdAt
       updatedAt
       Cars {
         nextToken
-        startedAt
       }
     }
   }
@@ -104,14 +161,11 @@ export const onUpdateBrand = /* GraphQL */ `
     onUpdateBrand {
       id
       name
-      _version
-      _deleted
-      _lastChangedAt
+      image
       createdAt
       updatedAt
       Cars {
         nextToken
-        startedAt
       }
     }
   }
@@ -121,14 +175,11 @@ export const onDeleteBrand = /* GraphQL */ `
     onDeleteBrand {
       id
       name
-      _version
-      _deleted
-      _lastChangedAt
+      image
       createdAt
       updatedAt
       Cars {
         nextToken
-        startedAt
       }
     }
   }

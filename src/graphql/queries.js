@@ -1,14 +1,74 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const getService = /* GraphQL */ `
+  query GetService($id: ID!) {
+    getService(id: $id) {
+      id
+      name
+      description
+      price
+      uzelID
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listServices = /* GraphQL */ `
+  query ListServices(
+    $filter: ModelServiceFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listServices(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        name
+        description
+        price
+        uzelID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getUzel = /* GraphQL */ `
+  query GetUzel($id: ID!) {
+    getUzel(id: $id) {
+      id
+      name
+      createdAt
+      updatedAt
+      Services {
+        nextToken
+      }
+    }
+  }
+`;
+export const listUzels = /* GraphQL */ `
+  query ListUzels(
+    $filter: ModelUzelFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listUzels(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        name
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
 export const getAdvantage = /* GraphQL */ `
   query GetAdvantage($id: ID!) {
     getAdvantage(id: $id) {
       id
       name
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -24,41 +84,10 @@ export const listAdvantages = /* GraphQL */ `
       items {
         id
         name
-        _version
-        _deleted
-        _lastChangedAt
         createdAt
         updatedAt
       }
       nextToken
-      startedAt
-    }
-  }
-`;
-export const syncAdvantages = /* GraphQL */ `
-  query SyncAdvantages(
-    $filter: ModelAdvantageFilterInput
-    $limit: Int
-    $nextToken: String
-    $lastSync: AWSTimestamp
-  ) {
-    syncAdvantages(
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-      lastSync: $lastSync
-    ) {
-      items {
-        id
-        name
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
-      }
-      nextToken
-      startedAt
     }
   }
 `;
@@ -68,9 +97,6 @@ export const getModel = /* GraphQL */ `
       id
       brandID
       name
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -87,42 +113,10 @@ export const listModels = /* GraphQL */ `
         id
         brandID
         name
-        _version
-        _deleted
-        _lastChangedAt
         createdAt
         updatedAt
       }
       nextToken
-      startedAt
-    }
-  }
-`;
-export const syncModels = /* GraphQL */ `
-  query SyncModels(
-    $filter: ModelModelFilterInput
-    $limit: Int
-    $nextToken: String
-    $lastSync: AWSTimestamp
-  ) {
-    syncModels(
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-      lastSync: $lastSync
-    ) {
-      items {
-        id
-        brandID
-        name
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
-      }
-      nextToken
-      startedAt
     }
   }
 `;
@@ -131,14 +125,11 @@ export const getBrand = /* GraphQL */ `
     getBrand(id: $id) {
       id
       name
-      _version
-      _deleted
-      _lastChangedAt
+      image
       createdAt
       updatedAt
       Cars {
         nextToken
-        startedAt
       }
     }
   }
@@ -153,41 +144,11 @@ export const listBrands = /* GraphQL */ `
       items {
         id
         name
-        _version
-        _deleted
-        _lastChangedAt
+        image
         createdAt
         updatedAt
       }
       nextToken
-      startedAt
-    }
-  }
-`;
-export const syncBrands = /* GraphQL */ `
-  query SyncBrands(
-    $filter: ModelBrandFilterInput
-    $limit: Int
-    $nextToken: String
-    $lastSync: AWSTimestamp
-  ) {
-    syncBrands(
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-      lastSync: $lastSync
-    ) {
-      items {
-        id
-        name
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
-      }
-      nextToken
-      startedAt
     }
   }
 `;
