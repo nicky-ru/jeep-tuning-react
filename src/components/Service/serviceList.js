@@ -27,18 +27,18 @@ export const ServiceList = observer((props) => {
             {serviceKeys.length > 0 && serviceKeys.map((serviceKey) => (
                 <Box key={serviceKey}
                      border={"1px"}
-                     borderColor={"dark.100"}
+                     borderColor={"#A0AEC0"}
                      borderRadius={16}
                      display="flex"
                      alignItems="center"
                      justifyContent="space-between">
-                    <Text marginLeft={"10px"} isTruncated>{services[serviceKey].name}</Text>
                     <Link
                         as={ReachLink}
                         to={`/service/${serviceKey}`}
                         params={{ service: serviceKey}}>
-                        <Button type={"button"}>View</Button>
+                        <Text marginLeft={"10px"} isTruncated>{services[serviceKey].name}</Text>
                     </Link>
+                    <Button borderRadius={16} type={"button"}>Записаться</Button>
                 </Box>
             ))}
 

@@ -12,6 +12,9 @@ export const theme = extendTheme({
             200: 'rgba(255, 255, 255, 0.16)',
             300: 'rgba(255, 255, 255, 0.24)',
             400: 'rgba(255, 255, 255, 0.32)'
+        },
+        gray: {
+            400: '#A0AEC0'
         }
     },
     shadows: {

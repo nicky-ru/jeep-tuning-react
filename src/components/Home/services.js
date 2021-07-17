@@ -1,7 +1,15 @@
 import React from "react";
 import {observer} from "mobx-react-lite";
 import {Container, Heading, Box} from "@chakra-ui/layout";
-import {Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel} from '@chakra-ui/react';
+import {
+    Accordion,
+    AccordionButton,
+    AccordionIcon,
+    AccordionItem,
+    AccordionPanel,
+    Button,
+    useColorModeValue
+} from '@chakra-ui/react';
 import {useSelector} from "react-redux";
 import {ServiceList} from "../Service/serviceList";
 
@@ -15,9 +23,9 @@ export const Services = observer(() => {
         >
             <Heading marginBottom={'1.2rem'}>Наши услуги</Heading>
 
-            <Accordion allowToggle>
+            <Accordion allowToggle reduceMotion>
                 {Object.keys(uzels).length > 0 && Object.keys(uzels).map((uzel) => (
-                    <AccordionItem key={uzel}>
+                    <AccordionItem key={uzel} >
                         <h2>
                             <AccordionButton>
                                 <Box flex="1" textAlign="left">
@@ -26,53 +34,18 @@ export const Services = observer(() => {
                                 <AccordionIcon />
                             </AccordionButton>
                         </h2>
-                        <AccordionPanel pb={4}>
+                        <AccordionPanel
+                            py={4}
+                            css={{
+                                backgroundColor: useColorModeValue('#EDF2F7', 'rgba(45,55,72,0.5)')
+                            }}
+                        >
                             <ServiceList uzel={uzel}/>
                         </AccordionPanel>
                     </AccordionItem>
                 ))}
             </Accordion>
-
-            {/*<VStack*/}
-            {/*    spacing={4}*/}
-            {/*    align="stretch"*/}
-            {/*>*/}
-            {/*    <Box key={'first'}*/}
-            {/*         border={"1px"}*/}
-            {/*         borderColor={"dark.100"}*/}
-            {/*         borderRadius={16}*/}
-            {/*         display="flex"*/}
-            {/*         alignItems="center"*/}
-            {/*         justifyContent="space-between">*/}
-            {/*        <Text marginLeft={"10px"} isTruncated>{'first'}</Text>*/}
-            {/*        <Link*/}
-            {/*            as={ReachLink}*/}
-            {/*            to={`/service/${'first'}`}*/}
-            {/*            params={{ service: 'first' }}>*/}
-            {/*            <Button type={"button"}>Записаться</Button>*/}
-            {/*        </Link>*/}
-            {/*    </Box>*/}
-            {/*    <Box key={'sec'}*/}
-            {/*         border={"1px"}*/}
-            {/*         borderColor={"dark.100"}*/}
-            {/*         borderRadius={16}*/}
-            {/*         display="flex"*/}
-            {/*         alignItems="center"*/}
-            {/*         justifyContent="space-between">*/}
-            {/*        <Text marginLeft={"10px"} isTruncated>{'first'}</Text>*/}
-            {/*        <Link*/}
-            {/*            as={ReachLink}*/}
-            {/*            to={`/service/${'first'}`}*/}
-            {/*            params={{ service: 'first' }}>*/}
-            {/*            <Button type={"button"}>Записаться</Button>*/}
-            {/*        </Link>*/}
-            {/*    </Box>*/}
-            {/*    <Link*/}
-            {/*        as={ReachLink}*/}
-            {/*        to={'/services'}>*/}
-            {/*        <Button w={'100%'} type={"button"}>Все услуги</Button>*/}
-            {/*    </Link>*/}
-            {/*</VStack>*/}
+            <Button mt={'0.5rem'} w={'100%'}>Все услуги</Button>
 
         </Container>
     );
