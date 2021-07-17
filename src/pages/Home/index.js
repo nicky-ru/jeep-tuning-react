@@ -9,10 +9,12 @@ import {Contacts} from "../../components/Home/contacts";
 import {useDispatch} from "react-redux";
 
 import Amplify, {API, graphqlOperation} from 'aws-amplify';
-import {listAdvantages} from "../../graphql/queries";
+import {listAdvantages, listServices, listUzels} from "../../graphql/queries";
 
 import awsExports from "../../aws-exports";
 import {getAdvantages} from "../../redux/actions/advantages";
+import {listServices as listServicesFromStore} from "../../redux/actions/services";
+import {getUzelList} from "../../redux/actions/uzel";
 Amplify.configure(awsExports);
 
 export const Home = observer(() => {
@@ -20,6 +22,8 @@ export const Home = observer(() => {
 
     useEffect(() => {
         fetchAdvantages();
+        fetchUzels();
+        fetchServices();
     }, []);
 
     const fetchAdvantages = async () => {
@@ -29,6 +33,26 @@ export const Home = observer(() => {
             dispatch(getAdvantages(advantages));
         } catch (e) {
             console.log("Error while getting advantages: ", e);
+        }
+    }
+
+    const fetchServices = async () => {
+        try {
+            const servicesData = await API.graphql(graphqlOperation(listServices));
+            const services = servicesData.data.listServices.items;
+            dispatch(listServicesFromStore(services));
+        } catch (e) {
+            console.log("Error while getting services: ", e);
+        }
+    }
+
+    const fetchUzels = async () => {
+        try {
+            const uzelsData = await API.graphql(graphqlOperation(listUzels));
+            const uzels = uzelsData.data.listUzels.items;
+            dispatch(getUzelList(uzels));
+        } catch (e) {
+            console.log("Error while fetching uzels: ", e);
         }
     }
 

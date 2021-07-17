@@ -8,6 +8,9 @@ export const uzel = {
 }
 
 export const service = {
-    GET_LIST: 'jt/service/getList',
     GET: 'jt/service/get'
+}
+
+export const services = {
+    LIST: 'jt/services/list',
 }

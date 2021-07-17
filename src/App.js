@@ -10,6 +10,7 @@ import {Footer} from "./components/Footer";
 import {Home} from "./pages/Home";
 import {theme} from "./lib/theme";
 import {Service} from "./pages/Service";
+import {Services} from "./pages/Service/services";
 
 const ErrorFallback = ({ error, resetErrorBoundary }) => {
     return (
@@ -34,6 +35,7 @@ function App() {
                   <Switch>
                       <Route path={'/'} exact key={'/'} component={Home}/>
                       <Route path={'/service/:slug'} exact key={'/service/:slug'} component={Service}/>
+                      <Route path={'/services'} exact key={'/services'} component={Services}/>
                   </Switch>
                   <Footer/>
               </Router>

@@ -2,11 +2,13 @@ export default {
     advantages: {
         list: [],
     },
+    services: {
+    },
     service: {
         name: '',
-        uzelID: '',
         description: '',
         price: 0,
+        uzelID: '',
     },
     uzels: {
 
