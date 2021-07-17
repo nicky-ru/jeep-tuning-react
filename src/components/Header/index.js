@@ -33,7 +33,7 @@ export const Header = observer(() => {
 
                     <Flex flex={{ base: 1, md: 'auto' }} justify={{ base: 'center', md: 'start' }}>
                         <Stack as={'a'} direction={'row'} alignItems={'center'} spacing={{ base: 2, sm: 4 }}>
-                            <Link as={ReachLink} to={"/user"} style={{ textDecoration: 'none'}}>
+                            <Link as={ReachLink} to={"/"} style={{ textDecoration: 'none'}}>
                                 <Heading as={'h1'} fontSize={'xl'} display={{ base: 'none', md: 'block' }}>
                                     JeepService
                                 </Heading>
