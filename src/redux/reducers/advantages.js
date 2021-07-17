@@ -5,8 +5,9 @@ export function advantages(state = initialState.advantages, action) {
     switch (action.type) {
         case types.advantages.GET: {
             const nextState = Object.assign({}, state);
-            for (const [key, value] of Object.entries(action.advantageList)) {
-                nextState.list.push(value.name);
+
+            for (const value of Object.values(action.advantageList)) {
+                nextState[value.id] = value.name;
             }
             return nextState;
 

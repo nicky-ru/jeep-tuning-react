@@ -13,7 +13,8 @@ export const WhyUs = observer(() => {
         >
             <Heading marginBottom={'1.2rem'}>Почему мы</Heading>
             <Wrap spacing="30px" justify="center">
-                {advantages.list.map((advantage) => (
+
+                {Object.values(advantages).length > 0 &&  Object.values(advantages).map((advantage) => (
                     <WrapItem key={advantage}>
                         <Center
                             w="200px"

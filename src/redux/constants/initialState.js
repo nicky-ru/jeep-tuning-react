@@ -1,6 +1,5 @@
 export default {
     advantages: {
-        list: [],
     },
     services: {
     },
