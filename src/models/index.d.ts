@@ -69,7 +69,7 @@ export declare class Brand {
   readonly id: string;
   readonly name: string;
   readonly Cars?: (Model | null)[];
-  readonly image: string;
+  readonly image?: string;
   readonly createdAt?: string;
   readonly updatedAt?: string;
   constructor(init: ModelInit<Brand, BrandMetaData>);

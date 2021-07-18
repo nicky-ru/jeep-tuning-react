@@ -5,9 +5,15 @@ export function uzels(state = initialState.uzels, action) {
     switch (action.type) {
         case types.uzel.GET_LIST: {
             const nextState = Object.assign({}, state);
-            for (const [key, value] of Object.entries(action.uzelList)) {
-                nextState[value.id] = value.name;
+
+            try {
+                for (const value of Object.values(action.uzelList)) {
+                    nextState[value.id] = value.name;
+                }
+            } catch (e) {
+                console.log("Error while implementing uzels reducer ", e);
             }
+
             return nextState;
 
         }

@@ -23,7 +23,7 @@ export const Services = observer(() => {
         >
             <Heading marginBottom={'1.2rem'}>Наши услуги</Heading>
 
-            <Accordion allowToggle reduceMotion>
+            <Accordion allowToggle reduceMotion isLazy>
                 {Object.keys(uzels).length > 0 && Object.keys(uzels).map((uzel) => (
                     <AccordionItem key={uzel} >
                         <h2>
@@ -37,7 +37,7 @@ export const Services = observer(() => {
                         <AccordionPanel
                             py={4}
                             css={{
-                                backgroundColor: useColorModeValue('#EDF2F7', 'rgba(45,55,72,0.5)')
+                                // backgroundColor: useColorModeValue('rgba(255, 255, 255, 0.8)', 'rgba(26, 32, 44, 0.8)')
                             }}
                         >
                             <ServiceList uzel={uzel}/>

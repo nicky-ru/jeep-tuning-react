@@ -14,3 +14,7 @@ export const service = {
 export const services = {
     LIST: 'jt/services/list',
 }
+
+export const brands = {
+    LIST: 'jt/brands/list',
+}

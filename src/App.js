@@ -35,7 +35,7 @@ function App() {
                   <Switch>
                       <Route path={'/'} exact key={'/'} component={Home}/>
                       <Route path={'/service/:slug'} exact key={'/service/:slug'} component={Service}/>
-                      <Route path={'/services'} exact key={'/services'} component={Services}/>
+                      {/*<Route path={'/services'} exact key={'/services'} component={Services}/>*/}
                   </Switch>
                   <Footer/>
               </Router>

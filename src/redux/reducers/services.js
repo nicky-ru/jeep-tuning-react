@@ -6,9 +6,14 @@ export function services(state = initialState.services, action) {
         case types.services.LIST: {
             const nextState = Object.assign({}, state);
 
-            for (const value of Object.values(action.serviceList)) {
-                nextState[value.id] = {name: value.name, description: value.description, price: value.price, uzelID: value.uzelID};
+            try {
+                for (const value of Object.values(action.serviceList)) {
+                    nextState[value.id] = {name: value.name, description: value.description, price: value.price, uzelID: value.uzelID};
+                }
+            } catch (e) {
+                console.log("Error while implementing services reducer ", e);
             }
+
             return nextState;
         }
         default:

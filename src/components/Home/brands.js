@@ -2,8 +2,11 @@ import React from "react";
 import {observer} from "mobx-react-lite";
 import {Container, Heading, Wrap, WrapItem} from "@chakra-ui/layout";
 import {Image} from '@chakra-ui/react';
+import {useSelector} from "react-redux";
 
 export const Brands = observer(() => {
+    const brands = useSelector((state => state.brands));
+
     return(
         <Container
             my={'1rem'}
@@ -13,38 +16,18 @@ export const Brands = observer(() => {
                 Марки, которые мы обслуживаем
             </Heading>
             <Wrap spacing="30px" justify="center">
-                <WrapItem>
-                    <Image
-                        borderRadius="full"
-                        boxSize="100px"
-                        src="https://www.carlogos.org/car-logos/tesla-logo.png"
-                        alt="Tesla"
-                    />
-                </WrapItem>
-                <WrapItem>
-                    <Image
-                        borderRadius="full"
-                        boxSize="100px"
-                        src="https://www.carlogos.org/car-logos/bmw-logo.png"
-                        alt="BMW"
-                    />
-                </WrapItem>
-                <WrapItem>
-                    <Image
-                        borderRadius="full"
-                        boxSize="100px"
-                        src="https://www.carlogos.org/car-logos/ferrari-logo.png"
-                        alt="Ferrari"
-                    />
-                </WrapItem>
-                <WrapItem>
-                    <Image
-                        borderRadius="full"
-                        boxSize="100px"
-                        src="https://www.carlogos.org/car-logos/ford-logo.png"
-                        alt="Ford"
-                    />
-                </WrapItem>
+                {Object.values(brands).length > 0 && Object.values(brands).map((brand) => (
+                    <WrapItem key={brand.name}>
+                        <Image
+                            borderRadius="full"
+                            boxSize="100px"
+                            fallbackSrc="https://via.placeholder.com/100"
+                            src={brand.imgUrl}
+                            alt={brand.name}
+                            fit={"contain"}
+                        />
+                    </WrapItem>
+                ))}
             </Wrap>
         </Container>
     );

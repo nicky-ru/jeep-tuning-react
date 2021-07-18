@@ -9,11 +9,12 @@ import {Contacts} from "../../components/Home/contacts";
 import {useDispatch} from "react-redux";
 
 import Amplify, {API, graphqlOperation} from 'aws-amplify';
-import {listAdvantages, listServices, listUzels} from "../../graphql/queries";
+import {listAdvantages, listBrands, listServices, listUzels} from "../../graphql/queries";
 
 import awsExports from "../../aws-exports";
 import {getAdvantages} from "../../redux/actions/advantages";
 import {listServices as listServicesFromStore} from "../../redux/actions/services";
+import {listBrands as listBrandsFromStore} from "../../redux/actions/brands";
 import {getUzelList} from "../../redux/actions/uzel";
 Amplify.configure(awsExports);
 
@@ -24,6 +25,7 @@ export const Home = observer(() => {
         fetchAdvantages();
         fetchUzels();
         fetchServices();
+        fetchBrands();
     }, []);
 
     const fetchAdvantages = async () => {
@@ -53,6 +55,16 @@ export const Home = observer(() => {
             dispatch(getUzelList(uzels));
         } catch (e) {
             console.log("Error while fetching uzels: ", e);
+        }
+    }
+
+    const fetchBrands = async () => {
+        try {
+            const brandsData = await API.graphql(graphqlOperation(listBrands));
+            const brands = brandsData.data.listBrands.items;
+            dispatch(listBrandsFromStore(brands));
+        } catch (e) {
+            console.log("Error while fetching brands: ", e);
         }
     }
 
