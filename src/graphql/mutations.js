@@ -9,9 +9,6 @@ export const createAdvantage = /* GraphQL */ `
     createAdvantage(input: $input, condition: $condition) {
       id
       name
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -25,9 +22,6 @@ export const updateAdvantage = /* GraphQL */ `
     updateAdvantage(input: $input, condition: $condition) {
       id
       name
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -41,9 +35,6 @@ export const deleteAdvantage = /* GraphQL */ `
     deleteAdvantage(input: $input, condition: $condition) {
       id
       name
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -60,9 +51,6 @@ export const createService = /* GraphQL */ `
       description
       price
       uzelID
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -79,9 +67,6 @@ export const updateService = /* GraphQL */ `
       description
       price
       uzelID
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -98,9 +83,6 @@ export const deleteService = /* GraphQL */ `
       description
       price
       uzelID
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -114,14 +96,10 @@ export const createUzel = /* GraphQL */ `
     createUzel(input: $input, condition: $condition) {
       id
       name
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       Services {
         nextToken
-        startedAt
       }
     }
   }
@@ -134,14 +112,10 @@ export const updateUzel = /* GraphQL */ `
     updateUzel(input: $input, condition: $condition) {
       id
       name
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       Services {
         nextToken
-        startedAt
       }
     }
   }
@@ -154,14 +128,10 @@ export const deleteUzel = /* GraphQL */ `
     deleteUzel(input: $input, condition: $condition) {
       id
       name
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       Services {
         nextToken
-        startedAt
       }
     }
   }
@@ -175,9 +145,6 @@ export const createModel = /* GraphQL */ `
       id
       brandID
       name
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -192,9 +159,6 @@ export const updateModel = /* GraphQL */ `
       id
       brandID
       name
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -209,9 +173,6 @@ export const deleteModel = /* GraphQL */ `
       id
       brandID
       name
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -226,14 +187,10 @@ export const createBrand = /* GraphQL */ `
       id
       name
       image
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       Cars {
         nextToken
-        startedAt
       }
     }
   }
@@ -247,14 +204,10 @@ export const updateBrand = /* GraphQL */ `
       id
       name
       image
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       Cars {
         nextToken
-        startedAt
       }
     }
   }
@@ -268,14 +221,10 @@ export const deleteBrand = /* GraphQL */ `
       id
       name
       image
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       Cars {
         nextToken
-        startedAt
       }
     }
   }

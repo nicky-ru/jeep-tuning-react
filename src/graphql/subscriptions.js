@@ -6,9 +6,6 @@ export const onCreateAdvantage = /* GraphQL */ `
     onCreateAdvantage {
       id
       name
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -19,9 +16,6 @@ export const onUpdateAdvantage = /* GraphQL */ `
     onUpdateAdvantage {
       id
       name
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -32,9 +26,6 @@ export const onDeleteAdvantage = /* GraphQL */ `
     onDeleteAdvantage {
       id
       name
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -48,9 +39,6 @@ export const onCreateService = /* GraphQL */ `
       description
       price
       uzelID
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -64,9 +52,6 @@ export const onUpdateService = /* GraphQL */ `
       description
       price
       uzelID
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -80,9 +65,6 @@ export const onDeleteService = /* GraphQL */ `
       description
       price
       uzelID
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -93,14 +75,10 @@ export const onCreateUzel = /* GraphQL */ `
     onCreateUzel {
       id
       name
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       Services {
         nextToken
-        startedAt
       }
     }
   }
@@ -110,14 +88,10 @@ export const onUpdateUzel = /* GraphQL */ `
     onUpdateUzel {
       id
       name
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       Services {
         nextToken
-        startedAt
       }
     }
   }
@@ -127,14 +101,10 @@ export const onDeleteUzel = /* GraphQL */ `
     onDeleteUzel {
       id
       name
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       Services {
         nextToken
-        startedAt
       }
     }
   }
@@ -145,9 +115,6 @@ export const onCreateModel = /* GraphQL */ `
       id
       brandID
       name
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -159,9 +126,6 @@ export const onUpdateModel = /* GraphQL */ `
       id
       brandID
       name
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -173,9 +137,6 @@ export const onDeleteModel = /* GraphQL */ `
       id
       brandID
       name
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -187,14 +148,10 @@ export const onCreateBrand = /* GraphQL */ `
       id
       name
       image
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       Cars {
         nextToken
-        startedAt
       }
     }
   }
@@ -205,14 +162,10 @@ export const onUpdateBrand = /* GraphQL */ `
       id
       name
       image
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       Cars {
         nextToken
-        startedAt
       }
     }
   }
@@ -223,14 +176,10 @@ export const onDeleteBrand = /* GraphQL */ `
       id
       name
       image
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       Cars {
         nextToken
-        startedAt
       }
     }
   }

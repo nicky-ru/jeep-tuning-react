@@ -16,4 +16,6 @@ export default {
     serviceSearch: {
         keyWord: "",
     },
+    contacts: {
+    },
 }

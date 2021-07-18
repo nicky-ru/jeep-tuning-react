@@ -5,10 +5,14 @@ import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons';
 import {Link as ReachLink} from 'react-router-dom';
 import { IoMoon, IoSunny } from 'react-icons/io5';
 import {EmailIcon, PhoneIcon} from "@chakra-ui/icons";
+import {useSelector} from "react-redux";
 
 export const Header = observer(() => {
     const { isOpen: isMobileNavOpen, onToggle } = useDisclosure();
     const { colorMode, toggleColorMode } = useColorMode();
+
+    const email = "misaxa@yandex.ru";
+    const tel = "+79108210003";
 
     return(
         <Box>
@@ -42,17 +46,41 @@ export const Header = observer(() => {
                     </Flex>
 
                     <Stack direction={'row'} align={'center'} spacing={2} flex={{ base: 1, md: 'auto' }} justify={'flex-end'}>
-                        <Button leftIcon={<EmailIcon />} variant="solid">
+                        <Button
+                            leftIcon={<EmailIcon />}
+                            variant="solid"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                window.location = `mailto:${email}`;
+                            }}
+                        >
                             Email
                         </Button>
-                        <Button rightIcon={<PhoneIcon />} variant="outline">
+                        <Button
+                            rightIcon={<PhoneIcon />}
+                            variant="outline"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                window.location = `tel:${tel}`;
+                            }}
+                        >
                             Позвонить
                         </Button>
                         <Flex
                             display={{ base: 'none', md: 'flex' }}
                             ml={10}
                         >
-                            <Text fontSize={'1.2em'} px={'0.5rem'}>+79108210000</Text>
+                            <Link
+                                fontSize={'1.2em'}
+                                px={'0.5rem'}
+                                textDecoration={"none"}
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    window.location = `tel:${tel}`;
+                                }}
+                            >
+                                {tel}
+                            </Link>
                         </Flex>
                         <IconButton borderRadius="12" aria-label={'Toggle Color Mode'} onClick={toggleColorMode} icon={colorMode === 'light' ? <IoMoon size={18} /> : <IoSunny size={18} />} />
                     </Stack>
