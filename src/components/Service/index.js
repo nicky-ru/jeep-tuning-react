@@ -2,12 +2,23 @@ import React from "react";
 import {observer} from "mobx-react-lite";
 import {Container, Stack, Box, Heading, Text, Badge, Center, StackDivider} from "@chakra-ui/layout";
 import {Link} from 'react-router-dom';
-import {Button} from "@chakra-ui/react";
+import {
+    Button, Modal,
+    ModalBody,
+    ModalCloseButton,
+    ModalContent, ModalFooter,
+    ModalHeader,
+    ModalOverlay, Select,
+    useDisclosure, VStack
+} from "@chakra-ui/react";
 import {useSelector} from "react-redux";
+import {setAppointmentServiceKey} from "../../redux/actions/appointment";
 
 export const ServiceInfo = observer(() => {
     const service = useSelector(state => state.service);
     const uzels = useSelector(state => state.uzels);
+    const { isOpen, onOpen, onClose } = useDisclosure();
+
 
     return(
         <Container maxW="container.lg" h={'90vh'}>
@@ -32,9 +43,64 @@ export const ServiceInfo = observer(() => {
                 </Center>
 
                 <Center h={'100%'}>
-                    <Button>Записаться</Button>
+                    <Button
+                        onClick={() => {
+                            onOpen();
+                        }}
+                    >
+                        Записаться
+                    </Button>
                 </Center>
             </Stack>
+
+            <Modal isOpen={isOpen} onClose={onClose}>
+                <ModalOverlay />
+                <ModalContent>
+                    <ModalHeader>Запись на услугу</ModalHeader>
+                    <ModalCloseButton />
+                    <ModalBody>
+                        <VStack spacing={4}>
+                            <Select placeholder="Узел">
+                                <option value="option1">Option 1</option>
+                                <option value="option2">Option 2</option>
+                                <option value="option3">Option 3</option>
+                            </Select>
+                            <Select placeholder="Услуга">
+                                <option value="option1">Option 1</option>
+                                <option value="option2">Option 2</option>
+                                <option value="option3">Option 3</option>
+                            </Select>
+                            <Select placeholder="Марка авто">
+                                <option value="option1">Option 1</option>
+                                <option value="option2">Option 2</option>
+                                <option value="option3">Option 3</option>
+                            </Select>
+                            <Select placeholder="Модель авто">
+                                <option value="option1">Option 1</option>
+                                <option value="option2">Option 2</option>
+                                <option value="option3">Option 3</option>
+                            </Select>
+                            <Select placeholder="Год">
+                                <option value="option1">Option 1</option>
+                                <option value="option2">Option 2</option>
+                                <option value="option3">Option 3</option>
+                            </Select>
+                            <Select placeholder="VIN">
+                                <option value="option1">Option 1</option>
+                                <option value="option2">Option 2</option>
+                                <option value="option3">Option 3</option>
+                            </Select>
+                        </VStack>
+                    </ModalBody>
+
+                    <ModalFooter>
+                        <Button variant="ghost" onClick={onClose}>
+                            Закрыть
+                        </Button>
+                        <Button colorScheme="blue" mr={3}>Записаться</Button>
+                    </ModalFooter>
+                </ModalContent>
+            </Modal>
         </Container>
     )
 })
