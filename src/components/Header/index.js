@@ -4,7 +4,7 @@ import { Box, Flex, Container, Stack, useDisclosure, IconButton, useColorModeVal
 import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons';
 import {Link as ReachLink} from 'react-router-dom';
 import { IoMoon, IoSunny } from 'react-icons/io5';
-import {EmailIcon, ArrowForwardIcon} from "@chakra-ui/icons";
+import {EmailIcon, PhoneIcon} from "@chakra-ui/icons";
 
 export const Header = observer(() => {
     const { isOpen: isMobileNavOpen, onToggle } = useDisclosure();
@@ -45,11 +45,11 @@ export const Header = observer(() => {
                         <Button leftIcon={<EmailIcon />} variant="solid">
                             Email
                         </Button>
-                        <Button rightIcon={<ArrowForwardIcon />} variant="outline">
+                        <Button rightIcon={<PhoneIcon />} variant="outline">
                             Позвонить
                         </Button>
                         <Flex
-                            // display={{ base: 'none', md: 'flex' }}
+                            display={{ base: 'none', md: 'flex' }}
                             ml={10}
                         >
                             <Text fontSize={'1.2em'} px={'0.5rem'}>+79108210000</Text>
