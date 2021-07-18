@@ -13,7 +13,8 @@ const Contacts = observer(() => {
 
             <HStack>
                 <Container>
-                    <Suspense fallback={<div>Loading...</div>}><MapComponent/></Suspense>
+                    {/*<Suspense fallback={<div>Loading...</div>}><MapComponent/></Suspense>*/}
+                    Тут будет карта
                 </Container>
                 <Container>
                     <Heading size={'md'}>Мы находимся:</Heading>
