@@ -31,12 +31,21 @@ export const ServiceList = observer((props) => {
                      borderRadius={16}
                      display="flex"
                      alignItems="center"
-                     justifyContent="space-between">
+                     justifyContent="space-between"
+                >
                     <Link
                         as={ReachLink}
                         to={`/service/${serviceKey}`}
-                        params={{ service: serviceKey}}>
-                        <Text marginLeft={"10px"} isTruncated>{services[serviceKey].name}</Text>
+                        params={{ service: serviceKey}}
+                        maxW={"70%"}
+                    >
+                        <Text
+                            marginLeft={"10px"}
+                            isTruncated
+                            textTransform={'capitalize'}
+                        >
+                            {services[serviceKey].name}
+                        </Text>
                     </Link>
                     <Button borderRadius={16} type={"button"}>Записаться</Button>
                 </Box>
