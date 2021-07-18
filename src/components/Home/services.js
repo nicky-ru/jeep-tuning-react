@@ -23,7 +23,7 @@ export const Services = observer(() => {
         >
             <Heading marginBottom={'1.2rem'}>Наши услуги</Heading>
 
-            <Accordion allowToggle reduceMotion isLazy>
+            <Accordion allowToggle reduceMotion>
                 {Object.keys(uzels).length > 0 && Object.keys(uzels).map((uzel) => (
                     <AccordionItem key={uzel} >
                         <h2>
