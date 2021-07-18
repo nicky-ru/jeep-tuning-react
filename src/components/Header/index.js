@@ -27,9 +27,9 @@ export const Header = observer(() => {
                 }}
             >
                 <Container as={Flex} maxW={'7xl'} align={'center'}>
-                    <Flex flex={{ base: 1, md: 'auto' }} ml={{ base: -2 }} display={{ base: 'flex', md: 'none' }}>
-                        <IconButton onClick={onToggle} icon={isMobileNavOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />} variant={'ghost'} size={'sm'} aria-label={'Toggle Navigation'} />
-                    </Flex>
+                    {/*<Flex flex={{ base: 1, md: 'auto' }} ml={{ base: -2 }} display={{ base: 'flex', md: 'none' }}>*/}
+                    {/*    <IconButton onClick={onToggle} icon={isMobileNavOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />} variant={'ghost'} size={'sm'} aria-label={'Toggle Navigation'} />*/}
+                    {/*</Flex>*/}
 
                     <Flex flex={{ base: 1, md: 'auto' }} justify={{ base: 'center', md: 'start' }}>
                         <Stack as={'a'} direction={'row'} alignItems={'center'} spacing={{ base: 2, sm: 4 }}>
@@ -48,8 +48,11 @@ export const Header = observer(() => {
                         <Button rightIcon={<ArrowForwardIcon />} variant="outline">
                             Позвонить
                         </Button>
-                        <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
-                            <Text>+79108210000</Text>
+                        <Flex
+                            // display={{ base: 'none', md: 'flex' }}
+                            ml={10}
+                        >
+                            <Text fontSize={'1.2em'} px={'0.5rem'}>+79108210000</Text>
                         </Flex>
                         <IconButton borderRadius="12" aria-label={'Toggle Color Mode'} onClick={toggleColorMode} icon={colorMode === 'light' ? <IoMoon size={18} /> : <IoSunny size={18} />} />
                     </Stack>
