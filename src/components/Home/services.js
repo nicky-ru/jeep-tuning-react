@@ -8,14 +8,16 @@ import {
     AccordionItem,
     AccordionPanel,
     Button, Link, Text,
-    useColorModeValue
+    useColorModeValue, useDisclosure
 } from '@chakra-ui/react';
 import {useSelector} from "react-redux";
 import {ServiceList} from "../Service/serviceList";
 import {Link as ReachLink} from "react-router-dom";
+import AppointModal from "./appointModal";
 
 const Services = observer(() => {
     const uzels = useSelector(state => state.uzels);
+    const { isOpen, onOpen, onClose } = useDisclosure();
 
     return(
         <Container
@@ -41,7 +43,7 @@ const Services = observer(() => {
                                 // backgroundColor: useColorModeValue('rgba(255, 255, 255, 0.8)', 'rgba(26, 32, 44, 0.8)')
                             }}
                         >
-                            <ServiceList uzel={uzel}/>
+                            <ServiceList onOpen={onOpen} uzel={uzel}/>
                         </AccordionPanel>
                     </AccordionItem>
                 ))}
@@ -54,6 +56,7 @@ const Services = observer(() => {
                 <Button mt={'0.5rem'} w={'100%'}>Все услуги</Button>
             </Link>
 
+            <AppointModal isOpen={isOpen} onClose={onClose}/>
 
         </Container>
     );

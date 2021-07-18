@@ -1,12 +1,14 @@
 import React, {useEffect, useState} from 'react';
-import {VStack, Box, Text, Link, Button} from '@chakra-ui/react';
+import {VStack, Box, Text, Link, Button, useDisclosure} from '@chakra-ui/react';
 import {Link as ReachLink} from 'react-router-dom';
 import {observer} from "mobx-react-lite";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {setAppointmentServiceKey, setAppointmentUzelKey} from "../../redux/actions/appointment";
 
 export const ServiceList = observer((props) => {
     const services = useSelector(state => state.services);
     const [serviceKeys, setServiceKeys] = useState([]);
+    const dispatch = useDispatch();
 
     useEffect(() => {
         if (Object.keys(services).length > 0) {
@@ -26,9 +28,9 @@ export const ServiceList = observer((props) => {
         >
             {serviceKeys.length > 0 && serviceKeys.map((serviceKey) => (
                 <Box key={serviceKey}
-                     border={"1px"}
-                     borderColor={"#A0AEC0"}
-                     borderRadius={16}
+                     // border={"1px"}
+                     // borderColor={"#A0AEC0"}
+                     // borderRadius={16}
                      display="flex"
                      alignItems="center"
                      justifyContent="space-between"
@@ -37,7 +39,7 @@ export const ServiceList = observer((props) => {
                         as={ReachLink}
                         to={`/service/${serviceKey}`}
                         params={{ service: serviceKey}}
-                        maxW={"70%"}
+                        maxW={"100%"}
                     >
                         <Text
                             marginLeft={"10px"}
@@ -51,6 +53,11 @@ export const ServiceList = observer((props) => {
                         display={{ base: 'none', md: 'flex' }}
                         borderRadius={16}
                         type={"button"}
+                        onClick={() => {
+                            dispatch(setAppointmentServiceKey(serviceKey));
+                            props.onOpen();
+                        }}
+                        key={serviceKey}
                     >
                         Записаться
                     </Button>

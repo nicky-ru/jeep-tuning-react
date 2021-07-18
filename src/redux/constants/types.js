@@ -22,3 +22,8 @@ export const brands = {
 export const serviceSearch = {
     SET: 'jt/serviceSearch/set',
 }
+
+export const appointment = {
+    SET_SERVICE_KEY: 'jt/appointment/setServiceKey',
+    SET_UZEL_KEY: 'jt/appointment/setServiceKey',
+}

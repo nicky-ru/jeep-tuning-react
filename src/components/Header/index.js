@@ -5,7 +5,6 @@ import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons';
 import {Link as ReachLink} from 'react-router-dom';
 import { IoMoon, IoSunny } from 'react-icons/io5';
 import {EmailIcon, PhoneIcon} from "@chakra-ui/icons";
-import {useSelector} from "react-redux";
 
 export const Header = observer(() => {
     const { isOpen: isMobileNavOpen, onToggle } = useDisclosure();

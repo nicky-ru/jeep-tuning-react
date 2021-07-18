@@ -16,6 +16,12 @@ export default {
     serviceSearch: {
         keyWord: "",
     },
-    contacts: {
+    // contacts: {
+    // },
+    appointment: {
+        serviceKey: "",
+        uzelKey: "",
+        brandKey: "",
+        modelKey: "",
     },
 }
