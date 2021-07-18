@@ -47,7 +47,13 @@ export const ServiceList = observer((props) => {
                             {services[serviceKey].name}
                         </Text>
                     </Link>
-                    <Button borderRadius={16} type={"button"}>Записаться</Button>
+                    <Button
+                        display={{ base: 'none', md: 'flex' }}
+                        borderRadius={16}
+                        type={"button"}
+                    >
+                        Записаться
+                    </Button>
                 </Box>
             ))}
 
