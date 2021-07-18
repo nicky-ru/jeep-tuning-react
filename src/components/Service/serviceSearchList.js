@@ -6,18 +6,19 @@ import {useSelector} from "react-redux";
 
 const ServiceSearchList = observer(() => {
     const services = useSelector(state => state.services);
+    const keyWord = useSelector(state => state.serviceSearch.keyWord);
     const [serviceKeys, setServiceKeys] = useState([]);
 
     useEffect(() => {
         if (Object.keys(services).length > 0) {
             const _serviceKeysFiltered = Object.keys(services).filter(function (serviceKey) {
-                return true;
+                return services[serviceKey].name.toLowerCase().includes(keyWord.toLowerCase());
             })
                 .map(function (serviceKey) {return serviceKey});
 
             setServiceKeys(_serviceKeysFiltered);
         }
-    }, [services]);
+    }, [services, keyWord]);
 
     return(
         <VStack

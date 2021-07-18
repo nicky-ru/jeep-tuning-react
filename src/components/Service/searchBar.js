@@ -10,7 +10,6 @@ const SearchBar = observer(() => {
 
     useEffect(() => {
         dispatch(setServiceSearch(keyWord));
-        console.log('dispatch');
     }, [keyWord]);
 
     const handleChange = () => {
