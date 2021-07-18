@@ -1,6 +1,7 @@
-import React from "react";
+import React, {Suspense, lazy} from "react";
 import {observer} from "mobx-react-lite";
-import {Container, Heading, HStack, AspectRatio, Text, Box} from "@chakra-ui/layout";
+import {Container, Heading, HStack, Text} from "@chakra-ui/layout";
+const MapComponent = lazy(() => import("./mapComponent"));
 
 const Contacts = observer(() => {
     return(
@@ -12,17 +13,7 @@ const Contacts = observer(() => {
 
             <HStack>
                 <Container>
-                    <Box>
-                        <AspectRatio ratio={16 / 9}>
-                            <iframe
-                                title={'Джип сервис'}
-                                src="https://yandex.ru/map-widget/v1/-/CCUe7SAZlB?lang=ru_RU"
-                                width="560" height="400"
-                                allowFullScreen
-                                alt={'Джип сервис на карте'}
-                            />
-                        </AspectRatio>
-                    </Box>
+                    <Suspense fallback={<div>Loading...</div>}><MapComponent/></Suspense>
                 </Container>
                 <Container>
                     <Heading size={'md'}>Мы находимся:</Heading>
