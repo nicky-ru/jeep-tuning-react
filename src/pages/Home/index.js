@@ -18,7 +18,7 @@ import {listBrands as listBrandsFromStore} from "../../redux/actions/brands";
 import {getUzelList} from "../../redux/actions/uzel";
 Amplify.configure(awsExports);
 
-export const Home = observer(() => {
+const Home = observer(() => {
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -82,3 +82,5 @@ export const Home = observer(() => {
         </>
     )
 })
+
+export default Home;

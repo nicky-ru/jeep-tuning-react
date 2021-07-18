@@ -12,7 +12,7 @@ import awsExports from "../../aws-exports";
 import {ServiceInfo} from "../../components/Service";
 Amplify.configure(awsExports);
 
-export const Service = observer(() => {
+const Service = observer(() => {
     let { slug } = useParams();
     const dispatch = useDispatch();
 
@@ -46,3 +46,5 @@ export const Service = observer(() => {
         </>
     )
 })
+
+export default Service;

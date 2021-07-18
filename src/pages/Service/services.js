@@ -1,18 +1,15 @@
 import React, {useEffect} from "react";
 import {observer} from "mobx-react-lite";
 import {useDispatch} from "react-redux";
-import {Container} from "@chakra-ui/layout";
-import {Tabs, TabList, Tab, TabPanel, TabPanels, } from "@chakra-ui/react"
 import Amplify, {API, graphqlOperation} from 'aws-amplify';
 import {listServices, listUzels} from "../../graphql/queries";
 import {getService as getServiceRedux} from "../../redux/actions/service";
 import {getUzelList} from "../../redux/actions/uzel";
 import awsExports from "../../aws-exports";
-import {ServiceList} from "../../components/Service/serviceList";
 import {UzelTabs} from "../../components/Service/uzelTabs";
 Amplify.configure(awsExports);
 
-export const Services = observer(() => {
+const Services = observer(() => {
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -45,3 +42,5 @@ export const Services = observer(() => {
         </>
     )
 })
+
+export default Services;
