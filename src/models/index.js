@@ -4,12 +4,11 @@ import { schema } from './schema';
 
 
 
-const { Service, Uzel, Advantage, Model, Brand } = initSchema(schema);
+const { Service, Uzel, Model, Brand } = initSchema(schema);
 
 export {
   Service,
   Uzel,
-  Advantage,
   Model,
   Brand
 };

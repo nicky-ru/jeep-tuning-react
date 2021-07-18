@@ -26,15 +26,6 @@ export declare class Uzel {
   static copyOf(source: Uzel, mutator: (draft: MutableModel<Uzel>) => MutableModel<Uzel> | void): Uzel;
 }
 
-export declare class Advantage {
-  readonly id: string;
-  readonly name: string;
-  readonly createdAt?: string;
-  readonly updatedAt?: string;
-  constructor(init: ModelInit<Advantage>);
-  static copyOf(source: Advantage, mutator: (draft: MutableModel<Advantage>) => MutableModel<Advantage> | void): Advantage;
-}
-
 export declare class Model {
   readonly id: string;
   readonly brandID?: string;
