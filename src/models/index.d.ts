@@ -4,6 +4,35 @@ import { ModelInit, MutableModel, PersistentModelConstructor } from "@aws-amplif
 
 
 
+type AdvantageMetaData = {
+  readOnlyFields: 'createdAt' | 'updatedAt';
+}
+
+type ServiceMetaData = {
+  readOnlyFields: 'createdAt' | 'updatedAt';
+}
+
+type UzelMetaData = {
+  readOnlyFields: 'createdAt' | 'updatedAt';
+}
+
+type ModelMetaData = {
+  readOnlyFields: 'createdAt' | 'updatedAt';
+}
+
+type BrandMetaData = {
+  readOnlyFields: 'createdAt' | 'updatedAt';
+}
+
+export declare class Advantage {
+  readonly id: string;
+  readonly name: string;
+  readonly createdAt?: string;
+  readonly updatedAt?: string;
+  constructor(init: ModelInit<Advantage, AdvantageMetaData>);
+  static copyOf(source: Advantage, mutator: (draft: MutableModel<Advantage, AdvantageMetaData>) => MutableModel<Advantage, AdvantageMetaData> | void): Advantage;
+}
+
 export declare class Service {
   readonly id: string;
   readonly name: string;
@@ -12,8 +41,8 @@ export declare class Service {
   readonly uzelID?: string;
   readonly createdAt?: string;
   readonly updatedAt?: string;
-  constructor(init: ModelInit<Service>);
-  static copyOf(source: Service, mutator: (draft: MutableModel<Service>) => MutableModel<Service> | void): Service;
+  constructor(init: ModelInit<Service, ServiceMetaData>);
+  static copyOf(source: Service, mutator: (draft: MutableModel<Service, ServiceMetaData>) => MutableModel<Service, ServiceMetaData> | void): Service;
 }
 
 export declare class Uzel {
@@ -22,8 +51,8 @@ export declare class Uzel {
   readonly Services?: (Service | null)[];
   readonly createdAt?: string;
   readonly updatedAt?: string;
-  constructor(init: ModelInit<Uzel>);
-  static copyOf(source: Uzel, mutator: (draft: MutableModel<Uzel>) => MutableModel<Uzel> | void): Uzel;
+  constructor(init: ModelInit<Uzel, UzelMetaData>);
+  static copyOf(source: Uzel, mutator: (draft: MutableModel<Uzel, UzelMetaData>) => MutableModel<Uzel, UzelMetaData> | void): Uzel;
 }
 
 export declare class Model {
@@ -32,8 +61,8 @@ export declare class Model {
   readonly name?: string;
   readonly createdAt?: string;
   readonly updatedAt?: string;
-  constructor(init: ModelInit<Model>);
-  static copyOf(source: Model, mutator: (draft: MutableModel<Model>) => MutableModel<Model> | void): Model;
+  constructor(init: ModelInit<Model, ModelMetaData>);
+  static copyOf(source: Model, mutator: (draft: MutableModel<Model, ModelMetaData>) => MutableModel<Model, ModelMetaData> | void): Model;
 }
 
 export declare class Brand {
@@ -43,6 +72,6 @@ export declare class Brand {
   readonly image: string;
   readonly createdAt?: string;
   readonly updatedAt?: string;
-  constructor(init: ModelInit<Brand>);
-  static copyOf(source: Brand, mutator: (draft: MutableModel<Brand>) => MutableModel<Brand> | void): Brand;
+  constructor(init: ModelInit<Brand, BrandMetaData>);
+  static copyOf(source: Brand, mutator: (draft: MutableModel<Brand, BrandMetaData>) => MutableModel<Brand, BrandMetaData> | void): Brand;
 }
