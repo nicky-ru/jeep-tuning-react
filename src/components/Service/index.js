@@ -22,7 +22,7 @@ export const ServiceInfo = observer(() => {
                     <Box>
                         {service &&
                         <>
-                            <Heading mb={'0.5rem'}>{service.name}</Heading>
+                            <Heading mb={'0.5rem'} textTransform={'capitalize'}>{service.name}</Heading>
                             <Heading mb={'1rem'} size={'sm'}>{uzels[service.uzelID]}</Heading>
                             <Text mb={'1rem'}>{service.description}</Text>
                             <Text>Цена от: <Badge ml="1" colorScheme="green">{service.price} руб.</Badge></Text>
