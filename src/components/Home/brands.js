@@ -4,7 +4,7 @@ import {Container, Heading, Wrap, WrapItem} from "@chakra-ui/layout";
 import {Image} from '@chakra-ui/react';
 import {useSelector} from "react-redux";
 
-export const Brands = observer(() => {
+const Brands = observer(() => {
     const brands = useSelector((state => state.brands));
 
     return(
@@ -32,3 +32,5 @@ export const Brands = observer(() => {
         </Container>
     );
 })
+
+export default Brands;

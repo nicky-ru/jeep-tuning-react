@@ -3,7 +3,7 @@ import {observer} from "mobx-react-lite";
 import {Container, Heading, Wrap, WrapItem, Center, Text} from "@chakra-ui/layout";
 import {useSelector} from "react-redux";
 
-export const WhyUs = observer(() => {
+const WhyUs = observer(() => {
     const advantages = useSelector(state => state.advantages);
 
     return(
@@ -30,3 +30,5 @@ export const WhyUs = observer(() => {
         </Container>
     );
 })
+
+export default WhyUs;

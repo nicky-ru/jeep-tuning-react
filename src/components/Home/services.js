@@ -13,7 +13,7 @@ import {
 import {useSelector} from "react-redux";
 import {ServiceList} from "../Service/serviceList";
 
-export const Services = observer(() => {
+const Services = observer(() => {
     const uzels = useSelector(state => state.uzels);
 
     return(
@@ -50,3 +50,5 @@ export const Services = observer(() => {
         </Container>
     );
 })
+
+export default Services;

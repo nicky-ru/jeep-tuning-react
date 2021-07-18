@@ -2,7 +2,7 @@ import React from "react";
 import {observer} from "mobx-react-lite";
 import {Container, Heading, HStack, AspectRatio, Text, Box} from "@chakra-ui/layout";
 
-export const Contacts = observer(() => {
+const Contacts = observer(() => {
     return(
         <Container
             maxW={'container.lg'}
@@ -37,3 +37,5 @@ export const Contacts = observer(() => {
         </Container>
     );
 })
+
+export default Contacts;
