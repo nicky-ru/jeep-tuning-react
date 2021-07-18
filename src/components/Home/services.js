@@ -7,11 +7,12 @@ import {
     AccordionIcon,
     AccordionItem,
     AccordionPanel,
-    Button,
+    Button, Link, Text,
     useColorModeValue
 } from '@chakra-ui/react';
 import {useSelector} from "react-redux";
 import {ServiceList} from "../Service/serviceList";
+import {Link as ReachLink} from "react-router-dom";
 
 const Services = observer(() => {
     const uzels = useSelector(state => state.uzels);
@@ -45,7 +46,14 @@ const Services = observer(() => {
                     </AccordionItem>
                 ))}
             </Accordion>
-            <Button mt={'0.5rem'} w={'100%'}>Все услуги</Button>
+            <Link
+                as={ReachLink}
+                to={`/services`}
+                // maxW={"70%"}
+            >
+                <Button mt={'0.5rem'} w={'100%'}>Все услуги</Button>
+            </Link>
+
 
         </Container>
     );

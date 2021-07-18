@@ -13,4 +13,7 @@ export default {
     },
     brands: {
     },
+    serviceSearch: {
+        keyWord: "",
+    },
 }

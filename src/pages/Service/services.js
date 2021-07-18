@@ -1,13 +1,16 @@
-import React, {useEffect} from "react";
+import React, {useEffect, Suspense, lazy} from "react";
 import {observer} from "mobx-react-lite";
 import {useDispatch} from "react-redux";
+import {Divider, Container} from "@chakra-ui/layout";
 import Amplify, {API, graphqlOperation} from 'aws-amplify';
 import {listServices, listUzels} from "../../graphql/queries";
 import {getService as getServiceRedux} from "../../redux/actions/service";
 import {getUzelList} from "../../redux/actions/uzel";
 import awsExports from "../../aws-exports";
-import {UzelTabs} from "../../components/Service/uzelTabs";
 Amplify.configure(awsExports);
+
+const SearchBar = lazy(() => import("../../components/Service/searchBar"));
+const ServiceList = lazy(() => import("../../components/Service/serviceSearchList"));
 
 const Services = observer(() => {
     const dispatch = useDispatch();
@@ -37,9 +40,13 @@ const Services = observer(() => {
     }
 
     return(
-        <>
-            <UzelTabs/>
-        </>
+        <Container maxW={"container.lg"} mt={'1rem'}>
+            <Suspense fallback={<div>Loading...</div>}>
+                <SearchBar/>
+                <Divider my={"1rem"}/>
+                <ServiceList/>
+            </Suspense>
+        </Container>
     )
 })
 
