@@ -1,6 +1,8 @@
 import React from 'react'
 import { observer } from 'mobx-react-lite';
-import { Box, Flex, Container, Stack, useDisclosure, IconButton, useColorModeValue, useColorMode, Heading, Text, Link, Button } from '@chakra-ui/react'
+import { Box, Flex, Container, Stack, useDisclosure, IconButton, useColorModeValue, useColorMode, Heading, Text, Link, Button,
+    Menu, MenuButton, MenuList, MenuItem
+} from '@chakra-ui/react'
 import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons';
 import {Link as ReachLink} from 'react-router-dom';
 import { IoMoon, IoSunny } from 'react-icons/io5';
@@ -31,9 +33,37 @@ export const Header = observer(() => {
                 }}
             >
                 <Container as={Flex} maxW={'7xl'} align={'center'}>
-                    {/*<Flex flex={{ base: 1, md: 'auto' }} ml={{ base: -2 }} display={{ base: 'flex', md: 'none' }}>*/}
-                    {/*    <IconButton onClick={onToggle} icon={isMobileNavOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />} variant={'ghost'} size={'sm'} aria-label={'Toggle Navigation'} />*/}
-                    {/*</Flex>*/}
+                    <Flex flex={{ base: 1, md: 'auto' }} ml={{ base: -2 }} display={{ base: 'flex', md: 'none' }}>
+                        <Menu>
+                            <MenuButton
+                                as={IconButton}
+                                aria-label={'Toggle Navigation'}
+                                onClick={onToggle}
+                                icon={isMobileNavOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />}
+                                variant={'ghost'}
+                                size={'sm'}
+                            />
+                            <MenuList>
+                                <MenuItem
+                                    icon={<SocialIcon url={"//api.whatsapp.com/send?phone=8615651921699"} network={'whatsapp'}/>}
+                                >
+                                    Написать в Вотсапп
+                                </MenuItem>
+                                <MenuItem icon={<SocialIcon url={"https://telegram.me/Vezdehod13"} network={'telegram'}/>}
+                                >
+                                    Написать в Телеграм
+                                </MenuItem>
+                                <MenuItem icon={<SocialIcon url={"https://vk.com/jeepservice76"} network={'vk'}/>}
+                                >
+                                    Группа Вконтакте
+                                </MenuItem>
+                                <MenuItem icon={<SocialIcon url={"https://www.instagram.com/jeepservice_76/"} network={'instagram'}/>}
+                                >
+                                    Мы в Инстаграмме
+                                </MenuItem>
+                            </MenuList>
+                        </Menu>
+                    </Flex>
 
                     <Flex flex={{ base: 1, md: 'auto' }} justify={{ base: 'center', md: 'start' }}>
                         <Stack as={'a'} direction={'row'} alignItems={'center'} spacing={{ base: 2, sm: 4 }}>
@@ -48,10 +78,23 @@ export const Header = observer(() => {
 
 
                     <Stack direction={'row'} align={'center'} spacing={2} flex={{ base: 1, md: 'auto' }} justify={'flex-end'}>
-                        <SocialIcon url={"//api.whatsapp.com/send?phone=8615651921699"} network={'whatsapp'}/>
-                        <SocialIcon url={"https://telegram.me/Vezdehod13"} network={'telegram'}/>
-                        <SocialIcon url={"https://vk.com/jeepservice76"} network={'vk'}/>
-                        <SocialIcon url={"https://www.instagram.com/jeepservice_76/"} network={'instagram'}/>
+                        {/*<SocialIcon*/}
+                        {/*    url={"//api.whatsapp.com/send?phone=8615651921699"}*/}
+                        {/*    network={'whatsapp'}*/}
+                        {/*    // style={{height: 40, width:40 }}*/}
+                        {/*/>*/}
+                        {/*<SocialIcon*/}
+                        {/*    url={"https://telegram.me/Vezdehod13"}*/}
+                        {/*    network={'telegram'}*/}
+                        {/*/>*/}
+                        {/*<SocialIcon*/}
+                        {/*    url={"https://vk.com/jeepservice76"}*/}
+                        {/*    network={'vk'}*/}
+                        {/*/>*/}
+                        {/*<SocialIcon*/}
+                        {/*    url={"https://www.instagram.com/jeepservice_76/"}*/}
+                        {/*    network={'instagram'}*/}
+                        {/*/>*/}
                         <Button
                             leftIcon={<EmailIcon />}
                             variant="solid"
