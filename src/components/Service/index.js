@@ -12,7 +12,7 @@ import {
     useDisclosure, VStack
 } from "@chakra-ui/react";
 import {useSelector} from "react-redux";
-import {setAppointmentServiceKey} from "../../redux/actions/appointment";
+import {setAppointmentServiceKey} from "../../redux/actions/appointments";
 
 export const ServiceInfo = observer(() => {
     const service = useSelector(state => state.service);

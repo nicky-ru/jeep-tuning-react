@@ -4,13 +4,13 @@ import {Divider} from "@chakra-ui/layout";
 import {useDispatch} from "react-redux";
 
 import Amplify, {API, graphqlOperation} from 'aws-amplify';
-import {listAdvantages, listBrands} from "../../graphql/queries";
+import {listAdvantages} from "../../graphql/queries";
 
 import awsExports from "../../aws-exports";
 import {getAdvantages} from "../../redux/actions/advantages";
-import {listServices} from "../../redux/actions/services";
-import {listBrands as listBrandsFromStore} from "../../redux/actions/brands";
-import {getUzelList} from "../../redux/actions/uzel";
+import {listServices} from "../../redux/actions/services"
+import {listBrands} from "../../redux/actions/brands";
+import {getUzelList} from "../../redux/actions/uzels";
 
 import {Jumbotron} from "../../components/Home/jumbotron";
 // import {Services} from "../../components/Home/services";
@@ -32,7 +32,7 @@ const Home = observer(() => {
         fetchAdvantages();
         dispatch(getUzelList());
         dispatch(listServices());
-        fetchBrands();
+        dispatch(listBrands());
     }, []);
 
     const fetchAdvantages = async () => {
@@ -42,16 +42,6 @@ const Home = observer(() => {
             dispatch(getAdvantages(advantages));
         } catch (e) {
             console.log("Error while getting advantages: ", e);
-        }
-    }
-
-    const fetchBrands = async () => {
-        try {
-            const brandsData = await API.graphql(graphqlOperation(listBrands));
-            const brands = brandsData.data.listBrands.items;
-            dispatch(listBrandsFromStore(brands));
-        } catch (e) {
-            console.log("Error while fetching brands: ", e);
         }
     }
 

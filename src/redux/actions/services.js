@@ -1,8 +1,22 @@
 import * as types from '../constants/types';
 import Amplify, {API, graphqlOperation} from 'aws-amplify';
-import {listServices as listServicesAws} from "../../graphql/queries";
+import {getService as getServiceAws, listServices as listServicesAws} from "../../graphql/queries";
 import awsExports from "../../aws-exports";
 Amplify.configure(awsExports);
+
+export function getServiceById(serviceId) {
+    return dispatch => {
+        return API.graphql(graphqlOperation(getServiceAws, {id: serviceId}))
+            .then(serviceData => serviceData.data.getService)
+            .then(service => {
+                dispatch({
+                    type: types.services.GET,
+                    service
+                })
+            })
+            .catch(e => console.log("Error while do action getService: ", e));
+    };
+}
 
 export function listServices() {
     return dispatch => {
@@ -16,18 +30,11 @@ export function listServices() {
             })
             .catch(e => console.log("Error while do action listServices"));
     }
-    // return {
-    //     type: types.services.LIST,
-    //     serviceList,
-    // }
 }
 
-// const fetchServices = async () => {
-//     try {
-//         const servicesData = await API.graphql(graphqlOperation(listServices));
-//         const services = servicesData.data.listServices.items;
-//         dispatch(listServicesFromStore(services));
-//     } catch (e) {
-//         console.log("Error while getting services: ", e);
-//     }
-// }
+export function setServiceSearch(keyWord) {
+    return {
+        type: types.serviceSearch.SET,
+        keyWord
+    };
+}

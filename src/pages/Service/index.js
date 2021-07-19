@@ -3,8 +3,8 @@ import {observer} from "mobx-react-lite";
 import {useParams} from 'react-router-dom';
 import {useDispatch} from "react-redux";
 
-import {getServiceById} from "../../redux/actions/service";
-import {getUzelList} from "../../redux/actions/uzel";
+import {getServiceById} from "../../redux/actions/services";
+import {getUzelList} from "../../redux/actions/uzels";
 
 import {ServiceInfo} from "../../components/Service";
 

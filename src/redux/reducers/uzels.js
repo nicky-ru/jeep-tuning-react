@@ -21,3 +21,13 @@ export function uzels(state = initialState.uzels, action) {
             return state;
     }
 }
+
+export function uzel(state = initialState.uzel, action) {
+    switch (action.type) {
+        case types.uzels.GET: {
+            return {...state, name: action.name};
+        }
+        default:
+            return state;
+    }
+}

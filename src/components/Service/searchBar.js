@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import {observer} from "mobx-react-lite";
 import {Input} from "@chakra-ui/react";
 import {useDispatch} from "react-redux";
-import {setServiceSearch} from "../../redux/actions/serviceSearch";
+import {setServiceSearch} from "../../redux/actions/services";
 
 const SearchBar = observer(() => {
     const dispatch = useDispatch();

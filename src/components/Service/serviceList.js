@@ -3,7 +3,7 @@ import {VStack, Box, Text, Link, Button, useDisclosure} from '@chakra-ui/react';
 import {Link as ReachLink} from 'react-router-dom';
 import {observer} from "mobx-react-lite";
 import {useDispatch, useSelector} from "react-redux";
-import {setAppointmentServiceKey, setAppointmentUzelKey} from "../../redux/actions/appointment";
+import {setAppointmentServiceKey, setAppointmentUzelKey} from "../../redux/actions/appointments";
 
 export const ServiceList = observer((props) => {
     const services = useSelector(state => state.services);

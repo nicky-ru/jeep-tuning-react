@@ -11,6 +11,9 @@ export default {
     },
     uzels: {
     },
+    uzel: {
+        name: '',
+    },
     brands: {
     },
     serviceSearch: {

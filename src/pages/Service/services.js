@@ -2,7 +2,7 @@ import React, {useEffect, Suspense, lazy} from "react";
 import {observer} from "mobx-react-lite";
 import {useDispatch} from "react-redux";
 import {Divider, Container} from "@chakra-ui/layout";
-import {listServices} from "../../redux/actions/services";
+import {listServices} from "../../redux/actions/services"
 
 const SearchBar = lazy(() => import("../../components/Service/searchBar"));
 const ServiceList = lazy(() => import("../../components/Service/serviceSearchList"));
