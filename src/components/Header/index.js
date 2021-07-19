@@ -51,7 +51,7 @@ export const Header = observer(() => {
                         <SocialIcon url={"//api.whatsapp.com/send?phone=8615651921699"} network={'whatsapp'}/>
                         <SocialIcon url={"https://telegram.me/Vezdehod13"} network={'telegram'}/>
                         <SocialIcon url={"https://vk.com/jeepservice76"} network={'vk'}/>
-                        <SocialIcon url={"https://vk.com/jeepservice76"} network={'instagram'}/>
+                        <SocialIcon url={"https://www.instagram.com/jeepservice_76/"} network={'instagram'}/>
                         <Button
                             leftIcon={<EmailIcon />}
                             variant="solid"
