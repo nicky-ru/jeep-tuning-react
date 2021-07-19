@@ -11,7 +11,7 @@ export const auth = {
 }
 
 export const advantages = {
-    GET: 'jt/advantages/get'
+    LIST: 'jt/advantages/list'
 }
 
 export const uzels = {

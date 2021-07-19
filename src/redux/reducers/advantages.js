@@ -3,11 +3,11 @@ import * as types from "../constants/types";
 
 export function advantages(state = initialState.advantages, action) {
     switch (action.type) {
-        case types.advantages.GET: {
+        case types.advantages.LIST: {
             const nextState = Object.assign({}, state);
 
             try {
-                for (const value of Object.values(action.advantageList)) {
+                for (const value of Object.values(action.advantagesList)) {
                     nextState[value.id] = value.name;
                 }
             } catch (e) {
