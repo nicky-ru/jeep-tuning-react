@@ -20,7 +20,7 @@ const Brands = observer(() => {
                     <WrapItem key={brand.name}>
                         <Image
                             borderRadius="full"
-                            boxSize="100px"
+                            boxSize={{base: "50px", md: "100px"}}
                             fallbackSrc="https://via.placeholder.com/100"
                             src={brand.imgUrl}
                             alt={brand.name}
