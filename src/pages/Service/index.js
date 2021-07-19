@@ -18,7 +18,8 @@ const Service = observer(() => {
 
     useEffect(() => {
         fetchService();
-        fetchUzels();
+        dispatch(getUzelList());
+        // fetchUzels();
     }, []);
 
     const fetchService = async () => {
@@ -26,15 +27,6 @@ const Service = observer(() => {
             const serviceData = await API.graphql(graphqlOperation(getService, {id: slug}));
             const service = serviceData.data.getService;
             dispatch(getServiceRedux(service));
-        } catch (e) {
-            console.log("Error while getting services: ", e);
-        }
-    }
-    const fetchUzels = async () => {
-        try {
-            const uzelsData = await API.graphql(graphqlOperation(listUzels));
-            const uzels = uzelsData.data.listUzels.items;
-            dispatch(getUzelList(uzels));
         } catch (e) {
             console.log("Error while getting services: ", e);
         }

@@ -30,7 +30,7 @@ const Home = observer(() => {
 
     useEffect(() => {
         fetchAdvantages();
-        fetchUzels();
+        dispatch(getUzelList());
         fetchServices();
         fetchBrands();
     }, []);
@@ -52,16 +52,6 @@ const Home = observer(() => {
             dispatch(listServicesFromStore(services));
         } catch (e) {
             console.log("Error while getting services: ", e);
-        }
-    }
-
-    const fetchUzels = async () => {
-        try {
-            const uzelsData = await API.graphql(graphqlOperation(listUzels));
-            const uzels = uzelsData.data.listUzels.items;
-            dispatch(getUzelList(uzels));
-        } catch (e) {
-            console.log("Error while fetching uzels: ", e);
         }
     }
 

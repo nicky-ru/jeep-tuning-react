@@ -20,7 +20,7 @@ export const uzels = {
 }
 
 export const services = {
-    GET: 'jt/service/get',
+    GET: 'jt/services/get',
     LIST: 'jt/services/list',
 }
 
