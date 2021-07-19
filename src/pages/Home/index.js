@@ -4,11 +4,11 @@ import {Divider} from "@chakra-ui/layout";
 import {useDispatch} from "react-redux";
 
 import Amplify, {API, graphqlOperation} from 'aws-amplify';
-import {listAdvantages, listBrands, listServices, listUzels} from "../../graphql/queries";
+import {listAdvantages, listBrands} from "../../graphql/queries";
 
 import awsExports from "../../aws-exports";
 import {getAdvantages} from "../../redux/actions/advantages";
-import {listServices as listServicesFromStore} from "../../redux/actions/services";
+import {listServices} from "../../redux/actions/services";
 import {listBrands as listBrandsFromStore} from "../../redux/actions/brands";
 import {getUzelList} from "../../redux/actions/uzel";
 
@@ -31,7 +31,7 @@ const Home = observer(() => {
     useEffect(() => {
         fetchAdvantages();
         dispatch(getUzelList());
-        fetchServices();
+        dispatch(listServices());
         fetchBrands();
     }, []);
 
@@ -42,16 +42,6 @@ const Home = observer(() => {
             dispatch(getAdvantages(advantages));
         } catch (e) {
             console.log("Error while getting advantages: ", e);
-        }
-    }
-
-    const fetchServices = async () => {
-        try {
-            const servicesData = await API.graphql(graphqlOperation(listServices));
-            const services = servicesData.data.listServices.items;
-            dispatch(listServicesFromStore(services));
-        } catch (e) {
-            console.log("Error while getting services: ", e);
         }
     }
 
