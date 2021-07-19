@@ -35,7 +35,7 @@ const ServiceSearchList = observer(() => {
                         as={ReachLink}
                         to={`/service/${serviceKey}`}
                         params={{ service: serviceKey}}
-                        maxW={"70%"}
+                        maxW={"100%"}
                     >
                         <Text
                             marginLeft={"10px"}
