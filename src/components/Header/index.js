@@ -5,6 +5,7 @@ import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons';
 import {Link as ReachLink} from 'react-router-dom';
 import { IoMoon, IoSunny } from 'react-icons/io5';
 import {EmailIcon, PhoneIcon} from "@chakra-ui/icons";
+import {SocialIcon} from 'react-social-icons';
 
 export const Header = observer(() => {
     const { isOpen: isMobileNavOpen, onToggle } = useDisclosure();
@@ -44,7 +45,13 @@ export const Header = observer(() => {
                         </Stack>
                     </Flex>
 
+
+
                     <Stack direction={'row'} align={'center'} spacing={2} flex={{ base: 1, md: 'auto' }} justify={'flex-end'}>
+                        <SocialIcon url={"//api.whatsapp.com/send?phone=8615651921699"} network={'whatsapp'}/>
+                        <SocialIcon url={"https://telegram.me/Vezdehod13"} network={'telegram'}/>
+                        <SocialIcon url={"https://vk.com/jeepservice76"} network={'vk'}/>
+                        <SocialIcon url={"https://vk.com/jeepservice76"} network={'instagram'}/>
                         <Button
                             leftIcon={<EmailIcon />}
                             variant="solid"
