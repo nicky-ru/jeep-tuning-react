@@ -3,7 +3,7 @@ import * as types from "../constants/types";
 
 export function uzels(state = initialState.uzels, action) {
     switch (action.type) {
-        case types.uzel.GET_LIST: {
+        case types.uzels.GET_LIST: {
             const nextState = Object.assign({}, state);
 
             try {

@@ -1,8 +1,20 @@
+export const app = {
+    ERROR: 'jt/app/error',
+    LOADED: 'jt/app/loaded',
+    LOADING: 'jt/app/loading',
+}
+
+// for future use
+export const auth = {
+    LOGIN_SUCCESS: 'jt/auth/login/success',
+    LOGOUT_SUCCESS: 'jt/auth/logout/success'
+}
+
 export const advantages = {
     GET: 'jt/advantages/get'
 }
 
-export const uzel = {
+export const uzels = {
     GET_LIST: 'jt/usel/getList',
     GET: 'jt/usel/get'
 }
