@@ -12,7 +12,7 @@ const WhyUs = observer(() => {
             maxW="container.lg"
         >
             <Heading marginBottom={'1.2rem'}>Почему мы</Heading>
-            <Wrap spacing="30px" justify="center">
+            <Wrap spacing={{base: "5px", md: "30px"}} justify="center">
 
                 {Object.values(advantages).length > 0 &&  Object.values(advantages).map((advantage) => (
                     <WrapItem key={advantage}>
