@@ -1,9 +1,9 @@
-import * as types from '../constants/types';
+import * as types from '../../constants/types';
 import Amplify, {API, graphqlOperation} from 'aws-amplify';
-import {getService as getServiceAws, listServices as listServicesAws} from "../../graphql/queries";
-import awsExports from "../../aws-exports";
-import {createError} from "./error";
-import {getUzelById} from "./uzels";
+import {getService as getServiceAws, listServices as listServicesAws} from "../../../graphql/queries";
+import awsExports from "../../../aws-exports";
+import {createError} from "../error";
+import {getUzelById} from "../uzels";
 Amplify.configure(awsExports);
 
 export function getServiceById(serviceId) {

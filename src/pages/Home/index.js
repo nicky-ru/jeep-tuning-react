@@ -4,7 +4,7 @@ import {Divider} from "@chakra-ui/layout";
 import {useDispatch} from "react-redux";
 
 import {listAdvantages} from "../../redux/actions/advantages";
-import {listServices} from "../../redux/actions/services"
+import {listServices} from "../../redux/actions/services/services"
 import {listBrands} from "../../redux/actions/brands";
 import {getUzelList} from "../../redux/actions/uzels";
 
