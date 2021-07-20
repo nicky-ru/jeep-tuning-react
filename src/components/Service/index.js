@@ -16,7 +16,7 @@ import {setAppointmentServiceKey} from "../../redux/actions/appointments";
 
 export const ServiceInfo = observer(() => {
     const service = useSelector(state => state.service);
-    const uzels = useSelector(state => state.uzels);
+    const uzel = useSelector(state => state.uzel);
     const { isOpen, onOpen, onClose } = useDisclosure();
 
 
@@ -34,7 +34,7 @@ export const ServiceInfo = observer(() => {
                         {service &&
                         <>
                             <Heading mb={'0.5rem'} textTransform={'capitalize'}>{service.name}</Heading>
-                            <Heading mb={'1rem'} size={'sm'}>{uzels[service.uzelID]}</Heading>
+                            <Heading mb={'1rem'} size={'sm'}>{uzel.name}</Heading>
                             <Text mb={'1rem'}>{service.description}</Text>
                             <Text>Цена от: <Badge ml="1" colorScheme="green">{service.price} руб.</Badge></Text>
                         </>

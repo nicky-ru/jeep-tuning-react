@@ -3,6 +3,7 @@ import Amplify, {API, graphqlOperation} from 'aws-amplify';
 import {getService as getServiceAws, listServices as listServicesAws} from "../../graphql/queries";
 import awsExports from "../../aws-exports";
 import {createError} from "./error";
+import {getUzelById} from "./uzels";
 Amplify.configure(awsExports);
 
 export function getServiceById(serviceId) {
@@ -13,7 +14,8 @@ export function getServiceById(serviceId) {
                 dispatch({
                     type: types.services.GET,
                     service
-                })
+                });
+                dispatch(getUzelById(service.uzelID));
             })
             .catch(e => dispatch(createError(e)));
     };

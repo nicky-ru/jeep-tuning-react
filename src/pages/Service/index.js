@@ -14,7 +14,6 @@ const Service = observer(() => {
 
     useEffect(() => {
         dispatch(getServiceById(slug));
-        dispatch(getUzelList());
     }, []);
 
     return(

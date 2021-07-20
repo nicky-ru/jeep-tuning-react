@@ -26,7 +26,7 @@ export function getUzelById(uzelId) {
             .then(uzel => {
                 dispatch({
                     type: types.uzels.GET,
-                    uzel
+                    name: uzel.name
                 })
             })
             .catch(e => dispatch(createError(e)));
