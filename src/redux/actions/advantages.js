@@ -2,6 +2,7 @@ import * as types from '../constants/types';
 import Amplify, {API, graphqlOperation} from 'aws-amplify';
 import {listAdvantages as listAdvantagesAws} from "../../graphql/queries";
 import awsExports from "../../aws-exports";
+import {createError} from "./error";
 Amplify.configure(awsExports);
 
 export function listAdvantages() {
@@ -14,6 +15,6 @@ export function listAdvantages() {
                     advantagesList
                 })
             })
-            .catch(e => console.log("Error while do action listAdvantages: ", e));
+            .catch(e => dispatch(createError(e)));
     }
 }

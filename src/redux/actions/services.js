@@ -2,6 +2,7 @@ import * as types from '../constants/types';
 import Amplify, {API, graphqlOperation} from 'aws-amplify';
 import {getService as getServiceAws, listServices as listServicesAws} from "../../graphql/queries";
 import awsExports from "../../aws-exports";
+import {createError} from "./error";
 Amplify.configure(awsExports);
 
 export function getServiceById(serviceId) {
@@ -14,7 +15,7 @@ export function getServiceById(serviceId) {
                     service
                 })
             })
-            .catch(e => console.log("Error while do action getService: ", e));
+            .catch(e => dispatch(createError(e)));
     };
 }
 
@@ -28,7 +29,7 @@ export function listServices() {
                     serviceList,
                 })
             })
-            .catch(e => console.log("Error while do action listServices"));
+            .catch(e => dispatch(createError(e)));
     }
 }
 

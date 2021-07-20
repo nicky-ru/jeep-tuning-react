@@ -1,4 +1,6 @@
 export default {
+    error: null,
+    loading: false,
     advantages: {
     },
     services: {

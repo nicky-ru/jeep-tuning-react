@@ -2,6 +2,7 @@ import * as types from '../constants/types';
 import Amplify, {API, graphqlOperation} from 'aws-amplify';
 import {listUzels, getUzel} from "../../graphql/queries";
 import awsExports from "../../aws-exports";
+import {createError} from "./error";
 Amplify.configure(awsExports);
 
 export function getUzelList() {
@@ -14,7 +15,7 @@ export function getUzelList() {
                     uzelList
                 })
             })
-            .catch(e => console.log("Error while do action getUzelList"));
+            .catch(e => dispatch(createError(e)));
     };
 }
 
@@ -28,6 +29,6 @@ export function getUzelById(uzelId) {
                     uzel
                 })
             })
-            .catch(e => console.log("Error while do action getUzelById"));
+            .catch(e => dispatch(createError(e)));
     };
 }
