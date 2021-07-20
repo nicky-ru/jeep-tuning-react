@@ -1,7 +1,6 @@
 import React from "react";
 import {observer} from "mobx-react-lite";
 import {Container, Stack, Box, Heading, Text, Badge, Center, StackDivider} from "@chakra-ui/layout";
-import {Link} from 'react-router-dom';
 import {
     Button, Modal,
     ModalBody,
@@ -12,7 +11,6 @@ import {
     useDisclosure, VStack
 } from "@chakra-ui/react";
 import {useSelector} from "react-redux";
-import {setAppointmentServiceKey} from "../../redux/actions/appointments";
 
 export const ServiceInfo = observer(() => {
     const service = useSelector(state => state.service);

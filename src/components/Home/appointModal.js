@@ -16,26 +16,19 @@ import {
 import {useSelector} from "react-redux";
 
 const AppointModal = observer((props) => {
-    const serviceKey = useSelector(state => state.appointment.serviceKey);
+    const appointment = useSelector(state => state.appointment);
     const services = useSelector(state => state.services);
     const uzels = useSelector(state => state.uzels);
-    const [uzelName, setUzelName] = useState("");
-    const [serviceName, setServiceName] = useState("");
+    const [appointmentInfo, setAppointmentInfo] = useState({service: "", uzel: ""});
 
     useEffect(() => {
-        try {
-            if (serviceKey) {
-                const _servciceName = services[serviceKey].name;
-                const _uzelId = services[serviceKey].uzelID;
-                const _uzelName = uzels[_uzelId];
-
-                setUzelName(_uzelName);
-                setServiceName(_servciceName);
-            }
-        } catch (e) {
-            console.log("Error getting data for modal ", e);
+        if (appointment.serviceKey && appointment.uzelKey) {
+            setAppointmentInfo({
+                service: services[appointment.serviceKey].name,
+                uzel: uzels[appointment.uzelKey]
+            })
         }
-    }, [serviceKey])
+    }, [appointment]);
 
     return (
         <>
@@ -46,12 +39,12 @@ const AppointModal = observer((props) => {
                     <ModalCloseButton />
                     <ModalBody>
                         <VStack spacing={4}>
-                            <Select placeholder="Узел">
+                            <Select placeholder={appointmentInfo.uzel}>
                                 <option value="option1">Option 1</option>
                                 <option value="option2">Option 2</option>
                                 <option value="option3">Option 3</option>
                             </Select>
-                            <Select placeholder="Услуга">
+                            <Select placeholder={appointmentInfo.service}>
                                 <option value="option1">Option 1</option>
                                 <option value="option2">Option 2</option>
                                 <option value="option3">Option 3</option>

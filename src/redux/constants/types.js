@@ -33,6 +33,5 @@ export const serviceSearch = {
 }
 
 export const appointment = {
-    SET_SERVICE_KEY: 'jt/appointment/setServiceKey',
-    SET_UZEL_KEY: 'jt/appointment/setServiceKey',
+    SET_SERVICE: 'jt/appointment/setServiceKey',
 }
