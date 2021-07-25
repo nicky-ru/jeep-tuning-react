@@ -8,6 +8,7 @@ import Header from "../components/Header";
 import Services from "../components/Services";
 import Advantages from "../components/advantages";
 import Brands from "../components/brands";
+import Contacts from "../components/contacts";
 // amplify
 import { Amplify, withSSRContext } from "aws-amplify";
 import awsExports from "../src/aws-exports";
@@ -47,6 +48,9 @@ export default function Home(props) {
             <Advantages advantages={props.advantages}/>
             <Divider/>
             <Brands brands={props.brands}/>
+            <Divider/>
+            <Contacts/>
+            <Divider/>
         </main>
       <footer className={styles.footer}/>
     </div>
