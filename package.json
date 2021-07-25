@@ -9,10 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@aws-amplify/ui-react": "^1.2.7",
     "@chakra-ui/icons": "^1.0.14",
     "@chakra-ui/react": "^1.6.5",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
+    "amplify": "^0.0.11",
+    "aws-amplify": "^4.2.1",
     "framer-motion": "^4",
     "next": "11.0.1",
     "react": "17.0.2",
@@ -20,6 +23,7 @@
     "react-icons": "^4.2.0"
   },
   "devDependencies": {
+    "@chakra-ui/layout": "^1.4.7",
     "eslint": "7.31.0",
     "eslint-config-next": "11.0.1",
     "react-social-icons": "^5.5.1"

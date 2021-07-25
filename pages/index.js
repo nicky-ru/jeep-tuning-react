@@ -2,8 +2,26 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import Jumbotron from "../components/jumbotron";
 import Header from "../components/Header";
+import Services from "../components/Services";
+import { Amplify, withSSRContext } from "aws-amplify";
+import awsExports from "../src/aws-exports";
+import {listUzels} from "../src/graphql/queries";
+import {Container} from "@chakra-ui/layout";
 
-export default function Home() {
+Amplify.configure({ ...awsExports, ssr: true });
+
+export async function getServerSideProps({ req }) {
+    const SSR = withSSRContext({ req });
+    const response = await SSR.API.graphql({ query: listUzels });
+
+    return {
+        props: {
+            uzels: response.data.listUzels.items,
+        },
+    };
+}
+
+export default function Home(props) {
   return (
     <div className={styles.container}>
       <Head>
@@ -15,7 +33,7 @@ export default function Home() {
         <header><Header/></header>
         <main className={styles.main}>
             <Jumbotron/>
-
+            <Services uzels={props.uzels}/>
         </main>
       <footer className={styles.footer}/>
     </div>
