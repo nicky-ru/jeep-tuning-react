@@ -7,10 +7,11 @@ import Jumbotron from "../components/jumbotron";
 import Header from "../components/Header";
 import Services from "../components/Services";
 import Advantages from "../components/advantages";
+import Brands from "../components/brands";
 // amplify
 import { Amplify, withSSRContext } from "aws-amplify";
 import awsExports from "../src/aws-exports";
-import {listUzels, listAdvantages} from "../src/graphql/queries";
+import {listUzels, listAdvantages, listBrands} from "../src/graphql/queries";
 
 Amplify.configure({ ...awsExports, ssr: true });
 
@@ -18,11 +19,13 @@ export async function getServerSideProps({ req }) {
     const SSR = withSSRContext({ req });
     const uzelsData = await SSR.API.graphql({ query: listUzels });
     const advantagesData = await SSR.API.graphql({query: listAdvantages });
+    const brandsData = await SSR.API.graphql({query: listBrands});
 
     return {
         props: {
             uzels: uzelsData.data.listUzels.items,
             advantages: advantagesData.data.listAdvantages.items,
+            brands: brandsData.data.listBrands.items,
         },
     };
 }
@@ -42,7 +45,8 @@ export default function Home(props) {
             <Services uzels={props.uzels}/>
             <Divider/>
             <Advantages advantages={props.advantages}/>
-
+            <Divider/>
+            <Brands brands={props.brands}/>
         </main>
       <footer className={styles.footer}/>
     </div>

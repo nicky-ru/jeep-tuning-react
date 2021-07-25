@@ -80,7 +80,7 @@ const Header = () => {
                     </Flex>
 
                     <Flex flex={{ base: 1, md: 'auto' }} justify={{ base: 'center', md: 'start' }}>
-                        <Stack as={'a'} direction={'row'} alignItems={'center'} spacing={{ base: 2, sm: 4 }}>
+                        <Stack direction={'row'} alignItems={'center'} spacing={{ base: 2, sm: 4 }}>
                             <Link href="/" style={{ textDecoration: 'none'}}>
                                 <a>
                                     <Heading as={'h1'} fontSize={'xl'} display={{ base: 'none', md: 'block' }}>
@@ -130,7 +130,12 @@ const Header = () => {
                                 {tel}
                             </ChackraLink>
                         </Flex>
-                        <IconButton borderRadius="12" aria-label={'Toggle Color Mode'} onClick={toggleColorMode} icon={colorMode === 'light' ? <IoMoon size={18} /> : <IoSunny size={18} />} />
+                        <IconButton
+                            borderRadius="12"
+                            aria-label={'Toggle Color Mode'}
+                            onClick={toggleColorMode}
+                            icon={colorMode === 'light' ? <IoMoon size={18} /> : <IoSunny size={18} />}
+                        />
                     </Stack>
                 </Container>
             </Flex>

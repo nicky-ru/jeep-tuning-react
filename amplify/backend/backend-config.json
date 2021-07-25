@@ -20,5 +20,19 @@
         }
       }
     }
+  },
+  "auth": {
+    "jeeptuningreact22e6b77a": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  },
+  "storage": {
+    "brandlogos": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation"
+    }
   }
 }
