@@ -13,17 +13,16 @@ const Brands = ({brands = []}) => {
             <Wrap spacing="30px" justify="center">
                 {brands.map((brand) => (
                         <WrapItem key={brand.name}>
-                            <Center h={'100px'} w={'100px'} position={'relative'}>
+                            <Center
+                                h={{base: '50px', md: '100px'}}
+                                w={{base: '50px', md: '100px'}}
+                                position={'relative'}
+                            >
                                 <Image
                                     src={brand.image}
                                     alt={brand.name}
-                                    // width={'100px'}
-                                    // height={'100px'}
                                     placeholder={'blur'}
                                     blurDataURL={"https://via.placeholder.com/100"}
-                                    // layout={'responsive'}
-                                    // borderRadius="full"
-                                    // fallbackSrc=
                                     layout={'fill'}
                                     objectFit={'contain'}
                                 />
