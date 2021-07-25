@@ -11,9 +11,8 @@ import {
 import Link from 'next/link'
 import styles from "../../styles/Home.module.css";
 
-
 // import AppointModal from "./appointModal";
-function Services(props) {
+const Services = ({uzels = []}) => {
     const { isOpen, onOpen, onClose } = useDisclosure();
 
     return(
@@ -25,7 +24,7 @@ function Services(props) {
 
 
             <Accordion allowToggle reduceMotion>
-                {props.uzels.map((uzel) => (
+                {uzels.map((uzel) => (
                     <AccordionItem key={uzel.id} >
                         <h2>
                             <AccordionButton>

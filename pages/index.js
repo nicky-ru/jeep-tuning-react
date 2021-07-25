@@ -1,22 +1,28 @@
+// styles and package components
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import styles from '../styles/Home.module.css';
+import {Container, Divider} from "@chakra-ui/layout";
+// custom components
 import Jumbotron from "../components/jumbotron";
 import Header from "../components/Header";
 import Services from "../components/Services";
+import Advantages from "../components/advantages";
+// amplify
 import { Amplify, withSSRContext } from "aws-amplify";
 import awsExports from "../src/aws-exports";
-import {listUzels} from "../src/graphql/queries";
-import {Container} from "@chakra-ui/layout";
+import {listUzels, listAdvantages} from "../src/graphql/queries";
 
 Amplify.configure({ ...awsExports, ssr: true });
 
 export async function getServerSideProps({ req }) {
     const SSR = withSSRContext({ req });
-    const response = await SSR.API.graphql({ query: listUzels });
+    const uzelsData = await SSR.API.graphql({ query: listUzels });
+    const advantagesData = await SSR.API.graphql({query: listAdvantages });
 
     return {
         props: {
-            uzels: response.data.listUzels.items,
+            uzels: uzelsData.data.listUzels.items,
+            advantages: advantagesData.data.listAdvantages.items,
         },
     };
 }
@@ -34,6 +40,9 @@ export default function Home(props) {
         <main className={styles.main}>
             <Jumbotron/>
             <Services uzels={props.uzels}/>
+            <Divider/>
+            <Advantages advantages={props.advantages}/>
+
         </main>
       <footer className={styles.footer}/>
     </div>

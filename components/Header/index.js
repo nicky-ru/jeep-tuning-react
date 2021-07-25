@@ -47,7 +47,8 @@ const Header = () => {
             >
                 <Container as={Flex} maxW={'7xl'} align={'center'}>
                     <Flex flex={{ base: 1, md: 'auto' }} ml={{ base: -2 }} display={{ base: 'flex', md: 'none' }}>
-                        <Menu>
+                        <Menu
+                        >
                             <MenuButton
                                 as={IconButton}
                                 aria-label={'Toggle Navigation'}
