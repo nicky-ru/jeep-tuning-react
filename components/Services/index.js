@@ -8,11 +8,12 @@ import {
     Button, Text,
     useColorModeValue, useDisclosure
 } from '@chakra-ui/react';
+import ServiceList from "./serviceList";
 import Link from 'next/link'
 import styles from "../../styles/Home.module.css";
 
 // import AppointModal from "./appointModal";
-const Services = ({uzels = []}) => {
+const ServiceAccordion = ({uzels = [], services = []}) => {
     const { isOpen, onOpen, onClose } = useDisclosure();
 
     return(
@@ -40,20 +41,20 @@ const Services = ({uzels = []}) => {
                                 // backgroundColor: useColorModeValue('rgba(255, 255, 255, 0.8)', 'rgba(26, 32, 44, 0.8)')
                             }}
                         >
-                            {/*<ServiceList onOpen={onOpen} uzel={uzel}/>*/}
+                            <ServiceList services={services} uzelId={uzel.id}/>
                         </AccordionPanel>
                     </AccordionItem>
                 ))}
             </Accordion>
-            {/*<Link*/}
-            {/*    href={`/services/${serviceId}`}*/}
-            {/*    // maxW={"70%"}*/}
-            {/*>*/}
-            {/*    <a>*/}
-            {/*        <Button mt={'0.5rem'} w={'100%'}>Все услуги</Button>*/}
-            {/*    </a>*/}
-            {/*    */}
-            {/*</Link>*/}
+            <Link
+                href={`/serviceList`}
+                // maxW={"70%"}
+            >
+                <a>
+                    <Button mt={'0.5rem'} w={'100%'}>Все услуги</Button>
+                </a>
+
+            </Link>
 
             {/*<AppointModal isOpen={isOpen} onClose={onClose}/>*/}
 
@@ -61,4 +62,4 @@ const Services = ({uzels = []}) => {
     );
 }
 
-export default Services;
+export default ServiceAccordion;

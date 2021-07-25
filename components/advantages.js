@@ -13,8 +13,8 @@ const Advantages = ({advantages = []}) => {
                 {advantages.map((advantage) => (
                     <WrapItem key={advantage.id}>
                         <Center
-                            w="200px"
-                            h="100px"
+                            w={{base: '10rem', md: '200px'}}
+                            h={{base: '9rem', md: '100px'}}
                             bg={'dark.100'}
                             borderRadius={'md'}
                         >

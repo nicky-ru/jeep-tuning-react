@@ -5,19 +5,21 @@ import {Container, Divider} from "@chakra-ui/layout";
 // custom components
 import Jumbotron from "../components/jumbotron";
 import Header from "../components/Header";
-import Services from "../components/Services";
+import ServiceAccordion from "../components/Services";
 import Advantages from "../components/advantages";
 import Brands from "../components/brands";
-import Contacts from "../components/contacts";
+import Contacts from "../components/Contacts";
+import Footer from "../components/Footer";
 // amplify
 import { Amplify, withSSRContext } from "aws-amplify";
 import awsExports from "../src/aws-exports";
-import {listUzels, listAdvantages, listBrands} from "../src/graphql/queries";
+import {listUzels, listAdvantages, listBrands, listServices} from "../src/graphql/queries";
 
 Amplify.configure({ ...awsExports, ssr: true });
 
 export async function getServerSideProps({ req }) {
     const SSR = withSSRContext({ req });
+    const serviceData = await SSR.API.graphql({query: listServices});
     const uzelsData = await SSR.API.graphql({ query: listUzels });
     const advantagesData = await SSR.API.graphql({query: listAdvantages });
     const brandsData = await SSR.API.graphql({query: listBrands});
@@ -27,6 +29,7 @@ export async function getServerSideProps({ req }) {
             uzels: uzelsData.data.listUzels.items,
             advantages: advantagesData.data.listAdvantages.items,
             brands: brandsData.data.listBrands.items,
+            services: serviceData.data.listServices.items,
         },
     };
 }
@@ -40,10 +43,13 @@ export default function Home(props) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-        <header><Header/></header>
+        <header>
+            <Header/>
+        </header>
+
         <main className={styles.main}>
             <Jumbotron/>
-            <Services uzels={props.uzels}/>
+            <ServiceAccordion uzels={props.uzels} services={props.services}/>
             <Divider/>
             <Advantages advantages={props.advantages}/>
             <Divider/>
@@ -52,7 +58,10 @@ export default function Home(props) {
             <Contacts/>
             <Divider/>
         </main>
-      <footer className={styles.footer}/>
+
+        <footer className={styles.footer}>
+            <Footer/>
+        </footer>
     </div>
   )
 }

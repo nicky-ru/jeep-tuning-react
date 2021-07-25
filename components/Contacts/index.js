@@ -1,4 +1,5 @@
 import {Container, Heading, Stack, Text} from "@chakra-ui/layout";
+import MapComponent from "./mapComponent";
 
 const Contacts = () => {
     return(
@@ -10,8 +11,7 @@ const Contacts = () => {
 
             <Stack direction={["column", "row"]} spacing="24px">
                 <Container>
-                    {/*<Suspense fallback={<div>Loading...</div>}><MapComponent/></Suspense>*/}
-                    Тут будет карта
+                    <MapComponent/>
                 </Container>
                 <Container>
                     <Heading size={'md'}>Мы находимся:</Heading>
