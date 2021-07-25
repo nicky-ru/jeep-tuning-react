@@ -11,7 +11,8 @@ const Contacts = () => {
 
             <Stack direction={["column", "row"]} spacing="24px">
                 <Container>
-                    <MapComponent/>
+                    <Text>Тут будет карта</Text>
+                    {/*<MapComponent/>*/}
                 </Container>
                 <Container>
                     <Heading size={'md'}>Мы находимся:</Heading>
