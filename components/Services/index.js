@@ -5,16 +5,13 @@ import {
     AccordionIcon,
     AccordionItem,
     AccordionPanel,
-    Button, Text, useColorMode,
-    useColorModeValue, useDisclosure
+    Button, useColorMode
 } from '@chakra-ui/react';
 import ServiceList from "./serviceList";
 import Link from 'next/link'
 
-// import AppointModal from "./appointModal";
 const ServiceAccordion = ({uzels = [], services = []}) => {
-    const { colorMode, toggleColorMode } = useColorMode();
-    const { isOpen, onOpen, onClose } = useDisclosure();
+    const { colorMode } = useColorMode();
 
     return(
         <Container
@@ -37,7 +34,7 @@ const ServiceAccordion = ({uzels = [], services = []}) => {
                         </h2>
                         <AccordionPanel
                             py={4}
-                            bg={colorMode === 'light' ? 'lightgray' : 'dark.100'}
+                            bg={colorMode === 'light' ? 'light.100' : 'dark.100'}
                         >
                             <ServiceList services={services} uzelId={uzel.id}/>
                         </AccordionPanel>
@@ -46,16 +43,12 @@ const ServiceAccordion = ({uzels = [], services = []}) => {
             </Accordion>
             <Link
                 href={`/serviceList`}
-                // maxW={"70%"}
             >
                 <a>
                     <Button mt={'0.5rem'} w={'100%'}>Все услуги</Button>
                 </a>
 
             </Link>
-
-            {/*<AppointModal isOpen={isOpen} onClose={onClose}/>*/}
-
         </Container>
     );
 }

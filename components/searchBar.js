@@ -9,7 +9,13 @@ const SearchBar = () => {
     }
 
     return(
-        <Input placeholder="Поиск по услугам" id={'serviceSearchBar'} value={keyWord} onChange={handleChange}/>
+        <Input
+            autoFocus={true}
+            placeholder="Поиск по услугам"
+            id={'serviceSearchBar'}
+            value={keyWord}
+            onChange={handleChange}
+        />
     )
 }
 

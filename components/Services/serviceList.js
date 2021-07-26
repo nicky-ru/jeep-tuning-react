@@ -1,8 +1,9 @@
-import {VStack, Box, Text, Button, useDisclosure} from '@chakra-ui/react';
+import {VStack, Box, Text, Button, StackDivider, useColorMode} from '@chakra-ui/react';
 import Link from "next/link"
 import {useState, useEffect} from "react";
 
 const ServiceList = ({services = [], uzelId = ""}) => {
+    const { colorMode } = useColorMode();
     const [filteredServices, setFilteredServices] = useState([]);
 
     useEffect(() => {
@@ -20,14 +21,11 @@ const ServiceList = ({services = [], uzelId = ""}) => {
 
     return(
         <VStack
-            spacing={4}
             align="stretch"
+            divider={<StackDivider borderColor={colorMode === "light" ? "light.100" : "dark.100"} />}
         >
             {filteredServices.map((service) => (
                 <Box key={service.id}
-                    // border={"1px"}
-                    // borderColor={"#A0AEC0"}
-                    // borderRadius={16}
                      display="flex"
                      alignItems="center"
                      justifyContent="space-between"
@@ -37,7 +35,7 @@ const ServiceList = ({services = [], uzelId = ""}) => {
                     >
                         <a>
                             <Text
-                                maxWidth={{base: "20rem", md: "100%"}}
+                                maxWidth={{base: "80vw", md: "100%"}}
                                 marginLeft={"10px"}
                                 isTruncated
                                 textTransform={'capitalize'}
@@ -50,10 +48,6 @@ const ServiceList = ({services = [], uzelId = ""}) => {
                         display={{ base: 'none', md: 'flex' }}
                         borderRadius={16}
                         type={"button"}
-                        // onClick={() => {
-                        //     dispatch(setAppointmentService(serviceKey));
-                        //     props.onOpen();
-                        // }}
                         key={service.id}
                     >
                         Записаться

@@ -1,10 +1,10 @@
 import React from 'react'
+import { useRouter } from 'next/router'
 import {
     Box,
     Flex,
     Container,
     Stack,
-    useDisclosure,
     IconButton,
     useColorModeValue,
     useColorMode,
@@ -16,15 +16,16 @@ import {
     MenuList,
     MenuItem
 } from '@chakra-ui/react'
-import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons';
+import { HamburgerIcon } from '@chakra-ui/icons';
 import Link from 'next/link'
 import { IoMoon, IoSunny } from 'react-icons/io5';
 import {EmailIcon, PhoneIcon} from "@chakra-ui/icons";
 import {SocialIcon} from 'react-social-icons';
+import {FaHome} from "react-icons/fa";
 
 const Header = () => {
-    const { isOpen: isMobileNavOpen, onToggle } = useDisclosure();
     const { colorMode, toggleColorMode } = useColorMode();
+    const router = useRouter();
 
     const email = "misaxa@yandex.ru";
     const tel = "+79108210003";
@@ -52,8 +53,7 @@ const Header = () => {
                             <MenuButton
                                 as={IconButton}
                                 aria-label={'Toggle Navigation'}
-                                onClick={onToggle}
-                                icon={isMobileNavOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />}
+                                icon={<HamburgerIcon w={5} h={5} />}
                                 variant={'ghost'}
                                 size={'sm'}
                             />
@@ -75,6 +75,14 @@ const Header = () => {
                                 >
                                     Мы в Инстаграмме
                                 </MenuItem>
+                                {router.pathname !== "/" &&
+                                    <MenuItem
+                                        icon={<FaHome size={50} style={{fill: "#7289da", padding: 5}}/>}
+                                        onClick={() => router.push('/')}
+                                    >
+                                        На главную
+                                    </MenuItem>
+                                }
                             </MenuList>
                         </Menu>
                     </Flex>

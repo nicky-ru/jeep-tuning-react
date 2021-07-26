@@ -24,6 +24,8 @@ const Jumbotron = () => {
                     <Stack
                         direction={'column'}
                         borderRadius={'md'}
+                        px={{base: "1rem", md: 10}}
+                        py={{base: "0.5rem", md: 5}}
                         textAlign={'center'}
                         css={{
                             backdropFilter: 'saturate(180%) blur(5px)',
@@ -32,8 +34,6 @@ const Jumbotron = () => {
                     >
                         <Heading
                             zIndex={0}
-                            px={'1rem'}
-                            py={'0.5rem'}
                         >Лучший автосервис в регионе 76</Heading>
                         <Heading
                             zIndex={0}
