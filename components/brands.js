@@ -8,14 +8,14 @@ const Brands = ({brands = []}) => {
             maxW="container.lg"
         >
             <Heading marginBottom={'1.2rem'}>
-                Марки, которые мы обслуживаем
+                Марки, с которыми мы работаем
             </Heading>
             <Wrap spacing="30px" justify="center">
                 {brands.map((brand) => (
                         <WrapItem key={brand.name}>
                             <Center
-                                h={{base: '50px', md: '100px'}}
-                                w={{base: '50px', md: '100px'}}
+                                h={{base: '25px', md: '75px'}}
+                                w={{base: '25px', md: '75px'}}
                                 position={'relative'}
                             >
                                 <Image

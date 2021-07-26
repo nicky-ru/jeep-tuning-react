@@ -38,7 +38,8 @@ const ServiceAccordion = ({uzels = [], services = []}) => {
                         <AccordionPanel
                             py={4}
                             css={{
-                                // backgroundColor: useColorModeValue('rgba(255, 255, 255, 0.8)', 'rgba(26, 32, 44, 0.8)')
+                                backdropFilter: 'saturate(180%) blur(5px)',
+                                backgroundColor: useColorModeValue('lightgray', 'dark.300')
                             }}
                         >
                             <ServiceList services={services} uzelId={uzel.id}/>
