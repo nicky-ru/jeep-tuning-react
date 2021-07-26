@@ -10,7 +10,6 @@ import {
 } from '@chakra-ui/react';
 import ServiceList from "./serviceList";
 import Link from 'next/link'
-import styles from "../../styles/Home.module.css";
 
 // import AppointModal from "./appointModal";
 const ServiceAccordion = ({uzels = [], services = []}) => {
