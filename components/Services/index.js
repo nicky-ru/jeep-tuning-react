@@ -5,7 +5,7 @@ import {
     AccordionIcon,
     AccordionItem,
     AccordionPanel,
-    Button, Text,
+    Button, Text, useColorMode,
     useColorModeValue, useDisclosure
 } from '@chakra-ui/react';
 import ServiceList from "./serviceList";
@@ -14,6 +14,7 @@ import styles from "../../styles/Home.module.css";
 
 // import AppointModal from "./appointModal";
 const ServiceAccordion = ({uzels = [], services = []}) => {
+    const { colorMode, toggleColorMode } = useColorMode();
     const { isOpen, onOpen, onClose } = useDisclosure();
 
     return(
@@ -37,10 +38,7 @@ const ServiceAccordion = ({uzels = [], services = []}) => {
                         </h2>
                         <AccordionPanel
                             py={4}
-                            css={{
-                                backdropFilter: 'saturate(180%) blur(5px)',
-                                backgroundColor: useColorModeValue('lightgray', 'dark.300')
-                            }}
+                            bg={colorMode === 'light' ? 'lightgray' : 'dark.100'}
                         >
                             <ServiceList services={services} uzelId={uzel.id}/>
                         </AccordionPanel>
