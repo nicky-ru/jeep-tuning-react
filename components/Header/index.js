@@ -38,8 +38,9 @@ const Header = () => {
                 // w={'full'}
                 minH={'60px'}
                 boxShadow={'sm'}
-                zIndex="999"
                 justify={'center'}
+                position={'relative'}
+                zIndex={1000}
                 bg={colorMode === "light" ? "dark.500" : "light.500"}
                 css={{
                     backdropFilter: 'saturate(180%) blur(5px)',

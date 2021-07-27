@@ -9,6 +9,7 @@ const Jumbotron = () => {
             h={{base: '12rem', md: '400px'}}
             bg={'dark.100'}
             position={"relative"}
+            zIndex={0}
         >
             <Image
                 src={'/images/bkg.webp'}
