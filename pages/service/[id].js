@@ -1,18 +1,11 @@
-import {Container, Stack, Box, Heading, Text, Badge, Center, StackDivider} from "@chakra-ui/layout";
-import {
-    Button, Modal,
-    ModalBody,
-    ModalCloseButton,
-    ModalContent, ModalFooter,
-    ModalHeader,
-    ModalOverlay, Select,
-    useDisclosure, VStack
-} from "@chakra-ui/react";
+import {Container, Stack, Center, StackDivider} from "@chakra-ui/layout";
+import {Button} from "@chakra-ui/react";
 
 import {getAllServicesIds, getServiceData, getUzelData} from "../../lib/services";
 import Head from "next/head";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import ServiceInfo from "../../components/Services/serviceInfo";
 
 export async function getStaticPaths() {
     const paths = await getAllServicesIds();
@@ -33,9 +26,7 @@ export async function getStaticProps({ params }) {
     }
 }
 
-const Service = ({service, uzel}) => {
-    const { isOpen, onOpen, onClose } = useDisclosure();
-
+const Service = ({service={}, uzel={}}) => {
 
     return(
         <>
@@ -47,7 +38,8 @@ const Service = ({service, uzel}) => {
 
             <Header/>
 
-            <Container maxW="container.lg" h={'90vh'}>
+            <Container maxW="container.lg" h={'90vh'} mt={"60px"}>
+
                 <Stack
                     direction={["column", "row"]}
                     spacing="24px"
@@ -55,76 +47,13 @@ const Service = ({service, uzel}) => {
                     divider={<StackDivider borderColor="gray.200" />}
                 >
 
+                    <ServiceInfo service={service} uzel={uzel}/>
                     <Center h={'100%'}>
-                        <Box>
-                            <>
-                                <Heading mb={'0.5rem'} textTransform={'capitalize'}>{service.name}</Heading>
-                                <Heading mb={'1rem'} size={'sm'}>{uzel.name}</Heading>
-                                <Text mb={'1rem'}>{service.description}</Text>
-                                <Text>Цена от: <Badge ml="1" colorScheme="green">{service.price} руб.</Badge></Text>
-                            </>
-                        </Box>
-                    </Center>
-
-                    <Center h={'100%'}>
-                        <Button
-                            onClick={() => {
-                                onOpen();
-                            }}
-                        >
+                        <Button size={"lg"} colorScheme={"red"}>
                             Записаться
                         </Button>
                     </Center>
                 </Stack>
-
-                {/*<Modal isOpen={isOpen} onClose={onClose}>*/}
-                {/*    <ModalOverlay />*/}
-                {/*    <ModalContent>*/}
-                {/*        <ModalHeader>Запись на услугу</ModalHeader>*/}
-                {/*        <ModalCloseButton />*/}
-                {/*        <ModalBody>*/}
-                {/*            <VStack spacing={4}>*/}
-                {/*                <Select placeholder="Узел">*/}
-                {/*                    <option value="option1">Option 1</option>*/}
-                {/*                    <option value="option2">Option 2</option>*/}
-                {/*                    <option value="option3">Option 3</option>*/}
-                {/*                </Select>*/}
-                {/*                <Select placeholder="Услуга">*/}
-                {/*                    <option value="option1">Option 1</option>*/}
-                {/*                    <option value="option2">Option 2</option>*/}
-                {/*                    <option value="option3">Option 3</option>*/}
-                {/*                </Select>*/}
-                {/*                <Select placeholder="Марка авто">*/}
-                {/*                    <option value="option1">Option 1</option>*/}
-                {/*                    <option value="option2">Option 2</option>*/}
-                {/*                    <option value="option3">Option 3</option>*/}
-                {/*                </Select>*/}
-                {/*                <Select placeholder="Модель авто">*/}
-                {/*                    <option value="option1">Option 1</option>*/}
-                {/*                    <option value="option2">Option 2</option>*/}
-                {/*                    <option value="option3">Option 3</option>*/}
-                {/*                </Select>*/}
-                {/*                <Select placeholder="Год">*/}
-                {/*                    <option value="option1">Option 1</option>*/}
-                {/*                    <option value="option2">Option 2</option>*/}
-                {/*                    <option value="option3">Option 3</option>*/}
-                {/*                </Select>*/}
-                {/*                <Select placeholder="VIN">*/}
-                {/*                    <option value="option1">Option 1</option>*/}
-                {/*                    <option value="option2">Option 2</option>*/}
-                {/*                    <option value="option3">Option 3</option>*/}
-                {/*                </Select>*/}
-                {/*            </VStack>*/}
-                {/*        </ModalBody>*/}
-
-                {/*        <ModalFooter>*/}
-                {/*            <Button variant="ghost" onClick={onClose}>*/}
-                {/*                Закрыть*/}
-                {/*            </Button>*/}
-                {/*            <Button colorScheme="blue" mr={3}>Записаться</Button>*/}
-                {/*        </ModalFooter>*/}
-                {/*    </ModalContent>*/}
-                {/*</Modal>*/}
             </Container>
 
             <Footer/>
