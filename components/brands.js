@@ -1,7 +1,10 @@
-import {Container, Heading, Wrap, WrapItem, Center} from "@chakra-ui/layout";
+import {Container, Heading, Wrap, WrapItem, Center, Stack} from "@chakra-ui/layout";
+import {useColorMode} from "@chakra-ui/react";
 import Image from 'next/image'
+import React from "react";
 
 const Brands = ({brands = []}) => {
+    const {colorMode} = useColorMode();
     return(
         <Container
             my={'1rem'}
@@ -10,7 +13,13 @@ const Brands = ({brands = []}) => {
             <Heading marginBottom={'1.2rem'}>
                 Марки, с которыми мы работаем
             </Heading>
-            <Wrap spacing="30px" justify="center">
+            <Wrap
+                spacing="30px"
+                justify="center"
+                bg={colorMode === "light" ? "light.100" : "dark.100"}
+                p={5}
+                borderRadius={'md'}
+            >
                 {brands.map((brand) => (
                         <WrapItem key={brand.name}>
                             <Center

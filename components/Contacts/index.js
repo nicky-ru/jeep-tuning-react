@@ -1,9 +1,10 @@
 import {Container, Heading, Stack, Text, Link as ChackraLink, Center} from "@chakra-ui/layout";
-import {Button} from "@chakra-ui/react";
+import {Button, useColorMode} from "@chakra-ui/react";
 import React from "react";
 import {FaYandex} from "react-icons/fa";
 
 const Contacts = () => {
+    const {colorMode} = useColorMode();
     const tel1 = "+79108210003"
     const tel2 = "+79038230004"
 
@@ -14,7 +15,13 @@ const Contacts = () => {
         >
             <Heading marginBottom={'1.2rem'}>Наш адресс</Heading>
 
-            <Stack direction={["column", "row"]} spacing="24px">
+            <Stack
+                direction={["column", "row"]}
+                spacing="24px"
+                bg={colorMode === "light" ? "light.100" : "dark.100"}
+                p={5}
+                borderRadius={'md'}
+            >
                 <Center w={{base: "90vw", md: "30vw"}} textAlign={{base: 'center', md: 'left'}}>
                     <Text>
                         г. Ярославль <br/>
