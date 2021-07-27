@@ -32,7 +32,7 @@ export default function Services({services = []}) {
 
             <Header/>
 
-            <Container maxW={"container.lg"} mt={'1rem'}>
+            <Container mt={"60px"} maxW={"container.lg"}>
                 <SearchBar/>
                 <Divider my={"1rem"}/>
                 <ServiceList services={services} uzelId={'all'}/>
