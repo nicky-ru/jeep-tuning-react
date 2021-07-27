@@ -1,9 +1,10 @@
-import {Heading, Center, Box, Stack, Input, useColorMode} from "@chakra-ui/react";
+import {Heading, Center, Box, Stack, Input, useColorModeValue} from "@chakra-ui/react";
 import Image from "next/image"
 import React from "react";
 
 const Jumbotron = () => {
-    const {colorMode} = useColorMode();
+    const border = useColorModeValue("light.300", "dark.100");
+    const bg = useColorModeValue("dark.500", "light.500");
     return (
         <Box
             mt={"60px"}
@@ -29,7 +30,7 @@ const Jumbotron = () => {
                     py={{base: "0.5rem", md: 5}}
                     mx={{base: "1rem", md: 0}}
                     textAlign={'center'}
-                    bg={colorMode === "light" ? "dark.500" : "light.500"}
+                    bg={bg}
                     css={{
                         backdropFilter: 'saturate(180%) blur(5px)',
                     }}
@@ -38,7 +39,7 @@ const Jumbotron = () => {
                     <Heading size={'md'}>Какая услуга вас интересует?</Heading>
                     <Input
                         placeholder="Поиск по услугам"
-                        borderColor={colorMode === "light" ? "light.300" : "dark.100"}
+                        borderColor={border}
                     />
                 </Stack>
             </Center>
