@@ -37,9 +37,10 @@ const Header = () => {
                 // top="0"
                 // w={'full'}
                 minH={'60px'}
+                w={"100%"}
                 boxShadow={'sm'}
                 justify={'center'}
-                position={'relative'}
+                position={'fixed'}
                 zIndex={1000}
                 bg={colorMode === "light" ? "dark.500" : "light.500"}
                 css={{

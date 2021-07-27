@@ -6,6 +6,7 @@ const Jumbotron = () => {
     const {colorMode} = useColorMode();
     return (
         <Box
+            mt={"60px"}
             h={{base: '12rem', md: '400px'}}
             bg={'dark.100'}
             position={"relative"}
