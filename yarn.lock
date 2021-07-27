@@ -2559,7 +2559,7 @@
     "@chakra-ui/hooks" "1.5.4"
     "@chakra-ui/utils" "1.8.1"
 
-"@chakra-ui/input@1.2.8":
+"@chakra-ui/input@^1.2.8", "@chakra-ui/input@1.2.8":
   "integrity" "sha512-WGvkcjJH9XpOlpKI9POn7UDA8qnHf22mBKY771U3IfW2QxcZH/rPFwDE7YIMLr9M4g+rL4NLSWmXYvO92rzc6A=="
   "resolved" "https://registry.npmjs.org/@chakra-ui/input/-/input-1.2.8.tgz"
   "version" "1.2.8"

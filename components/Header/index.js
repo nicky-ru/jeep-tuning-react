@@ -6,10 +6,9 @@ import {
     Container,
     Stack,
     IconButton,
-    useColorModeValue,
     useColorMode,
     Heading,
-    Link as ChackraLink,
+    Link as ChakraLink,
     Button,
     Menu,
     MenuButton,
@@ -41,9 +40,9 @@ const Header = () => {
                 boxShadow={'sm'}
                 zIndex="999"
                 justify={'center'}
+                bg={colorMode === "light" ? "dark.500" : "light.500"}
                 css={{
                     backdropFilter: 'saturate(180%) blur(5px)',
-                    backgroundColor: useColorModeValue('rgba(255, 255, 255, 0.8)', 'rgba(26, 32, 44, 0.8)')
                 }}
             >
                 <Container as={Flex} maxW={'7xl'} align={'center'}>
@@ -126,7 +125,7 @@ const Header = () => {
                             display={{ base: 'none', md: 'flex' }}
                             ml={10}
                         >
-                            <ChackraLink
+                            <ChakraLink
                                 fontSize={'1.2em'}
                                 px={'0.5rem'}
                                 textDecoration={"none"}
@@ -136,7 +135,7 @@ const Header = () => {
                                 }}
                             >
                                 {tel}
-                            </ChackraLink>
+                            </ChakraLink>
                         </Flex>
                         <IconButton
                             borderRadius="12"
