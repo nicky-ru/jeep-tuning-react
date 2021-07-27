@@ -1,4 +1,4 @@
-import {Container, Heading, Stack, Text, Link as ChackraLink, Center} from "@chakra-ui/layout";
+import {Container, Heading, Stack, Text, Link as ChackraLink, Center, Box} from "@chakra-ui/layout";
 import {Button, useColorMode} from "@chakra-ui/react";
 import React from "react";
 import {FaYandex} from "react-icons/fa";
@@ -22,7 +22,7 @@ const Contacts = () => {
                 p={5}
                 borderRadius={'md'}
             >
-                <Center w={{base: "90vw", md: "30vw"}} textAlign={{base: 'center', md: 'left'}}>
+                <Box w={{base: "100%", md: "50%"}} textAlign={{base: 'center', md: 'right'}}>
                     <Text>
                         г. Ярославль <br/>
                         Район ТЦ Вернисаж, Ул Дорожная 7 <br/><br/>
@@ -47,8 +47,8 @@ const Contacts = () => {
                             Тел:{" "}{tel2}
                         </ChackraLink>
                     </Text>
-                </Center>
-                <Center w={{base: "90vw", md: "30vw"}}>
+                </Box>
+                <Center w={{base: "100%", md: "50%"}}>
                     <Button
                         colorScheme={'red'}
                         leftIcon={<FaYandex />}
