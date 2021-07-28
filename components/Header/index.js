@@ -8,6 +8,7 @@ import {
     IconButton,
     useColorMode,
     useColorModeValue,
+    Portal,
     Heading,
     Link as ChakraLink,
     Button,
@@ -36,17 +37,15 @@ const Header = () => {
         <Box>
             <Flex
                 as={'header'}
-                // pos="fixed"
-                // top="0"
-                // w={'full'}
                 minH={16}
                 w={"full"}
                 boxShadow={'sm'}
                 justify={'center'}
                 position={'fixed'}
+                top="0"
                 zIndex={1}
                 bg={bg}
-                css={{
+                sx={{
                     backdropFilter: 'saturate(180%) blur(5px)',
                 }}
             >
@@ -61,33 +60,35 @@ const Header = () => {
                                 variant={'ghost'}
                                 size={'sm'}
                             />
-                            <MenuList>
-                                <MenuItem
-                                    icon={<SocialIcon url={"//api.whatsapp.com/send?phone=8615651921699"} network={'whatsapp'}/>}
-                                >
-                                    Написать в Вотсапп
-                                </MenuItem>
-                                <MenuItem icon={<SocialIcon url={"https://telegram.me/Vezdehod13"} network={'telegram'}/>}
-                                >
-                                    Написать в Телеграм
-                                </MenuItem>
-                                <MenuItem icon={<SocialIcon url={"https://vk.com/jeepservice76"} network={'vk'}/>}
-                                >
-                                    Группа Вконтакте
-                                </MenuItem>
-                                <MenuItem icon={<SocialIcon url={"https://www.instagram.com/jeepservice_76/"} network={'instagram'}/>}
-                                >
-                                    Мы в Инстаграмме
-                                </MenuItem>
-                                {router.pathname !== "/" &&
+                            <Portal>
+                                <MenuList>
+                                    <MenuItem
+                                        icon={<SocialIcon url={"//api.whatsapp.com/send?phone=8615651921699"} network={'whatsapp'}/>}
+                                    >
+                                        Написать в Вотсапп
+                                    </MenuItem>
+                                    <MenuItem icon={<SocialIcon url={"https://telegram.me/Vezdehod13"} network={'telegram'}/>}
+                                    >
+                                        Написать в Телеграм
+                                    </MenuItem>
+                                    <MenuItem icon={<SocialIcon url={"https://vk.com/jeepservice76"} network={'vk'}/>}
+                                    >
+                                        Группа Вконтакте
+                                    </MenuItem>
+                                    <MenuItem icon={<SocialIcon url={"https://www.instagram.com/jeepservice_76/"} network={'instagram'}/>}
+                                    >
+                                        Мы в Инстаграмме
+                                    </MenuItem>
+                                    {router.pathname !== "/" &&
                                     <MenuItem
                                         icon={<FaHome size={50} style={{fill: "#7289da", padding: 5}}/>}
                                         onClick={() => router.push('/')}
                                     >
                                         На главную
                                     </MenuItem>
-                                }
-                            </MenuList>
+                                    }
+                                </MenuList>
+                            </Portal>
                         </Menu>
                     </Flex>
 
