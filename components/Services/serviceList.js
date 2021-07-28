@@ -1,10 +1,10 @@
-import {VStack, Box, Text, Button, StackDivider, useColorMode} from '@chakra-ui/react';
+import {VStack, Box, Text, Button, StackDivider, useColorModeValue} from '@chakra-ui/react';
 import Link from "next/link"
 import {useState, useEffect} from "react";
 
 const ServiceList = ({services = [], uzelId = ""}) => {
-    const { colorMode } = useColorMode();
     const [filteredServices, setFilteredServices] = useState([]);
+    const border = useColorModeValue("light.100", "dark.100");
 
     useEffect(() => {
         if (uzelId.toUpperCase() === 'ALL') {
@@ -22,7 +22,7 @@ const ServiceList = ({services = [], uzelId = ""}) => {
     return(
         <VStack
             align="stretch"
-            divider={<StackDivider borderColor={colorMode === "light" ? "light.100" : "dark.100"} />}
+            divider={<StackDivider borderColor={border} />}
         >
             {filteredServices.map((service) => (
                 <Box key={service.id}

@@ -7,6 +7,7 @@ import {
     Stack,
     IconButton,
     useColorMode,
+    useColorModeValue,
     Heading,
     Link as ChakraLink,
     Button,
@@ -23,7 +24,9 @@ import {SocialIcon} from 'react-social-icons';
 import {FaHome} from "react-icons/fa";
 
 const Header = () => {
-    const { colorMode, toggleColorMode } = useColorMode();
+    const { toggleColorMode } = useColorMode();
+    const bg = useColorModeValue("dark.500", "light.500");
+    const icon = useColorModeValue(<IoMoon size={18} />, <IoSunny size={18} />)
     const router = useRouter();
 
     const email = "misaxa@yandex.ru";
@@ -42,7 +45,7 @@ const Header = () => {
                 justify={'center'}
                 position={'fixed'}
                 zIndex={1000}
-                bg={colorMode === "light" ? "dark.500" : "light.500"}
+                bg={bg}
                 css={{
                     backdropFilter: 'saturate(180%) blur(5px)',
                 }}
@@ -143,7 +146,7 @@ const Header = () => {
                             borderRadius="12"
                             aria-label={'Toggle Color Mode'}
                             onClick={toggleColorMode}
-                            icon={colorMode === 'light' ? <IoMoon size={18} /> : <IoSunny size={18} />}
+                            icon={icon}
                         />
                     </Stack>
                 </Container>

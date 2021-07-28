@@ -1,10 +1,10 @@
 import {Container, Heading, Stack, Text, Link as ChackraLink, Center, Box} from "@chakra-ui/layout";
-import {Button, useColorMode} from "@chakra-ui/react";
+import {Button, useColorModeValue} from "@chakra-ui/react";
 import React from "react";
 import {FaYandex} from "react-icons/fa";
 
 const Contacts = () => {
-    const {colorMode} = useColorMode();
+    const bg = useColorModeValue("light.100", 'dark.100');
     const tel1 = "+79108210003"
     const tel2 = "+79038230004"
 
@@ -18,7 +18,7 @@ const Contacts = () => {
             <Stack
                 direction={["column", "row"]}
                 spacing="24px"
-                bg={colorMode === "light" ? "light.100" : "dark.100"}
+                bg={bg}
                 p={5}
                 borderRadius={'md'}
             >

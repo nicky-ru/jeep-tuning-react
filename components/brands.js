@@ -1,10 +1,11 @@
 import {Container, Heading, Wrap, WrapItem, Center, Stack} from "@chakra-ui/layout";
-import {useColorMode} from "@chakra-ui/react";
+import {useColorModeValue} from "@chakra-ui/react";
 import Image from 'next/image'
 import React from "react";
 
 const Brands = ({brands = []}) => {
-    const {colorMode} = useColorMode();
+    const bg = useColorModeValue("light.100", 'dark.100');
+
     return(
         <Container
             my={'1rem'}
@@ -16,7 +17,7 @@ const Brands = ({brands = []}) => {
             <Wrap
                 spacing="30px"
                 justify="center"
-                bg={colorMode === "light" ? "light.100" : "dark.100"}
+                bg={bg}
                 p={5}
                 borderRadius={'md'}
             >

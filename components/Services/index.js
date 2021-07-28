@@ -5,13 +5,14 @@ import {
     AccordionIcon,
     AccordionItem,
     AccordionPanel,
-    Button, useColorMode
+    useColorModeValue,
+    Button
 } from '@chakra-ui/react';
 import ServiceList from "./serviceList";
 import Link from 'next/link'
 
 const ServiceAccordion = ({uzels = [], services = []}) => {
-    const { colorMode } = useColorMode();
+    const bg = useColorModeValue('light.100', 'dark.100');
 
     return(
         <Container
@@ -34,7 +35,7 @@ const ServiceAccordion = ({uzels = [], services = []}) => {
                         </h2>
                         <AccordionPanel
                             py={4}
-                            bg={colorMode === 'light' ? 'light.100' : 'dark.100'}
+                            bg={bg}
                         >
                             <ServiceList services={services} uzelId={uzel.id}/>
                         </AccordionPanel>

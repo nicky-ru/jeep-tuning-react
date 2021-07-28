@@ -1,8 +1,8 @@
 import {Container, Heading, Wrap, WrapItem, Center, Text} from "@chakra-ui/layout";
-import {useColorMode} from "@chakra-ui/react";
+import {useColorModeValue} from "@chakra-ui/react";
 
 const Advantages = ({advantages = []}) => {
-    const {colorMode} = useColorMode();
+    const bg = useColorModeValue("light.100", 'dark.100');
 
     return(
         <Container
@@ -18,7 +18,7 @@ const Advantages = ({advantages = []}) => {
                             w={{base: '90vw', md: '250px'}}
                             h={{base: '5rem', md: '150px'}}
                             p={'1rem'}
-                            bg={colorMode === "light" ? "light.100" : 'dark.100'}
+                            bg={bg}
                             borderRadius={'md'}
                         >
                             <Text align={'center'}>{advantage.name}</Text>

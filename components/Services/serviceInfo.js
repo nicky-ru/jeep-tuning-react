@@ -1,14 +1,14 @@
 import {Badge, Box, Center, Heading, Text} from "@chakra-ui/layout";
-import {useColorMode} from "@chakra-ui/react";
+import {useColorModeValue} from "@chakra-ui/react";
 
 const ServiceInfo = ({service={}, uzel={}}) => {
-    const {colorMode} = useColorMode();
+    const bg = useColorModeValue("light.100", 'dark.100');
 
     return (
         <Center h={'100%'}>
             <Box
                 mb={'1rem'}
-                bg={colorMode === "light" ? "light.100" : "dark.100"}
+                bg={bg}
                 p={5}
                 borderRadius={"md"}
             >
@@ -16,7 +16,7 @@ const ServiceInfo = ({service={}, uzel={}}) => {
                 <Heading mb={'1rem'} size={'sm'}>{uzel.name}</Heading>
                 <Text
                     mb={'1rem'}
-                    bg={colorMode === "light" ? "light.100" : "dark.100"}
+                    bg={bg}
                     p={5}
                     borderRadius={"md"}
                 >
