@@ -8,14 +8,14 @@ const Brands = ({brands = []}) => {
 
     return(
         <Container
-            my={'1rem'}
+            my={4}
             maxW="container.lg"
         >
-            <Heading marginBottom={'1.2rem'}>
+            <Heading marginBottom={5}>
                 Марки, с которыми мы работаем
             </Heading>
             <Wrap
-                spacing="30px"
+                spacing={8}
                 justify="center"
                 bg={bg}
                 p={5}
@@ -24,8 +24,8 @@ const Brands = ({brands = []}) => {
                 {brands.map((brand) => (
                         <WrapItem key={brand.name}>
                             <Center
-                                h={{base: '25px', md: '75px'}}
-                                w={{base: '25px', md: '75px'}}
+                                h={[6, 20]}
+                                w={[6, 20]}
                                 position={'relative'}
                             >
                                 <Image

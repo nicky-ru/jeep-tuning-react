@@ -5,10 +5,11 @@ import React from "react";
 const Jumbotron = () => {
     const border = useColorModeValue("light.300", "dark.100");
     const bg = useColorModeValue("dark.500", "light.500");
+
     return (
         <Box
-            mt={"60px"}
-            h={{base: '12rem', md: '400px'}}
+            mt={16}
+            h={["2xs", "md"]}
             bg={'dark.100'}
             position={"relative"}
             zIndex={0}
@@ -16,19 +17,19 @@ const Jumbotron = () => {
             <Image
                 src={'/images/bkg.webp'}
                 layout={'fill'}
-                objectFit={{base: 'contain', md: 'cover'}}
+                objectFit={["contain", "cover"]}
                 priority={true}
                 objectPosition={'right top'}
             />
             <Center
-                h={'100%'}
+                h={"full"}
             >
                 <Stack
                     direction={'column'}
                     borderRadius={'md'}
-                    px={{base: "1rem", md: 10}}
-                    py={{base: "0.5rem", md: 5}}
-                    mx={{base: "1rem", md: 0}}
+                    px={[4, 10]}
+                    py={[2, 5]}
+                    mx={[4, 0]}
                     textAlign={'center'}
                     bg={bg}
                     css={{

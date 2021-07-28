@@ -39,19 +39,19 @@ const Header = () => {
                 // pos="fixed"
                 // top="0"
                 // w={'full'}
-                minH={'60px'}
-                w={"100%"}
+                minH={16}
+                w={"full"}
                 boxShadow={'sm'}
                 justify={'center'}
                 position={'fixed'}
-                zIndex={1000}
+                zIndex={1}
                 bg={bg}
                 css={{
                     backdropFilter: 'saturate(180%) blur(5px)',
                 }}
             >
-                <Container as={Flex} maxW={'7xl'} align={'center'}>
-                    <Flex flex={{ base: 1, md: 'auto' }} ml={{ base: -2 }} display={{ base: 'flex', md: 'none' }}>
+                <Container as={Flex} maxW={'container.xl'} align={'center'}>
+                    <Flex flex={[1, "auto"]} ml={[-2]} display={["flex", "none"]}>
                         <Menu
                         >
                             <MenuButton
@@ -91,11 +91,11 @@ const Header = () => {
                         </Menu>
                     </Flex>
 
-                    <Flex flex={{ base: 1, md: 'auto' }} justify={{ base: 'center', md: 'start' }}>
+                    <Flex flex={[1, "auto"]} justify={["center", "start"]}>
                         <Stack direction={'row'} alignItems={'center'} spacing={{ base: 2, sm: 4 }}>
                             <Link href="/" style={{ textDecoration: 'none'}}>
                                 <a>
-                                    <Heading as={'h1'} fontSize={'xl'} display={{ base: 'none', md: 'block' }}>
+                                    <Heading as={'h1'} fontSize={'xl'} display={["none", null, "block"]}>
                                         JeepService
                                     </Heading>
                                 </a>
@@ -105,7 +105,7 @@ const Header = () => {
 
 
 
-                    <Stack direction={'row'} align={'center'} spacing={2} flex={{ base: 1, md: 'auto' }} justify={'flex-end'}>
+                    <Stack direction={'row'} align={'center'} spacing={2} flex={[1, null, "auto"]} justify={'flex-end'}>
                         <Button
                             leftIcon={<EmailIcon />}
                             variant="solid"
@@ -127,12 +127,13 @@ const Header = () => {
                             Позвонить
                         </Button>
                         <Flex
-                            display={{ base: 'none', md: 'flex' }}
+                            display={["none", null, "flex"]}
                             ml={10}
                         >
                             <ChakraLink
-                                fontSize={'1.2em'}
-                                px={'0.5rem'}
+                                fontSize={"xl"}
+                                fontWeight={"medium"}
+                                px={2}
                                 textDecoration={"none"}
                                 onClick={(e) => {
                                     e.preventDefault();

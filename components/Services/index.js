@@ -17,9 +17,9 @@ const ServiceAccordion = ({uzels = [], services = []}) => {
     return(
         <Container
             maxW="container.lg"
-            my={'1rem'}
+            my={4}
         >
-            <Heading marginBottom={'1.2rem'}>Наши услуги</Heading>
+            <Heading marginBottom={5}>Наши услуги</Heading>
 
 
             <Accordion allowToggle reduceMotion>
@@ -46,7 +46,7 @@ const ServiceAccordion = ({uzels = [], services = []}) => {
                 href={`/serviceList`}
             >
                 <a>
-                    <Button mt={'0.5rem'} w={'100%'}>Все услуги</Button>
+                    <Button mt={2} w={"full"}>Все услуги</Button>
                 </a>
 
             </Link>

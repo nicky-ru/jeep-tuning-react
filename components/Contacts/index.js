@@ -8,27 +8,30 @@ const Contacts = () => {
     const tel1 = "+79108210003"
     const tel2 = "+79038230004"
 
-    return(
+    return (
         <Container
             maxW={'container.lg'}
-            my={'1rem'}
+            my={4}
         >
-            <Heading marginBottom={'1.2rem'}>Наш адресс</Heading>
+            <Heading marginBottom={5}>Наш адресс</Heading>
 
             <Stack
                 direction={["column", "row"]}
-                spacing="24px"
+                spacing={8}
                 bg={bg}
                 p={5}
                 borderRadius={'md'}
             >
-                <Box w={{base: "100%", md: "50%"}} textAlign={{base: 'center', md: 'right'}}>
+                <Box
+                    w={["full", null, "50%"]}
+                    textAlign={["center", null, "right"]}
+                >
                     <Text>
                         г. Ярославль <br/>
                         Район ТЦ Вернисаж, Ул Дорожная 7 <br/><br/>
 
                         <ChackraLink
-                            py={'0.5rem'}
+                            py={2}
                             onClick={(e) => {
                                 e.preventDefault();
                                 window.location = `tel:${tel1}`;
@@ -38,7 +41,7 @@ const Contacts = () => {
                         </ChackraLink>
                         <br/>
                         <ChackraLink
-                            py={'0.5rem'}
+                            py={2}
                             onClick={(e) => {
                                 e.preventDefault();
                                 window.location = `tel:${tel2}`;
@@ -48,10 +51,10 @@ const Contacts = () => {
                         </ChackraLink>
                     </Text>
                 </Box>
-                <Center w={{base: "100%", md: "50%"}}>
+                <Center w={["full", null, "50%"]}>
                     <Button
                         colorScheme={'red'}
-                        leftIcon={<FaYandex />}
+                        leftIcon={<FaYandex/>}
                         type={'link'}
                         onClick={(e) => {
                             e.preventDefault();

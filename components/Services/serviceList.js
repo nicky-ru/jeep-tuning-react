@@ -1,4 +1,5 @@
 import {VStack, Box, Text, Button, StackDivider, useColorModeValue} from '@chakra-ui/react';
+import {CalendarIcon} from "@chakra-ui/icons";
 import Link from "next/link"
 import {useState, useEffect} from "react";
 
@@ -35,8 +36,8 @@ const ServiceList = ({services = [], uzelId = ""}) => {
                     >
                         <a>
                             <Text
-                                maxWidth={{base: "80vw", md: "100%"}}
-                                marginLeft={"10px"}
+                                maxWidth={["80vw", "full"]}
+                                marginLeft={3}
                                 isTruncated
                                 textTransform={'capitalize'}
                             >
@@ -45,9 +46,10 @@ const ServiceList = ({services = [], uzelId = ""}) => {
                         </a>
                     </Link>
                     <Button
-                        display={{ base: 'none', md: 'flex' }}
-                        borderRadius={16}
-                        type={"button"}
+                        rightIcon={<CalendarIcon/>}
+                        display={["none", "flex"]}
+                        colorScheme={"orange"}
+                        variant={"outline"}
                         key={service.id}
                     >
                         Записаться

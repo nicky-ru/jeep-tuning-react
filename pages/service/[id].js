@@ -1,4 +1,4 @@
-import {Container, Stack, Center, StackDivider} from "@chakra-ui/layout";
+import {Container, Stack, Center, StackDivider, Divider} from "@chakra-ui/layout";
 import {Button} from "@chakra-ui/react";
 
 import {getAllServicesIds, getServiceData, getUzelData} from "../../lib/services";
@@ -38,24 +38,25 @@ const Service = ({service={}, uzel={}}) => {
 
             <Header/>
 
-            <Container maxW="container.lg" h={'90vh'} mt={"60px"}>
+            <Container maxW="container.lg" h={"xl"} mt={16}>
 
                 <Stack
                     direction={["column", "row"]}
-                    spacing="24px"
-                    h={'100%'}
+                    spacing="6"
+                    h={"full"}
                     divider={<StackDivider borderColor="gray.200" />}
                 >
 
                     <ServiceInfo service={service} uzel={uzel}/>
-                    <Center h={'100%'}>
-                        <Button size={"lg"} colorScheme={"red"}>
+                    <Center h={["3xs", "full"]}>
+                        <Button size={"lg"} colorScheme={"orange"}>
                             Записаться
                         </Button>
                     </Center>
                 </Stack>
             </Container>
 
+            <Divider/>
             <Footer/>
 
         </>

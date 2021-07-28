@@ -6,18 +6,18 @@ const Advantages = ({advantages = []}) => {
 
     return(
         <Container
-            my={'1rem'}
+            my={4}
             maxW="container.lg"
         >
-            <Heading marginBottom={'1.2rem'}>Почему выбирают нас</Heading>
-            <Wrap spacing={{base: "5px", md: "30px"}} justify="center">
+            <Heading marginBottom={5}>Почему выбирают нас</Heading>
+            <Wrap spacing={[1, 8]} justify="center">
 
                 {advantages.map((advantage) => (
                     <WrapItem key={advantage.id}>
                         <Center
-                            w={{base: '90vw', md: '250px'}}
-                            h={{base: '5rem', md: '150px'}}
-                            p={'1rem'}
+                            w={["90vw", "2xs"]}
+                            h={[20, 40]}
+                            p={4}
                             bg={bg}
                             borderRadius={'md'}
                         >
