@@ -1,7 +1,8 @@
 import {Container, Stack, Center, StackDivider, Divider} from "@chakra-ui/layout";
 import {Button} from "@chakra-ui/react";
 
-import {getAllServicesIds, getServiceData, getUzelData} from "../../lib/services";
+import {getAllServicesIds, getServiceData} from "../../lib/services";
+import {getUzelData} from "../../lib/uzels";
 import Head from "next/head";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";

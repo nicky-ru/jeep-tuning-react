@@ -1,23 +1,20 @@
 import Head from 'next/head'
 import {Divider, Container} from "@chakra-ui/layout";
-import { Amplify, withSSRContext } from "aws-amplify";
-import awsExports from "../src/aws-exports";
-import {listServices} from "../src/graphql/queries";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ServiceList from "../components/Services/serviceList"
 import SearchBar from "../components/searchBar";
+import {getAllServices} from "../lib/services";
 
-Amplify.configure({ ...awsExports, ssr: true });
-
-export async function getServerSideProps({ req }) {
-    const SSR = withSSRContext({ req });
-    const serviceData = await SSR.API.graphql({query: listServices});
+export async function getStaticProps() {
+    const serviceData = await getAllServices();
+    const services = serviceData.map(service => {return service.params.service;})
 
     return {
         props: {
-            services: serviceData.data.listServices.items,
+            services,
         },
+        revalidate: 15,
     };
 }
 

@@ -10,26 +10,30 @@ import Brands from "../components/brands";
 import Contacts from "../components/Contacts";
 import Footer from "../components/Footer";
 // amplify
-import { Amplify, withSSRContext } from "aws-amplify";
-import awsExports from "../src/aws-exports";
-import {listUzels, listAdvantages, listBrands, listServices} from "../src/graphql/queries";
+import {getAllServices} from "../lib/services";
+import {getAllUzels} from "../lib/uzels";
+import {getAllAdvantages} from "../lib/advantages";
+import {getAllBrands} from "../lib/brands";
 
-Amplify.configure({ ...awsExports, ssr: true });
+export async function getStaticProps() {
+    const serviceData = await getAllServices();
+    const uzelsData = await getAllUzels();
+    const advantagesData = await getAllAdvantages();
+    const brandsData = await getAllBrands();
 
-export async function getServerSideProps({ req }) {
-    const SSR = withSSRContext({ req });
-    const serviceData = await SSR.API.graphql({query: listServices});
-    const uzelsData = await SSR.API.graphql({ query: listUzels });
-    const advantagesData = await SSR.API.graphql({query: listAdvantages });
-    const brandsData = await SSR.API.graphql({query: listBrands});
+    const services = serviceData.map(service => {return service.params.service;})
+    const uzels = uzelsData.map(uzel => {return uzel.params.uzel;})
+    const advantages = advantagesData.map(advantage => {return advantage.params.advantage;})
+    const brands = brandsData.map(brand => {return brand.params.brand;})
 
     return {
         props: {
-            uzels: uzelsData.data.listUzels.items,
-            advantages: advantagesData.data.listAdvantages.items,
-            brands: brandsData.data.listBrands.items,
-            services: serviceData.data.listServices.items,
+            uzels,
+            advantages,
+            brands,
+            services,
         },
+        revalidate: 20,
     };
 }
 

@@ -16,6 +16,7 @@ const Jumbotron = () => {
         >
             <Image
                 src={'/images/bkg.webp'}
+                alt={'background'}
                 layout={'fill'}
                 objectFit={["contain", "cover"]}
                 priority={true}
