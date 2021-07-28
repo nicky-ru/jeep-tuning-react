@@ -8,6 +8,8 @@ import {
     IconButton,
     useColorMode,
     useColorModeValue,
+    useDisclosure,
+    useOutsideClick,
     Portal,
     Heading,
     Link as ChakraLink,
@@ -17,7 +19,7 @@ import {
     MenuList,
     MenuItem
 } from '@chakra-ui/react'
-import { HamburgerIcon } from '@chakra-ui/icons';
+import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import Link from 'next/link'
 import { IoMoon, IoSunny } from 'react-icons/io5';
 import {EmailIcon, PhoneIcon} from "@chakra-ui/icons";
@@ -26,9 +28,15 @@ import {FaHome} from "react-icons/fa";
 
 const Header = () => {
     const { toggleColorMode } = useColorMode();
+    const {onClose, onToggle, isOpen} = useDisclosure();
+    const ref = React.useRef();
     const bg = useColorModeValue("dark.500", "light.500");
     const icon = useColorModeValue(<IoMoon size={18} />, <IoSunny size={18} />)
     const router = useRouter();
+    useOutsideClick({
+        ref: ref,
+        handler: () => onClose()
+    })
 
     const email = "misaxa@yandex.ru";
     const tel = "+79108210003";
@@ -54,9 +62,11 @@ const Header = () => {
                         <Menu
                         >
                             <MenuButton
+                                ref={ref}
                                 as={IconButton}
                                 aria-label={'Toggle Navigation'}
-                                icon={<HamburgerIcon w={5} h={5} />}
+                                icon={isOpen ? <CloseIcon w={4} h={4}/> : <HamburgerIcon w={5} h={5} />}
+                                onClick={() => {onToggle()}}
                                 variant={'ghost'}
                                 size={'sm'}
                             />
