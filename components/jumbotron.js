@@ -18,8 +18,6 @@ const Jumbotron = () => {
                 src={'/images/bkg.webp'}
                 alt={'background'}
                 layout={'fill'}
-                objectFit={["contain", "cover"]}
-                priority={true}
                 objectPosition={'right top'}
             />
             <Center
