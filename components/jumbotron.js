@@ -20,7 +20,6 @@ const Jumbotron = () => {
                 placeholder={'blur'}
                 blurDataURL={"https://via.placeholder.com/100"}
                 layout={'fill'}
-                objectPosition={'right top'}
             />
             <Center
                 h={"full"}
