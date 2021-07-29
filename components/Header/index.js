@@ -74,18 +74,25 @@ const Header = () => {
                                 <MenuList>
                                     <MenuItem
                                         icon={<SocialIcon url={"//api.whatsapp.com/send?phone=8615651921699"} network={'whatsapp'}/>}
+                                        onClick={() => window.location = "//api.whatsapp.com/send?phone=8615651921699"}
                                     >
-                                        Написать в Вотсапп
+                                        <a>Написать в Вотсапп</a>
                                     </MenuItem>
-                                    <MenuItem icon={<SocialIcon url={"https://telegram.me/Vezdehod13"} network={'telegram'}/>}
+                                    <MenuItem
+                                        icon={<SocialIcon url={"https://telegram.me/Vezdehod13"} network={'telegram'}/>}
+                                        onClick={() => window.location = "https://telegram.me/Vezdehod13"}
                                     >
                                         Написать в Телеграм
                                     </MenuItem>
-                                    <MenuItem icon={<SocialIcon url={"https://vk.com/jeepservice76"} network={'vk'}/>}
+                                    <MenuItem
+                                        icon={<SocialIcon url={"https://vk.com/jeepservice76"} network={'vk'}/>}
+                                        onClick={() => window.location = "https://vk.com/jeepservice76"}
                                     >
                                         Группа Вконтакте
                                     </MenuItem>
-                                    <MenuItem icon={<SocialIcon url={"https://www.instagram.com/jeepservice_76/"} network={'instagram'}/>}
+                                    <MenuItem
+                                        icon={<SocialIcon url={"https://www.instagram.com/jeepservice_76/"} network={'instagram'}/>}
+                                        onClick={() => window.location = "https://www.instagram.com/jeepservice_76/"}
                                     >
                                         Мы в Инстаграмме
                                     </MenuItem>
