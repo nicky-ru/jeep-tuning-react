@@ -3,12 +3,10 @@ import Head from 'next/head'
 import {Divider} from "@chakra-ui/layout";
 // custom components
 import Jumbotron from "../components/jumbotron";
-import Header from "../components/Header";
 import ServiceAccordion from "../components/Services";
 import Advantages from "../components/advantages";
 import Brands from "../components/brands";
 import Contacts from "../components/Contacts";
-import Footer from "../components/Footer";
 // amplify
 import {getAllServices} from "../lib/services";
 import {getAllUzels} from "../lib/uzels";
@@ -33,7 +31,6 @@ export async function getStaticProps() {
             brands,
             services,
         },
-        revalidate: 20,
     };
 }
 
@@ -46,8 +43,6 @@ export default function Home(props) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-        <Header/>
-
         <Jumbotron/>
         <ServiceAccordion uzels={props.uzels} services={props.services}/>
         <Divider/>
@@ -58,7 +53,6 @@ export default function Home(props) {
         <Contacts/>
         <Divider/>
 
-        <Footer/>
     </>
   )
 }

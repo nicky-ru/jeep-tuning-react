@@ -4,8 +4,6 @@ import {Button} from "@chakra-ui/react";
 import {getAllServicesIds, getServiceData} from "../../lib/services";
 import {getUzelData} from "../../lib/uzels";
 import Head from "next/head";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
 import ServiceInfo from "../../components/Services/serviceInfo";
 
 export async function getStaticPaths() {
@@ -37,8 +35,6 @@ const Service = ({service={}, uzel={}}) => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <Header/>
-
             <Container maxW="container.lg" h={"xl"} mt={16}>
 
                 <Stack
@@ -58,8 +54,6 @@ const Service = ({service={}, uzel={}}) => {
             </Container>
 
             <Divider/>
-            <Footer/>
-
         </>
     )
 }
