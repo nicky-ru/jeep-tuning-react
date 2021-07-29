@@ -32,7 +32,7 @@ const ServiceList = ({services = [], uzelId = ""}) => {
                      justifyContent="space-between"
                 >
                     <Link
-                        href={`/service/${service.id}`}
+                        href={`/service/${encodeURIComponent(service.id)}`}
                     >
                         <a>
                             <Text

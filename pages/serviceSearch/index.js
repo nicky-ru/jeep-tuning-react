@@ -1,8 +1,8 @@
 import Head from 'next/head'
 import {Divider, Container} from "@chakra-ui/layout";
-import ServiceList from "../components/Services/serviceList"
-import SearchBar from "../components/searchBar";
-import {getAllServices} from "../lib/services";
+import ServiceList from "../../components/Services/serviceList"
+import SearchBar from "../../components/searchBar";
+import {getAllServices} from "../../lib/services";
 
 export async function getStaticProps() {
     const serviceData = await getAllServices();

@@ -43,7 +43,7 @@ const ServiceAccordion = ({uzels = [], services = []}) => {
                 ))}
             </Accordion>
             <Link
-                href={`/serviceList`}
+                href={`/serviceSearch`}
             >
                 <a>
                     <Button mt={2} w={"full"}>Все услуги</Button>
