@@ -17,6 +17,8 @@ const Jumbotron = () => {
             <Image
                 src={'/images/bkg.webp'}
                 alt={'background'}
+                placeholder={'blur'}
+                blurDataURL={"https://via.placeholder.com/100"}
                 layout={'fill'}
                 objectPosition={'right top'}
             />
