@@ -1,8 +1,10 @@
 import Head from 'next/head'
 import {Divider, Container} from "@chakra-ui/layout";
 import ServiceList from "../../components/Services/serviceList"
-import SearchBar from "../../components/searchBar";
 import {getAllServices} from "../../lib/services";
+import {Input, Stack, useControllableState} from "@chakra-ui/react";
+import React from "react";
+import {SearchIcon} from "@chakra-ui/icons";
 
 export async function getStaticProps() {
     const serviceData = await getAllServices();
@@ -16,6 +18,8 @@ export async function getStaticProps() {
 }
 
 export default function Services({services = []}) {
+    const [value, setValue] = useControllableState({ defaultValue: "" })
+
     return(
         <>
             <Head>
@@ -25,9 +29,21 @@ export default function Services({services = []}) {
             </Head>
 
             <Container mt={16} maxW={"container.lg"}>
-                <SearchBar/>
+                <Stack isInline align={"center"}>
+                    <SearchIcon/>
+                    <Input
+                        minHeight={10}
+                        w={"full"}
+                        variant={"unstyled"}
+                        placeholder={"Поиск по услугам"}
+                        value={value}
+                        onChange={(e) => {
+                            setValue(e.target.value);
+                        }}
+                    />
+                </Stack>
                 <Divider my={4}/>
-                <ServiceList services={services} uzelId={'all'}/>
+                <ServiceList services={services} uzelId={'all'} serviceName={value}/>
             </Container>
             <Divider/>
         </>

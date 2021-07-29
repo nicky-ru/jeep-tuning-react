@@ -3,13 +3,21 @@ import {CalendarIcon} from "@chakra-ui/icons";
 import Link from "next/link"
 import {useState, useEffect} from "react";
 
-const ServiceList = ({services = [], uzelId = ""}) => {
+const ServiceList = ({services = [], uzelId = "", serviceName = ""}) => {
     const [filteredServices, setFilteredServices] = useState([]);
     const border = useColorModeValue("light.100", "dark.100");
 
     useEffect(() => {
         if (uzelId.toUpperCase() === 'ALL') {
-            setFilteredServices(services);
+            if (!serviceName) {
+                setFilteredServices(services);
+            }
+            const _servicesFiltered = services
+                .filter(function (service) {
+                    return service.name.includes(serviceName);
+                })
+                .map(function (service) {return service});
+            setFilteredServices(_servicesFiltered);
         } else {
             const _servicesFiltered = services
                 .filter(function (service) {
@@ -18,7 +26,7 @@ const ServiceList = ({services = [], uzelId = ""}) => {
                 .map(function (service) {return service});
             setFilteredServices(_servicesFiltered);
         }
-    }, [services, uzelId]);
+    }, [services, uzelId, serviceName]);
 
     return(
         <VStack

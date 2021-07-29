@@ -43,7 +43,7 @@ export default function Home(props) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-        <Jumbotron/>
+        <Jumbotron services={props.services}/>
         <ServiceAccordion uzels={props.uzels} services={props.services}/>
         <Divider/>
         <Advantages advantages={props.advantages}/>
