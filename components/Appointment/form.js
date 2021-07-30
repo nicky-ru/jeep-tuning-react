@@ -36,7 +36,7 @@ const AppointmentForm = ({serviceId = "", uzels = [], services = [], brands = []
                 const uzel = uzel_filter[0];
                 if (uzel) {
                     setUzel(uzel)
-                    setOption(uzel.id)
+                    setUzelOption(uzel.id)
                 }
             }
         }
@@ -52,21 +52,36 @@ const AppointmentForm = ({serviceId = "", uzels = [], services = [], brands = []
     }, [uzel])
 
     useEffect(() => {
-        console.log("filtering models started")
         if (brand.id) {
             const _filteredModels = models
                 .filter(model => {
-
                     return model.brandID ? model.brandID.toUpperCase() === brand.id.toUpperCase() : false;
                 })
                 .map(model => model);
             setFilteredModels(_filteredModels);
         }
-        console.log("filtering models finished")
     }, [brand])
 
-    const setOption = (id) => {
-        document.getElementById(`option-${id}`).selected = true;
+    useEffect(() => {
+        const service_filter = filteredServices
+            .filter(service => {return service.id.toUpperCase() === serviceId.toUpperCase()})
+            .map(service => service)
+        if (service_filter.length > 0) {
+            const service = service_filter[0];
+            setServiceOption(service.id)
+            setService(service);
+        } else {
+            setServiceOption("undef");
+            setService({id: "", name: "", description: "", uzelID: "", price: 0});
+        }
+    }, [filteredServices])
+
+    const setUzelOption = (id) => {
+        document.getElementById("uzel-select").value = id;
+    }
+
+    const setServiceOption = (id) => {
+        document.getElementById("service-select").value = id;
     }
 
     useEffect(() => {
@@ -110,14 +125,12 @@ const AppointmentForm = ({serviceId = "", uzels = [], services = [], brands = []
     }
 
     const handleModelSelect = (e) => {
-        console.log("handelling model select started")
         const model_filter = models
             .filter(model => {
                 return model.id.toUpperCase() === e.target.value.toUpperCase()
             })
             .map(model => model);
         const model = model_filter[0]
-        console.log("handelling model select finished")
         if (model) {
             setModel(model);
         }
@@ -130,11 +143,13 @@ const AppointmentForm = ({serviceId = "", uzels = [], services = [], brands = []
                 <FormControl id="uzel">
                     <FormLabel>Узел</FormLabel>
                     <Select
+                        id={"uzel-select"}
                         textTransform={"capitalize"}
-                        onChange={(e) => {handleUzelSelect(e)}}>
+                        onChange={(e) => {handleUzelSelect(e)}}
+                    >
                         <option value={"undef"} disabled>--Узлы--</option>
                         {uzels.map(uzel => (
-                            <option key={uzel.id} id={`option-${uzel.id}`} value={uzel.id}>
+                            <option key={uzel.id} value={uzel.id}>
                                 {uzel.name}
                             </option>
                         ))}
@@ -145,13 +160,13 @@ const AppointmentForm = ({serviceId = "", uzels = [], services = [], brands = []
                 <FormControl id="service">
                     <FormLabel>Услуга</FormLabel>
                     <Select
+                        id={"service-select"}
                         textTransform={"capitalize"}
                         onChange={(e) => {handleServiceSelect(e)}}
-                        // value={"undef"}
                     >
                         <option value={"undef"} disabled>--Услуги--</option>
                         {filteredServices.map(service => (
-                            <option key={service.id} id={`option-${service.id}`} value={service.id}>
+                            <option key={service.id} value={service.id}>
                                 {service.name}
                             </option>
                         ))}
@@ -164,6 +179,7 @@ const AppointmentForm = ({serviceId = "", uzels = [], services = [], brands = []
                     <Select
                         textTransform={"capitalize"}
                         onChange={(e) => {handleBrandSelect(e)}}
+                        defaultValue={"undef"}
                     >
                         <option value={"undef"} disabled>--Марки--</option>
                         {brands.map(brand => (
@@ -180,6 +196,7 @@ const AppointmentForm = ({serviceId = "", uzels = [], services = [], brands = []
                     <Select
                         textTransform={"capitalize"}
                         onChange={(e) => {handleModelSelect(e)}}
+                        defaultValue={"undef"}
                     >
                         <option value={"undef"} disabled>--Модели--</option>
                         {filteredModels.map(model => (
