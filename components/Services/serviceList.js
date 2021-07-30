@@ -3,10 +3,12 @@ import {CalendarIcon} from "@chakra-ui/icons";
 import Link from "next/link"
 import {useState, useEffect} from "react";
 import {Badge} from "@chakra-ui/layout";
+import {useRouter} from "next/router";
 
 const ServiceList = ({services = [], uzelId = "", serviceName = "", withPrice = false}) => {
     const [filteredServices, setFilteredServices] = useState([]);
     const border = useColorModeValue("light.100", "dark.100");
+    const router = useRouter();
 
     useEffect(() => {
         const _servicesFiltered = services
@@ -49,22 +51,20 @@ const ServiceList = ({services = [], uzelId = "", serviceName = "", withPrice = 
                         </Link>
                         {withPrice && <Badge ml={1} colorScheme="green">{">"} {service.price} руб.</Badge>}
                     </HStack>
-                    <Link href={{
-                        pathname: "/appointment",
-                        query: {serviceId: service.id}
-                    }}>
-                        <a>
-                            <Button
-                                rightIcon={<CalendarIcon/>}
-                                display={["none", "flex"]}
-                                colorScheme={"orange"}
-                                variant={"outline"}
-                                key={service.id}
-                            >
-                                Записаться
-                            </Button>
-                        </a>
-                    </Link>
+                    <Button
+                        rightIcon={<CalendarIcon/>}
+                        display={["none", "flex"]}
+                        colorScheme={"orange"}
+                        variant={"outline"}
+                        key={service.id}
+                        onClick={() => {
+                            router.push(
+                                `/appointment?serviceId=${service.id}`
+                            )
+                        }}
+                    >
+                        Записаться
+                    </Button>
                 </Box>
             ))}
 

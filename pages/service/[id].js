@@ -1,5 +1,6 @@
 import {Container, Stack, Center, StackDivider, Divider} from "@chakra-ui/layout";
 import {Button} from "@chakra-ui/react";
+import {useRouter} from "next/router";
 
 import {getAllServicesIds, getServiceData} from "../../lib/services";
 import {getUzelData} from "../../lib/uzels";
@@ -7,6 +8,7 @@ import Head from "next/head";
 import ServiceInfo from "../../components/Services/serviceInfo";
 
 const Service = ({service={}, uzel={}}) => {
+    const router = useRouter();
 
     return(
         <>
@@ -27,7 +29,15 @@ const Service = ({service={}, uzel={}}) => {
 
                     <ServiceInfo service={service} uzel={uzel}/>
                     <Center h={["3xs", "full"]}>
-                        <Button size={"lg"} colorScheme={"orange"}>
+                        <Button
+                            size={"lg"}
+                            colorScheme={"orange"}
+                            onClick={() => {
+                                router.push(
+                                    `/appointment?serviceId=${service.id}`
+                                )
+                            }}
+                        >
                             Записаться
                         </Button>
                     </Center>
