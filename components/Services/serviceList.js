@@ -49,15 +49,22 @@ const ServiceList = ({services = [], uzelId = "", serviceName = "", withPrice = 
                         </Link>
                         {withPrice && <Badge ml={1} colorScheme="green">{">"} {service.price} руб.</Badge>}
                     </HStack>
-                    <Button
-                        rightIcon={<CalendarIcon/>}
-                        display={["none", "flex"]}
-                        colorScheme={"orange"}
-                        variant={"outline"}
-                        key={service.id}
-                    >
-                        Записаться
-                    </Button>
+                    <Link href={{
+                        pathname: "/appointment",
+                        query: {serviceId: service.id}
+                    }}>
+                        <a>
+                            <Button
+                                rightIcon={<CalendarIcon/>}
+                                display={["none", "flex"]}
+                                colorScheme={"orange"}
+                                variant={"outline"}
+                                key={service.id}
+                            >
+                                Записаться
+                            </Button>
+                        </a>
+                    </Link>
                 </Box>
             ))}
 
