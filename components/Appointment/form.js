@@ -2,7 +2,7 @@ import {
     Container,
     useControllableState,
     Stack,
-    Select, Text,
+    Select, Button,
     StackDivider,
     FormControl,
     FormLabel,
@@ -10,6 +10,7 @@ import {
     useColorModeValue
 } from "@chakra-ui/react";
 import {useEffect} from "react";
+import {useRouter} from "next/router";
 
 
 const AppointmentForm = ({serviceId = "", uzels = [], services = [], brands = [], models = []}) => {
@@ -19,6 +20,7 @@ const AppointmentForm = ({serviceId = "", uzels = [], services = [], brands = []
     const [model, setModel] = useControllableState({defaultValue: {id: "", brandID: "", name: ""}})
     const [filteredServices, setFilteredServices] = useControllableState({defaultValue: []});
     const [filteredModels, setFilteredModels] = useControllableState({defaultValue: []});
+    const router = useRouter();
     const border = useColorModeValue("light.100", "dark.100");
     const bg = useColorModeValue('light.100', 'dark.100');
 
@@ -207,7 +209,16 @@ const AppointmentForm = ({serviceId = "", uzels = [], services = [], brands = []
                     </Select>
                     <FormHelperText>Выберите модель авто</FormHelperText>
                 </FormControl>
-
+                <Button
+                    colorScheme={"orange"}
+                    onClick={() => {
+                        router.replace(
+                            `/appointment/confirmation?uzel=${uzel.name}&service=${service.name}&brand=${brand.name}&model=${model.name}`
+                        )
+                    }}
+                >
+                    Записаться
+                </Button>
             </Stack>
         </Container>
     )
