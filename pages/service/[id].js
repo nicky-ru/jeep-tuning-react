@@ -6,25 +6,6 @@ import {getUzelData} from "../../lib/uzels";
 import Head from "next/head";
 import ServiceInfo from "../../components/Services/serviceInfo";
 
-export async function getStaticPaths() {
-    const paths = await getAllServicesIds();
-    return {
-        paths,
-        fallback: false
-    }
-}
-
-export async function getStaticProps({ params }) {
-    const serviceData = await getServiceData(params.id)
-    const uzelData = await getUzelData(serviceData.data.uzelID)
-    return {
-        props: {
-            service: serviceData.data,
-            uzel: uzelData.data,
-        }
-    }
-}
-
 const Service = ({service={}, uzel={}}) => {
 
     return(
@@ -59,3 +40,22 @@ const Service = ({service={}, uzel={}}) => {
 }
 
 export default Service
+
+export async function getStaticPaths() {
+    const paths = await getAllServicesIds();
+    return {
+        paths,
+        fallback: false
+    }
+}
+
+export async function getStaticProps({ params }) {
+    const serviceData = await getServiceData(params.id)
+    const uzelData = await getUzelData(serviceData.data.uzelID)
+    return {
+        props: {
+            service: serviceData.data,
+            uzel: uzelData.data,
+        }
+    }
+}

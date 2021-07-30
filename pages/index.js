@@ -13,27 +13,6 @@ import {getAllUzels} from "../lib/uzels";
 import {getAllAdvantages} from "../lib/advantages";
 import {getAllBrands} from "../lib/brands";
 
-export async function getStaticProps() {
-    const serviceData = await getAllServices();
-    const uzelsData = await getAllUzels();
-    const advantagesData = await getAllAdvantages();
-    const brandsData = await getAllBrands();
-
-    const services = serviceData.map(service => {return service.params.service;})
-    const uzels = uzelsData.map(uzel => {return uzel.params.uzel;})
-    const advantages = advantagesData.map(advantage => {return advantage.params.advantage;})
-    const brands = brandsData.map(brand => {return brand.params.brand;})
-
-    return {
-        props: {
-            uzels,
-            advantages,
-            brands,
-            services,
-        },
-    };
-}
-
 export default function Home(props) {
   return (
     <>
@@ -55,4 +34,25 @@ export default function Home(props) {
 
     </>
   )
+}
+
+export async function getStaticProps() {
+    const serviceData = await getAllServices();
+    const uzelsData = await getAllUzels();
+    const advantagesData = await getAllAdvantages();
+    const brandsData = await getAllBrands();
+
+    const services = serviceData.map(service => {return service.params.service;})
+    const uzels = uzelsData.map(uzel => {return uzel.params.uzel;})
+    const advantages = advantagesData.map(advantage => {return advantage.params.advantage;})
+    const brands = brandsData.map(brand => {return brand.params.brand;})
+
+    return {
+        props: {
+            uzels,
+            advantages,
+            brands,
+            services,
+        },
+    };
 }

@@ -1,31 +1,24 @@
-import {VStack, Box, Text, Button, StackDivider, useColorModeValue} from '@chakra-ui/react';
+import {VStack, HStack, Box, Text, Button, StackDivider, useColorModeValue} from '@chakra-ui/react';
 import {CalendarIcon} from "@chakra-ui/icons";
 import Link from "next/link"
 import {useState, useEffect} from "react";
+import {Badge} from "@chakra-ui/layout";
 
-const ServiceList = ({services = [], uzelId = "", serviceName = ""}) => {
+const ServiceList = ({services = [], uzelId = "", serviceName = "", withPrice = false}) => {
     const [filteredServices, setFilteredServices] = useState([]);
     const border = useColorModeValue("light.100", "dark.100");
 
     useEffect(() => {
-        if (uzelId.toUpperCase() === 'ALL') {
-            if (!serviceName) {
-                setFilteredServices(services);
-            }
-            const _servicesFiltered = services
-                .filter(function (service) {
-                    return service.name.includes(serviceName);
-                })
-                .map(function (service) {return service});
-            setFilteredServices(_servicesFiltered);
-        } else {
-            const _servicesFiltered = services
-                .filter(function (service) {
-                    return service.uzelID === uzelId;
-                })
-                .map(function (service) {return service});
-            setFilteredServices(_servicesFiltered);
-        }
+        const _servicesFiltered = services
+            .filter(service => {
+                return uzelId.toUpperCase() === 'ALL' ? true : service.uzelID === uzelId;
+            })
+            .filter(service => {
+                return serviceName ? service.name.toUpperCase().includes(serviceName.toUpperCase()) : true
+            })
+            .map(service => service);
+
+        setFilteredServices(_servicesFiltered);
     }, [services, uzelId, serviceName]);
 
     return(
@@ -39,20 +32,23 @@ const ServiceList = ({services = [], uzelId = "", serviceName = ""}) => {
                      alignItems="center"
                      justifyContent="space-between"
                 >
-                    <Link
-                        href={`/service/${encodeURIComponent(service.id)}`}
-                    >
-                        <a>
-                            <Text
-                                maxWidth={["80vw", "full"]}
-                                marginLeft={3}
-                                isTruncated
-                                textTransform={'capitalize'}
-                            >
-                                {service.name}
-                            </Text>
-                        </a>
-                    </Link>
+                    <HStack divider={<StackDivider borderColor={border} />}>
+                        <Link
+                            href={`/service/${encodeURIComponent(service.id)}`}
+                        >
+                            <a>
+                                <Text
+                                    maxWidth={["80vw", "full"]}
+                                    marginLeft={3}
+                                    isTruncated
+                                    textTransform={'capitalize'}
+                                >
+                                    {service.name}
+                                </Text>
+                            </a>
+                        </Link>
+                        {withPrice && <Badge ml={1} colorScheme="green">{">"} {service.price} руб.</Badge>}
+                    </HStack>
                     <Button
                         rightIcon={<CalendarIcon/>}
                         display={["none", "flex"]}

@@ -2,23 +2,14 @@ import Head from 'next/head'
 import {Divider, Container} from "@chakra-ui/layout";
 import ServiceList from "../../components/Services/serviceList"
 import {getAllServices} from "../../lib/services";
-import {Input, Stack, useControllableState} from "@chakra-ui/react";
+import {Input, Stack, useControllableState, Select} from "@chakra-ui/react";
 import React from "react";
 import {SearchIcon} from "@chakra-ui/icons";
+import {getAllUzels} from "../../lib/uzels";
 
-export async function getStaticProps() {
-    const serviceData = await getAllServices();
-    const services = serviceData.map(service => {return service.params.service;})
-
-    return {
-        props: {
-            services,
-        },
-    };
-}
-
-export default function Services({services = []}) {
-    const [value, setValue] = useControllableState({ defaultValue: "" })
+export default function Services({services = [], uzels = []}) {
+    const [serviceName, setServiceName] = useControllableState({ defaultValue: "" })
+    const [uzelId, setUzelId] = useControllableState({defaultValue: ""})
 
     return(
         <>
@@ -28,7 +19,7 @@ export default function Services({services = []}) {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <Container mt={16} maxW={"container.lg"}>
+            <Container mt={16} mb={4} maxW={"container.lg"}>
                 <Stack isInline align={"center"}>
                     <SearchIcon/>
                     <Input
@@ -36,16 +27,42 @@ export default function Services({services = []}) {
                         w={"full"}
                         variant={"unstyled"}
                         placeholder={"Поиск по услугам"}
-                        value={value}
+                        value={serviceName}
                         onChange={(e) => {
-                            setValue(e.target.value);
+                            setServiceName(e.target.value);
                         }}
                     />
                 </Stack>
                 <Divider my={4}/>
-                <ServiceList services={services} uzelId={'all'} serviceName={value}/>
+                <Stack isInline>
+                    <Select
+                        placeholder="Выберите узел"
+                        onChange={(e) => setUzelId(e.target.value)}
+                    >
+                        <option value={"all"} >Все</option>
+                        {uzels.map(uzel => (
+                            <option value={uzel.id}>{uzel.name}</option>
+                        ))}
+                    </Select>
+                </Stack>
+                <Divider my={4}/>
+                <ServiceList services={services} uzelId={uzelId} serviceName={serviceName} withPrice={true}/>
             </Container>
             <Divider/>
         </>
     )
+}
+
+export async function getStaticProps() {
+    const serviceData = await getAllServices();
+    const services = serviceData.map(service => {return service.params.service;})
+    const uzelData = await getAllUzels();
+    const uzels = uzelData.map(uzel => {return uzel.params.uzel;})
+
+    return {
+        props: {
+            services,
+            uzels,
+        },
+    };
 }
