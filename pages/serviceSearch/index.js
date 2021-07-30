@@ -39,9 +39,9 @@ export default function Services({services = [], uzels = []}) {
                         placeholder="Выберите узел"
                         onChange={(e) => setUzelId(e.target.value)}
                     >
-                        <option value={"all"} >Все</option>
+                        <option value={"all"}>Все</option>
                         {uzels.map(uzel => (
-                            <option value={uzel.id}>{uzel.name}</option>
+                            <option key={uzel.id} value={uzel.id}>{uzel.name}</option>
                         ))}
                     </Select>
                 </Stack>
