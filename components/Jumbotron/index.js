@@ -18,6 +18,7 @@ const Jumbotron = ({services = []}) => {
     const bg = useColorModeValue("dark.500", "light.500");
     const textCol = useColorModeValue("light.400", "dark.400");
     const modalSize = useBreakpointValue({base: "xs", md: "xl", lg: "3xl"})
+    const jumbotronSize = useBreakpointValue({base: "xs", md: "2xl", lg: "4xl"});
     const {onOpen, onClose, isOpen} = useDisclosure();
 
     return (
@@ -42,9 +43,10 @@ const Jumbotron = ({services = []}) => {
                     <Stack
                         direction={'column'}
                         borderRadius={'md'}
+                        maxW={jumbotronSize}
                         px={[4, 10]}
                         py={[2, 5]}
-                        mx={[4, 0]}
+                        // mx={[4, 0]}
                         textAlign={'center'}
                         bg={bg}
                         css={{
