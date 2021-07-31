@@ -98,7 +98,7 @@ const Header = () => {
                                     </MenuItem>
                                     {router.pathname !== "/" &&
                                     <MenuItem
-                                        icon={<FaHome size={50} style={{fill: "#7289da", padding: 5}}/>}
+                                        icon={<FaHome color={"orange"} size={50} style={{padding: 5}}/>}
                                         onClick={() => router.push('/')}
                                     >
                                         На главную
@@ -136,6 +136,7 @@ const Header = () => {
                         </Button>
                         <Button
                             rightIcon={<PhoneIcon />}
+                            colorScheme={"orange"}
                             variant="outline"
                             onClick={(e) => {
                                 e.preventDefault();

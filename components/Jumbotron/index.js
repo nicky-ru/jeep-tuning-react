@@ -56,9 +56,10 @@ const Jumbotron = ({services = []}) => {
                         <Heading>Лучший сервис по внедорожникам и кроссоверам</Heading>
                         <Heading size={'md'}>Какая услуга вас интересует?</Heading>
                         <Button
-                            leftIcon={<SearchIcon color={textCol}/>}
+                            leftIcon={<SearchIcon />}
                             onClick={onOpen}
-                            textColor={textCol}
+                            colorScheme={"orange"}
+                            variant={"outline"}
                         >
                             <Box w={"full"} textAlign={"left"}>Поиск по услугам</Box>
                         </Button>

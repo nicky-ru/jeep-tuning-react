@@ -10,11 +10,13 @@ import {
 } from '@chakra-ui/react';
 import ServiceList from "./serviceList";
 import Link from 'next/link'
+import {useRouter} from "next/router";
 
 const ServiceAccordion = ({uzels = [], services = []}) => {
+    const router = useRouter();
     const bg = useColorModeValue('light.100', 'dark.100');
 
-    return(
+    return (
         <Container
             maxW="container.lg"
             my={4}
@@ -24,13 +26,13 @@ const ServiceAccordion = ({uzels = [], services = []}) => {
 
             <Accordion allowToggle reduceMotion>
                 {uzels.map((uzel) => (
-                    <AccordionItem key={uzel.id} >
+                    <AccordionItem key={uzel.id}>
                         <h2>
                             <AccordionButton>
                                 <Box flex="1" textAlign="left">
                                     {uzel.name}
                                 </Box>
-                                <AccordionIcon />
+                                <AccordionIcon/>
                             </AccordionButton>
                         </h2>
                         <AccordionPanel
@@ -42,14 +44,25 @@ const ServiceAccordion = ({uzels = [], services = []}) => {
                     </AccordionItem>
                 ))}
             </Accordion>
-            <Link
-                href={`/serviceSearch`}
+            <Button
+                mt={2}
+                w={"full"}
+                colorScheme={"orange"}
+                variant={"outline"}
+                onClick={() => {
+                    router.push("/serviceSearch")
+                }}
             >
-                <a>
-                    <Button mt={2} w={"full"}>Все услуги</Button>
-                </a>
+                Все услуги
+            </Button>
+            {/*<Link*/}
+            {/*    href={`/serviceSearch`}*/}
+            {/*>*/}
+            {/*    <a>*/}
+            {/*        <Button mt={2} w={"full"}>Все услуги</Button>*/}
+            {/*    </a>*/}
 
-            </Link>
+            {/*</Link>*/}
         </Container>
     );
 }
