@@ -13,8 +13,8 @@ const JumbotronModalContent = ({services = []}) => {
                     <InputGroup>
                         <InputLeftElement
                             pointerEvents="none"
-                            children={<SearchIcon color="gray.300" />}
                         />
+                        <SearchIcon color="gray.300" />
                         <Input
                             minHeight={10}
                             w={"full"}
