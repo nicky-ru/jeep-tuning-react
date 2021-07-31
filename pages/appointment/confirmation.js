@@ -1,6 +1,10 @@
 import Head from "next/head";
-import {Container, Divider, Heading} from "@chakra-ui/layout";
+import {Container, Divider, Button, Stack, Heading, Box, Table, TableCaption, Tr, Tbody, Td} from "@chakra-ui/react";
 import {useRouter} from "next/router";
+import {ArrowBackIcon} from "@chakra-ui/icons";
+import React from "react";
+import {StackDivider} from "@chakra-ui/layout";
+import {FaHome} from "react-icons/fa";
 
 export default function Appointment() {
     const router = useRouter();
@@ -14,11 +18,57 @@ export default function Appointment() {
             </Head>
 
             <Container mt={16} mb={4} size={"container.lg"}>
-                <Heading>Поздравляем! Вы записаны:</Heading>
-                <Heading size={"md"}>{router.query.uzel}</Heading>
-                <Heading size={"md"}>{router.query.service}</Heading>
-                <Heading size={"md"}>{router.query.brand}</Heading>
-                <Heading size={"md"}>{router.query.model}</Heading>
+                <Box textAlign={"center"}>
+                    <Heading>Мы получили Вашу заявку</Heading>
+                </Box>
+                <Box>
+                    <Table variant="simple">
+                        <TableCaption placement={"top"}>
+                            Данные обрабатываются, наш менеджер свяжется с Вами в ближайшее время
+                        </TableCaption>
+                        <Tbody>
+                            <Tr>
+                                <Td>Узел</Td>
+                                <Td>{router.query.uzel}</Td>
+                            </Tr>
+                            <Tr>
+                                <Td>Услуга</Td>
+                                <Td>{router.query.service}</Td>
+                            </Tr>
+                            <Tr>
+                                <Td>Марка авто</Td>
+                                <Td>{router.query.brand}</Td>
+                            </Tr>
+                            <Tr>
+                                <Td>Модель авто</Td>
+                                <Td>{router.query.model}</Td>
+                            </Tr>
+                        </Tbody>
+                    </Table>
+                </Box>
+                <Stack isInline={true} justify={"space-between"} align={"stretch"}>
+                    <Button
+                        color={"orange"}
+                        variant={"link"}
+                        my={5}
+                        leftIcon={<ArrowBackIcon/>}
+                        onClick={() => {
+                            router.push("/serviceSearch")
+                        }}
+                    >
+                        К списку услуг
+                    </Button>
+                    <Button
+                        variant={"link"}
+                        my={5}
+                        leftIcon={<FaHome/>}
+                        onClick={() => {
+                            router.push("/")
+                        }}
+                    >
+                        На главную
+                    </Button>
+                </Stack>
             </Container>
             <Divider/>
         </>
