@@ -13,7 +13,7 @@ import {
 import {SearchIcon} from "@chakra-ui/icons";
 import Image from "next/image"
 import React from "react";
-import ServiceList from "./Services/serviceList";
+import ServiceList from "../Services/serviceList";
 
 const Jumbotron = ({services = []}) => {
     const border = useColorModeValue("light.300", "dark.100");
@@ -56,10 +56,7 @@ const Jumbotron = ({services = []}) => {
                         <Heading>Лучший сервис по внедорожникам и кроссоверам</Heading>
                         <Heading size={'md'}>Какая услуга вас интересует?</Heading>
                         <Button
-                            // role={'search'}
-                            // aria-label={'Search the services'}
                             leftIcon={<SearchIcon color={textCol}/>}
-                            // borderColor={border}
                             onClick={onOpen}
                             textColor={textCol}
                         >
@@ -72,8 +69,6 @@ const Jumbotron = ({services = []}) => {
             <Modal isOpen={isOpen} onClose={onClose} size={"3xl"} isCentered>
                 <ModalOverlay />
                 <ModalContent>
-                    {/*<ModalHeader>Modal Title</ModalHeader>*/}
-                    {/*<ModalCloseButton />*/}
                     <ModalBody>
                         <Stack isInline align={"center"}>
                             <SearchIcon/>
@@ -97,13 +92,6 @@ const Jumbotron = ({services = []}) => {
                             : <></>
                         }
                     </ModalBody>
-
-                    {/*<ModalFooter>*/}
-                    {/*    <Button colorScheme="blue" mr={3} onClick={onClose}>*/}
-                    {/*        Close*/}
-                    {/*    </Button>*/}
-                    {/*    <Button variant="ghost">Secondary Action</Button>*/}
-                    {/*</ModalFooter>*/}
                 </ModalContent>
             </Modal>
         </>

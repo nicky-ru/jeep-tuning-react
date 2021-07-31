@@ -2,7 +2,7 @@
 import Head from 'next/head'
 import {Divider} from "@chakra-ui/layout";
 // custom components
-import Jumbotron from "../components/jumbotron";
+import Jumbotron from "../components/Jumbotron";
 import ServiceAccordion from "../components/Services";
 import Advantages from "../components/advantages";
 import Brands from "../components/brands";
