@@ -15,6 +15,7 @@ import {useRouter} from "next/router";
 const ServiceAccordion = ({uzels = [], services = []}) => {
     const router = useRouter();
     const bg = useColorModeValue('light.100', 'dark.100');
+    const variant = useColorModeValue("solid", "outline");
 
     return (
         <Container
@@ -48,7 +49,7 @@ const ServiceAccordion = ({uzels = [], services = []}) => {
                 mt={2}
                 w={"full"}
                 colorScheme={"orange"}
-                variant={"outline"}
+                variant={variant}
                 onClick={() => {
                     router.push("/serviceSearch")
                 }}

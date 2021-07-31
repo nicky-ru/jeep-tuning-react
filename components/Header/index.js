@@ -31,7 +31,8 @@ const Header = () => {
     const {onClose, onToggle, isOpen} = useDisclosure();
     const ref = React.useRef();
     const bg = useColorModeValue("dark.500", "light.500");
-    const icon = useColorModeValue(<IoMoon size={18} />, <IoSunny size={18} />)
+    const icon = useColorModeValue(<IoMoon size={18} />, <IoSunny size={18} />);
+    const variant = useColorModeValue("solid", "outline");
     const router = useRouter();
     useOutsideClick({
         ref: ref,
@@ -137,7 +138,7 @@ const Header = () => {
                         <Button
                             rightIcon={<PhoneIcon />}
                             colorScheme={"orange"}
-                            variant="outline"
+                            variant={variant}
                             onClick={(e) => {
                                 e.preventDefault();
                                 window.location = `tel:${tel}`;

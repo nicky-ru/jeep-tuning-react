@@ -17,6 +17,7 @@ import JumbotronModalContent from "./modalContent";
 const Jumbotron = ({services = []}) => {
     const bg = useColorModeValue("dark.500", "light.500");
     const textCol = useColorModeValue("light.400", "dark.400");
+    const variant = useColorModeValue("solid", "outline");
     const modalSize = useBreakpointValue({base: "xs", md: "xl", lg: "3xl"})
     const jumbotronSize = useBreakpointValue({base: "xs", md: "2xl", lg: "4xl"});
     const {onOpen, onClose, isOpen} = useDisclosure();
@@ -59,9 +60,9 @@ const Jumbotron = ({services = []}) => {
                             leftIcon={<SearchIcon />}
                             onClick={onOpen}
                             colorScheme={"orange"}
-                            variant={"outline"}
+                            variant={variant}
                         >
-                            <Box w={"full"} textAlign={"left"}>Поиск по услугам</Box>
+                            <Box w={"full"} textAlign={"left"}>Найти услугу и записаться</Box>
                         </Button>
                     </Stack>
                 </Center>
