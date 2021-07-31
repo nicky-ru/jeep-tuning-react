@@ -2,14 +2,16 @@ import Head from 'next/head'
 import {Divider, Container} from "@chakra-ui/layout";
 import ServiceList from "../../components/Services/serviceList"
 import {getAllServices} from "../../lib/services";
-import {Input, Stack, useControllableState, Select} from "@chakra-ui/react";
+import {Input, Stack, useControllableState, Select, Button, InputLeftElement, InputGroup} from "@chakra-ui/react";
 import React from "react";
-import {SearchIcon} from "@chakra-ui/icons";
+import {ArrowBackIcon, SearchIcon} from "@chakra-ui/icons";
 import {getAllUzels} from "../../lib/uzels";
+import {useRouter} from "next/router";
 
 export default function Services({services = [], uzels = []}) {
     const [serviceName, setServiceName] = useControllableState({ defaultValue: "" })
     const [uzelId, setUzelId] = useControllableState({defaultValue: "all"})
+    const router = useRouter();
 
     return(
         <>
@@ -20,20 +22,36 @@ export default function Services({services = [], uzels = []}) {
             </Head>
 
             <Container mt={16} mb={4} maxW={"container.lg"}>
-                <Stack isInline align={"center"}>
-                    <SearchIcon/>
+                <Button
+                    variant={"link"}
+                    my={5}
+                    leftIcon={<ArrowBackIcon/>}
+                    onClick={() => {
+                        router.push("/")
+                    }}
+                >
+                    На главную
+                </Button>
+                <Divider my={4}/>
+
+                <InputGroup mb={4}>
+                    <InputLeftElement
+                        pointerEvents="none"
+                    >
+                        <SearchIcon color="gray.300" />
+                    </InputLeftElement>
                     <Input
                         minHeight={10}
                         w={"full"}
-                        variant={"unstyled"}
+                        variant={"filled"}
                         placeholder={"Поиск по услугам"}
                         value={serviceName}
                         onChange={(e) => {
                             setServiceName(e.target.value);
                         }}
                     />
-                </Stack>
-                <Divider my={4}/>
+                </InputGroup>
+
                 <Stack isInline>
                     <Select
                         onChange={(e) => setUzelId(e.target.value)}

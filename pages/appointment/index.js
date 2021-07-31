@@ -6,9 +6,11 @@ import {getAllUzels} from "../../lib/uzels";
 import {getAllBrands} from "../../lib/brands";
 import {getAllModels} from "../../lib/models";
 import AppointmentForm from "../../components/Appointment/form";
+import {useBreakpointValue} from "@chakra-ui/react";
 
 export default function Appointment({uzels = [], services = [], brands = [], models = []}) {
     const router = useRouter();
+    const containerW = useBreakpointValue({base: "container.xs", md: "container.lg"})
 
     return (
         <>
@@ -18,8 +20,8 @@ export default function Appointment({uzels = [], services = [], brands = [], mod
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <Container mt={16} mb={4} size={"container.lg"}>
-                <Heading>Запись на услугу</Heading>
+            <Container mt={16} mb={4} size={containerW}>
+                {/*<Heading>Запись на услугу</Heading>*/}
                 <AppointmentForm
                     serviceId={router.query.serviceId}
                     uzels={uzels}

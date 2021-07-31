@@ -11,6 +11,7 @@ import {
 } from "@chakra-ui/react";
 import {useEffect} from "react";
 import {useRouter} from "next/router";
+import {ArrowBackIcon} from "@chakra-ui/icons";
 
 
 const AppointmentForm = ({serviceId = "", uzels = [], services = [], brands = [], models = []}) => {
@@ -23,6 +24,7 @@ const AppointmentForm = ({serviceId = "", uzels = [], services = [], brands = []
     const router = useRouter();
     const border = useColorModeValue("light.100", "dark.100");
     const bg = useColorModeValue('light.100', 'dark.100');
+    const variant = useColorModeValue("solid", "outline");
 
     useEffect(() => {
         // on initial load
@@ -139,7 +141,17 @@ const AppointmentForm = ({serviceId = "", uzels = [], services = [], brands = []
     }
 
     return(
-        <Container borderColor={border} m={5} size={"container.md"}>
+        <Container borderColor={border} size={"container.md"}>
+            <Button
+                variant={"link"}
+                my={5}
+                leftIcon={<ArrowBackIcon/>}
+                onClick={() => {
+                    router.push("/serviceSearch")
+                }}
+            >
+                Ко всем услугам
+            </Button>
             <Stack p={4} borderRadius={"md"} bg={bg} divider={<StackDivider borderColor={border} />}>
 
                 <FormControl id="uzel">
@@ -211,6 +223,7 @@ const AppointmentForm = ({serviceId = "", uzels = [], services = [], brands = []
                 </FormControl>
                 <Button
                     colorScheme={"orange"}
+                    variant={variant}
                     onClick={() => {
                         router.replace(
                             `/appointment/confirmation?uzel=${uzel.name}&service=${service.name}&brand=${brand.name}&model=${model.name}`

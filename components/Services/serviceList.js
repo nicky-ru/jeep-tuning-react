@@ -34,7 +34,7 @@ const ServiceList = ({services = [], uzelId = "", serviceName = "", withPrice = 
                      alignItems="center"
                      justifyContent="space-between"
                 >
-                    <HStack divider={<StackDivider borderColor={border} />}>
+                    <HStack divider={<StackDivider display={["none", null, "flex"]} borderColor={border} />}>
                         <Link
                             href={`/service/${encodeURIComponent(service.id)}`}
                         >
@@ -49,7 +49,15 @@ const ServiceList = ({services = [], uzelId = "", serviceName = "", withPrice = 
                                 </Text>
                             </a>
                         </Link>
-                        {withPrice && <Badge ml={1} colorScheme="green">{">"} {service.price} руб.</Badge>}
+                        {withPrice &&
+                        <Badge
+                            ml={1}
+                            colorScheme="green"
+                            display={["none", null, "flex"]}
+                        >
+                            {">"} {service.price} руб.
+                        </Badge>
+                        }
                     </HStack>
                     <Button
                         rightIcon={<CalendarIcon/>}
