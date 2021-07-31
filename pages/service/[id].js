@@ -1,5 +1,6 @@
-import {Container, Stack, Center, StackDivider, Divider} from "@chakra-ui/layout";
-import {Button} from "@chakra-ui/react";
+import {Container, Stack, Box, StackDivider, Divider} from "@chakra-ui/layout";
+import {Button, useBreakpointValue} from "@chakra-ui/react";
+import {ArrowBackIcon} from "@chakra-ui/icons";
 import {useRouter} from "next/router";
 
 import {getAllServicesIds, getServiceData} from "../../lib/services";
@@ -9,6 +10,7 @@ import ServiceInfo from "../../components/Services/serviceInfo";
 
 const Service = ({service={}, uzel={}}) => {
     const router = useRouter();
+    const height = useBreakpointValue({base: 20, md: "full"})
 
     return(
         <>
@@ -18,17 +20,27 @@ const Service = ({service={}, uzel={}}) => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <Container maxW="container.lg" h={"xl"} mt={16}>
+            <Container maxW="container.lg" mt={16} mb={5}>
+
+                <Button
+                    variant={"link"}
+                    my={5}
+                    leftIcon={<ArrowBackIcon/>}
+                    onClick={() => {router.push("/serviceSearch")}}
+                >
+                    Ко всем услугам
+                </Button>
 
                 <Stack
                     direction={["column", "row"]}
                     spacing="6"
                     h={"full"}
+                    align={"center"}
                     divider={<StackDivider borderColor="gray.200" />}
                 >
 
                     <ServiceInfo service={service} uzel={uzel}/>
-                    <Center h={["3xs", "full"]}>
+                    <Box>
                         <Button
                             size={"lg"}
                             colorScheme={"orange"}
@@ -40,7 +52,7 @@ const Service = ({service={}, uzel={}}) => {
                         >
                             Записаться
                         </Button>
-                    </Center>
+                    </Box>
                 </Stack>
             </Container>
 

@@ -13,7 +13,7 @@ const ServiceInfo = ({service={}, uzel={}}) => {
                 borderRadius={"md"}
             >
                 <Heading mb={2} textTransform={'capitalize'}>{service.name}</Heading>
-                <Heading mb={4} size={'sm'}>{uzel.name}</Heading>
+                <Heading mb={4} size={'sm'}><Badge p={1} colorScheme="purple">{uzel.name}</Badge></Heading>
                 <Text
                     mb={4}
                     bg={bg}
