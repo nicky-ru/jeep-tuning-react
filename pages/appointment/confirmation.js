@@ -21,28 +21,6 @@ export default function Appointment() {
                 <Heading size={"md"}>{router.query.model}</Heading>
             </Container>
             <Divider/>
-
         </>
     )
 }
-//
-// export async function getStaticProps() {
-//     const serviceData = await getAllServices();
-//     const uzelsData = await getAllUzels();
-//     const brandsData = await getAllBrands();
-//     const modelsData = await getAllModels();
-//
-//     const services = serviceData.map(service => {return service.params.service;})
-//     const uzels = uzelsData.map(uzel => {return uzel.params.uzel;})
-//     const brands = brandsData.map(brand => {return brand.params.brand;})
-//     const models = modelsData.map(model => {return model.params.model;})
-//
-//     return {
-//         props: {
-//             uzels,
-//             models,
-//             brands,
-//             services,
-//         },
-//     };
-// }

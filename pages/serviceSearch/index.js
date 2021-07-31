@@ -9,7 +9,7 @@ import {getAllUzels} from "../../lib/uzels";
 
 export default function Services({services = [], uzels = []}) {
     const [serviceName, setServiceName] = useControllableState({ defaultValue: "" })
-    const [uzelId, setUzelId] = useControllableState({defaultValue: ""})
+    const [uzelId, setUzelId] = useControllableState({defaultValue: "all"})
 
     return(
         <>
@@ -36,10 +36,10 @@ export default function Services({services = [], uzels = []}) {
                 <Divider my={4}/>
                 <Stack isInline>
                     <Select
-                        placeholder="Выберите узел"
                         onChange={(e) => setUzelId(e.target.value)}
+                        defaultValue={"all"}
                     >
-                        <option value={"all"}>Все</option>
+                        <option value={"all"}>--Все узлы--</option>
                         {uzels.map(uzel => (
                             <option key={uzel.id} value={uzel.id}>{uzel.name}</option>
                         ))}
@@ -64,5 +64,6 @@ export async function getStaticProps() {
             services,
             uzels,
         },
+        revalidate: 600,
     };
 }

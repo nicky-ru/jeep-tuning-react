@@ -66,6 +66,7 @@ export async function getStaticProps({ params }) {
         props: {
             service: serviceData.data,
             uzel: uzelData.data,
-        }
+        },
+        revalidate: 600,
     }
 }
