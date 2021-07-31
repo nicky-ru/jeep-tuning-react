@@ -53,7 +53,7 @@ const ServiceList = ({services = [], uzelId = "", serviceName = "", withPrice = 
                     </HStack>
                     <Button
                         rightIcon={<CalendarIcon/>}
-                        display={["none", "flex"]}
+                        display={["none", "none", null, "flex"]}
                         colorScheme={"orange"}
                         variant={"outline"}
                         key={service.id}
