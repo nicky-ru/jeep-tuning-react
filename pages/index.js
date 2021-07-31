@@ -4,7 +4,7 @@ import {Divider} from "@chakra-ui/layout";
 // custom components
 import Jumbotron from "../components/Jumbotron";
 import ServiceAccordion from "../components/Services";
-import Advantages from "../components/advantages";
+import Advantages from "../components/Advantages";
 import Brands from "../components/brands";
 import Contacts from "../components/Contacts";
 // amplify
