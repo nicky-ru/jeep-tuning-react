@@ -3,4 +3,5 @@ module.exports = {
   images: {
     domains: ['brandlogos63742-staging.s3.us-west-2.amazonaws.com'],
   },
+  webpack5: true
 }
