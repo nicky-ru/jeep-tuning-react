@@ -10,6 +10,7 @@ const Contacts = () => {
 
     return (
         <Container
+            id={"contacts-section"}
             maxW={'container.lg'}
             my={4}
         >

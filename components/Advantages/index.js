@@ -6,6 +6,7 @@ const Advantages = ({advantages = []}) => {
 
     return(
         <Container
+            id={"advantages-section"}
             my={4}
             maxW="container.lg"
         >

@@ -14,6 +14,7 @@ const Brands = ({brands = []}) => {
 
     return(
         <Container
+            id={"brands-section"}
             my={4}
             maxW="full"
             overflow={"hidden"}

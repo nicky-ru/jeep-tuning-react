@@ -25,6 +25,7 @@ const Jumbotron = ({services = []}) => {
     return (
         <>
             <Box
+                id={"jumbotron"}
                 mt={16}
                 h={["2xs", "md"]}
                 bg={'dark.100'}
@@ -54,7 +55,7 @@ const Jumbotron = ({services = []}) => {
                             backdropFilter: 'saturate(180%) blur(5px)',
                         }}
                     >
-                        <Heading>Лучший сервис по внедорожникам и кроссоверам</Heading>
+                        <Heading>Лучший сервис внедорожников и кроссоверов</Heading>
                         <Heading size={'md'}>Какая услуга вас интересует?</Heading>
                         <Button
                             leftIcon={<SearchIcon />}

@@ -19,6 +19,7 @@ const ServiceAccordion = ({uzels = [], services = []}) => {
 
     return (
         <Container
+            id={"services-accordion"}
             maxW="container.lg"
             my={4}
         >
@@ -56,14 +57,6 @@ const ServiceAccordion = ({uzels = [], services = []}) => {
             >
                 Все услуги
             </Button>
-            {/*<Link*/}
-            {/*    href={`/serviceSearch`}*/}
-            {/*>*/}
-            {/*    <a>*/}
-            {/*        <Button mt={2} w={"full"}>Все услуги</Button>*/}
-            {/*    </a>*/}
-
-            {/*</Link>*/}
         </Container>
     );
 }
