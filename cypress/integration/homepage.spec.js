@@ -6,13 +6,13 @@ describe('The Home Page', () => {
         cy.visit('/')
     })
     xit('should have all sections loaded', function () {
-        cy.get("header").should("be.visible");
-        cy.get("#jumbotron").should("be.visible");
-        cy.get("#services-accordion").should("be.visible");
-        cy.get("#advantages-section").should("be.visible");
-        cy.get("#brands-section").should("be.visible");
-        cy.get("#contacts-section").should("be.visible");
-        cy.get("#footer").should("be.visible");
+        cy.get("header")
+        cy.get("#jumbotron")
+        cy.get("#services-accordion")
+        cy.get("#advantages-section")
+        cy.get("#brands-section")
+        cy.get("#contacts-section")
+        cy.get("#footer")
     });
     xit('should hide on large devices', function () {
         cy.get("#menu-button-3").should("not.be.visible");
@@ -32,10 +32,10 @@ describe("Jumbotron", () => {
     })
     xit('should have all elements uploaded', function () {
         cy.get("#jumbotron").within(() => {
-            cy.get("img").should("be.visible");
-            cy.contains("Лучший сервис внедорожников и кроссоверов").should("be.visible");
-            cy.contains("Какая услуга вас интересует?").should("be.visible");
-            cy.contains("button", "Найти услугу и записаться").should("be.visible");
+            cy.get("img")
+            cy.contains("Лучший сервис внедорожников и кроссоверов")
+            cy.contains("Какая услуга вас интересует?")
+            cy.contains("button", "Найти услугу и записаться")
         })
     });
     xit('should open a modal', function () {
@@ -52,14 +52,14 @@ describe("Services accordion", () => {
     })
     xit('should upload uzels', function () {
         cy.get(".chakra-accordion").within(() => {
-            cy.contains("button", "Выпускная система").should("be.visible");
-            cy.contains("button", "Трансмиссия").should("be.visible");
-            cy.contains("button", "Ремонт рулевого управления").should("be.visible");
-            cy.contains("button", "Тормозная система").should("be.visible");
-            cy.contains("button", "Двигатель").should("be.visible");
-            cy.contains("button", "Ремонт задней подвески").should("be.visible");
-            cy.contains("button", "Ремонт передней подвески").should("be.visible");
-            cy.contains("button", "Техническое обслуживание").should("be.visible");
+            cy.contains("button", "Выпускная система")
+            cy.contains("button", "Трансмиссия")
+            cy.contains("button", "Ремонт рулевого управления")
+            cy.contains("button", "Тормозная система")
+            cy.contains("button", "Двигатель")
+            cy.contains("button", "Ремонт задней подвески")
+            cy.contains("button", "Ремонт передней подвески")
+            cy.contains("button", "Техническое обслуживание")
         })
     });
     xit('should upload services', function () {
