@@ -6,33 +6,12 @@ describe('The Home Page', () => {
         cy.visit('/')
     })
     it('should have all sections loaded', function () {
-        cy.get("#jumbotron")
         cy.get("#services-accordion")
         cy.get("#advantages-section")
         cy.get("#brands-section")
         cy.get("#contacts-section")
         cy.get("#footer")
     });
-
-    describe("Jumbotron", () => {
-        it('should have all elements uploaded', function () {
-            cy.get("#jumbotron").within(() => {
-                cy.get("img")
-                cy.contains("Лучший сервис внедорожников и кроссоверов")
-                cy.contains("Какая услуга вас интересует?")
-                cy.contains("button", "Найти услугу и записаться")
-            })
-        });
-        it('should open and close a modal', function () {
-            cy.get("#jumbotron").within(() => {
-                cy.contains("button", "Найти услугу и записаться").click();
-            })
-            cy.get('#chakra-modal--body-10').should("be.visible")
-            cy.get('.chakra-modal__content-container').click({force: true});
-            cy.get('#chakra-modal--body-10').should("not.exist")
-        });
-    })
-
     describe("Services accordion", () => {
         it('should upload uzels', function () {
             cy.get(".chakra-accordion").within(() => {
