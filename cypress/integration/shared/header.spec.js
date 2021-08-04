@@ -2,15 +2,6 @@ describe("The header", () => {
     before(() => {
         cy.visit("/")
     })
-    it('should contain brand logo', function () {
-        cy.contains("h1", "JeepService").should("be.visible")
-    });
-    it('should contain phone link', function () {
-        cy.contains("a", "+79108210003").should("be.visible");
-    });
-    it('should contain menu button', function () {
-        cy.get("#menu-button-3");
-    });
     it('should contain email button', function () {
         cy.get("header").within(() => {
             cy.contains("button", "Email");
@@ -26,41 +17,57 @@ describe("The header", () => {
             cy.get("button:last").should("have.attr", "aria-label", "Toggle Color Mode");
         })
     });
-    context("responsiveness md", () => {
+    context("Brand name", () => {
         beforeEach(() => {
+            cy.contains("h1", "JeepService").as("brandName")
+        })
+        it('should be visible on large devices', function () {
+            cy.get("@brandName").should("be.visible")
+        });
+        it('should be visible on medium devices', function () {
             cy.viewport(768, 1024)
-        })
-        it('should show brand logo', function () {
-            cy.contains("h1", "JeepService").should("be.visible");
+            cy.get("@brandName").should("be.visible");
         });
-        it('should show phone link', function () {
-            cy.contains("a", "+79108210003").should("be.visible");
-        });
-        it('should hide menu button', function () {
-            cy.get("#menu-button-3").should("not.be.visible");
+        it('should be hidden on small devices', function () {
+            cy.viewport(375, 667)
+            cy.get("@brandName").should("not.be.visible");
         });
     })
-    context("responsiveness sm", () => {
+    context("Phone link", () => {
         beforeEach(() => {
-            cy.viewport(375, 667)
+            cy.contains("a", "+79108210003").as("phoneLink")
         })
-        it('should hide brand logo', function () {
-            cy.contains("h1", "JeepService").should("not.be.visible");
+        it('should be visible on large devices', function () {
+            cy.get("@phoneLink").should("be.visible")
         });
-        it('should hide phone link', function () {
-            cy.contains("a", "+79108210003").should("not.be.visible");
+        it('should be visible on medium devices', function () {
+            cy.viewport(768, 1024)
+            cy.get("@phoneLink").should("be.visible");
         });
-        it('should show menu button', function () {
-            cy.get("#menu-button-3").should("be.visible");
+        it('should be hidden on small devices', function () {
+            cy.viewport(375, 667)
+            cy.get("@phoneLink").should("not.be.visible");
         });
     })
-    context("menu button", () => {
+    context("Menu button", () => {
         beforeEach(() => {
-            cy.viewport(375, 667)
+            cy.get("#menu-button-3").as("menuButton")
         })
+        it('should be hidden on large devices', function () {
+            cy.get("@menuButton").should("not.be.visible");;
+        });
+        it('should be hidden on medium devices', function () {
+            cy.viewport(768, 1024)
+            cy.get("@menuButton").should("not.be.visible");
+        });
+        it('should be visible on small devices', function () {
+            cy.viewport(375, 667)
+            cy.get("@menuButton").should("be.visible");
+        });
         it('should toggle menu list', function () {
-            cy.get("#menu-button-3").click();
-            cy.get("#menu-button-3").click();
+            cy.viewport(375, 667)
+            cy.get("@menuButton").click();
+            cy.get("@menuButton").click();
         });
     })
 })
