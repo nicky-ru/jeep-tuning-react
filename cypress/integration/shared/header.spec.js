@@ -1,4 +1,4 @@
-describe("The header", () => {
+describe("Header", () => {
     before(() => {
         cy.visit("/")
     })
@@ -70,7 +70,8 @@ describe("The header", () => {
     })
     describe("Phone link", () => {
         beforeEach(() => {
-            cy.contains("a", "+79108210003").as("phoneLink")
+            const phoneNum = "+79108210003"
+            cy.contains("a", phoneNum).as("phoneLink")
         })
         context("On large devices", () => {
             it('should be visible', function () {

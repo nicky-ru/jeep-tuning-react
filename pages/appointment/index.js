@@ -36,7 +36,12 @@ export default function Appointment({uzels = [], services = [], brands = [], mod
     )
 }
 
-export async function getStaticProps() {
+export async function getStaticProps(context) {
+    if (context.preview) {
+        return {
+            props: context.previewData
+        }
+    }
     const serviceData = await getAllServices();
     const uzelsData = await getAllUzels();
     const brandsData = await getAllBrands();

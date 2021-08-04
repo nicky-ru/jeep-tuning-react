@@ -36,7 +36,12 @@ export default function Home(props) {
   )
 }
 
-export async function getStaticProps() {
+export async function getStaticProps(context) {
+    if (context.preview) {
+        return {
+            props: context.previewData
+        }
+    }
     const serviceData = await getAllServices();
     const uzelsData = await getAllUzels();
     const advantagesData = await getAllAdvantages();

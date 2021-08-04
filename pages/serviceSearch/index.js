@@ -71,7 +71,12 @@ export default function Services({services = [], uzels = []}) {
     )
 }
 
-export async function getStaticProps() {
+export async function getStaticProps(context) {
+    if (context.preview) {
+        return {
+            props: context.previewData
+        }
+    }
     const serviceData = await getAllServices();
     const services = serviceData.map(service => {return service.params.service;})
     const uzelData = await getAllUzels();
