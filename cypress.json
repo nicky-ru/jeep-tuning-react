@@ -1,4 +1,5 @@
 {
+  "video": false,
   "scrollBehavior": "center",
   "baseUrl": "http://localhost:3000"
 }
