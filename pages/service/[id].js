@@ -4,6 +4,7 @@ import {ArrowBackIcon} from "@chakra-ui/icons";
 import {useRouter} from "next/router";
 
 import {getAllServicesIds, getServiceData} from "../../lib/services";
+import {getServiceDescription} from "../../lib/service_descriptions";
 import {getUzelData} from "../../lib/uzels";
 import Head from "next/head";
 import ServiceInfo from "../../components/Services/serviceInfo";

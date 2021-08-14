@@ -1,8 +1,20 @@
 import {Badge, Box, Center, Heading, Text} from "@chakra-ui/layout";
-import {useColorModeValue} from "@chakra-ui/react";
+import {useColorModeValue, useControllableState} from "@chakra-ui/react";
+import {useEffect} from "react";
+import {getServiceDescription} from "../../lib/service_descriptions";
 
 const ServiceInfo = ({service={}, uzel={}}) => {
     const bg = useColorModeValue("light.100", 'dark.100');
+    const [des, setDes] = useControllableState({defaultValue: ""})
+
+
+    useEffect(() => {
+        const getDes = async () => {
+            const desc = await getServiceDescription(service.description);
+            setDes(desc);
+        }
+        getDes();
+    }, [service]);
 
     return (
         <Center h={"full"}>
@@ -14,14 +26,14 @@ const ServiceInfo = ({service={}, uzel={}}) => {
             >
                 <Heading mb={2} textTransform={'capitalize'}>{service.name}</Heading>
                 <Heading mb={4} size={'sm'}><Badge p={1} colorScheme="purple">{uzel.name}</Badge></Heading>
-                <Text
+                <Box
                     mb={4}
                     bg={bg}
-                    p={5}
+                    p={10}
                     borderRadius={"md"}
                 >
-                    {service.description}
-                </Text>
+                    <div dangerouslySetInnerHTML={{ __html: des }} />
+                </Box>
                 <Text>Цена от: <Badge ml={1} colorScheme="green">{service.price} руб.</Badge></Text>
             </Box>
         </Center>
