@@ -2,6 +2,7 @@ import {Badge, Box, Center, Heading, Text} from "@chakra-ui/layout";
 import {useColorModeValue, useControllableState} from "@chakra-ui/react";
 import {useEffect} from "react";
 import {getServiceDescription} from "../../lib/service_descriptions";
+import styles from './serviceInfo.module.css'
 
 const ServiceInfo = ({service={}, uzel={}}) => {
     const bg = useColorModeValue("light.100", 'dark.100');
@@ -29,10 +30,10 @@ const ServiceInfo = ({service={}, uzel={}}) => {
                 <Box
                     mb={4}
                     bg={bg}
-                    p={10}
+                    p={5}
                     borderRadius={"md"}
                 >
-                    <div dangerouslySetInnerHTML={{ __html: des }} />
+                    <div className={styles.description} dangerouslySetInnerHTML={{ __html: des }} />
                 </Box>
                 <Text>Цена от: <Badge ml={1} colorScheme="green">{service.price} руб.</Badge></Text>
             </Box>
