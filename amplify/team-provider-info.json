@@ -1,0 +1,20 @@
+{
+  "jt": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-jeeptuningreact-jt-152021-authRole",
+      "UnauthRoleArn": "arn:aws:iam::889939058670:role/amplify-jeeptuningreact-jt-152021-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::889939058670:role/amplify-jeeptuningreact-jt-152021-authRole",
+      "Region": "eu-central-1",
+      "DeploymentBucketName": "amplify-jeeptuningreact-jt-152021-deployment",
+      "UnauthRoleName": "amplify-jeeptuningreact-jt-152021-unauthRole",
+      "StackName": "amplify-jeeptuningreact-jt-152021",
+      "StackId": "arn:aws:cloudformation:eu-central-1:889939058670:stack/amplify-jeeptuningreact-jt-152021/ef77eef0-fc06-11eb-83de-0a9f22aa9aa8",
+      "AmplifyAppId": "dyixl22k86xs5"
+    },
+    "categories": {
+      "auth": {
+        "jeeptuningreact22e6b77a": {}
+      }
+    }
+  }
+}
