@@ -1,6 +1,33 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const syncAdvantages = /* GraphQL */ `
+  query SyncAdvantages(
+    $filter: ModelAdvantageFilterInput
+    $limit: Int
+    $nextToken: String
+    $lastSync: AWSTimestamp
+  ) {
+    syncAdvantages(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      lastSync: $lastSync
+    ) {
+      items {
+        id
+        name
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
 export const getAdvantage = /* GraphQL */ `
   query GetAdvantage($id: ID!) {
     getAdvantage(id: $id) {
@@ -35,14 +62,14 @@ export const listAdvantages = /* GraphQL */ `
     }
   }
 `;
-export const syncAdvantages = /* GraphQL */ `
-  query SyncAdvantages(
-    $filter: ModelAdvantageFilterInput
+export const syncServices = /* GraphQL */ `
+  query SyncServices(
+    $filter: ModelServiceFilterInput
     $limit: Int
     $nextToken: String
     $lastSync: AWSTimestamp
   ) {
-    syncAdvantages(
+    syncServices(
       filter: $filter
       limit: $limit
       nextToken: $nextToken
@@ -51,6 +78,9 @@ export const syncAdvantages = /* GraphQL */ `
       items {
         id
         name
+        description
+        price
+        uzelID
         _version
         _deleted
         _lastChangedAt
@@ -102,14 +132,14 @@ export const listServices = /* GraphQL */ `
     }
   }
 `;
-export const syncServices = /* GraphQL */ `
-  query SyncServices(
-    $filter: ModelServiceFilterInput
+export const syncUzels = /* GraphQL */ `
+  query SyncUzels(
+    $filter: ModelUzelFilterInput
     $limit: Int
     $nextToken: String
     $lastSync: AWSTimestamp
   ) {
-    syncServices(
+    syncUzels(
       filter: $filter
       limit: $limit
       nextToken: $nextToken
@@ -118,9 +148,6 @@ export const syncServices = /* GraphQL */ `
       items {
         id
         name
-        description
-        price
-        uzelID
         _version
         _deleted
         _lastChangedAt
@@ -137,15 +164,15 @@ export const getUzel = /* GraphQL */ `
     getUzel(id: $id) {
       id
       name
+      Services {
+        nextToken
+        startedAt
+      }
       _version
       _deleted
       _lastChangedAt
       createdAt
       updatedAt
-      Services {
-        nextToken
-        startedAt
-      }
     }
   }
 `;
@@ -170,14 +197,14 @@ export const listUzels = /* GraphQL */ `
     }
   }
 `;
-export const syncUzels = /* GraphQL */ `
-  query SyncUzels(
-    $filter: ModelUzelFilterInput
+export const syncModels = /* GraphQL */ `
+  query SyncModels(
+    $filter: ModelModelFilterInput
     $limit: Int
     $nextToken: String
     $lastSync: AWSTimestamp
   ) {
-    syncUzels(
+    syncModels(
       filter: $filter
       limit: $limit
       nextToken: $nextToken
@@ -185,6 +212,7 @@ export const syncUzels = /* GraphQL */ `
     ) {
       items {
         id
+        brandID
         name
         _version
         _deleted
@@ -233,14 +261,14 @@ export const listModels = /* GraphQL */ `
     }
   }
 `;
-export const syncModels = /* GraphQL */ `
-  query SyncModels(
-    $filter: ModelModelFilterInput
+export const syncBrands = /* GraphQL */ `
+  query SyncBrands(
+    $filter: ModelBrandFilterInput
     $limit: Int
     $nextToken: String
     $lastSync: AWSTimestamp
   ) {
-    syncModels(
+    syncBrands(
       filter: $filter
       limit: $limit
       nextToken: $nextToken
@@ -248,8 +276,8 @@ export const syncModels = /* GraphQL */ `
     ) {
       items {
         id
-        brandID
         name
+        image
         _version
         _deleted
         _lastChangedAt
@@ -266,16 +294,16 @@ export const getBrand = /* GraphQL */ `
     getBrand(id: $id) {
       id
       name
+      Cars {
+        nextToken
+        startedAt
+      }
       image
       _version
       _deleted
       _lastChangedAt
       createdAt
       updatedAt
-      Cars {
-        nextToken
-        startedAt
-      }
     }
   }
 `;
@@ -286,34 +314,6 @@ export const listBrands = /* GraphQL */ `
     $nextToken: String
   ) {
     listBrands(filter: $filter, limit: $limit, nextToken: $nextToken) {
-      items {
-        id
-        name
-        image
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
-      }
-      nextToken
-      startedAt
-    }
-  }
-`;
-export const syncBrands = /* GraphQL */ `
-  query SyncBrands(
-    $filter: ModelBrandFilterInput
-    $limit: Int
-    $nextToken: String
-    $lastSync: AWSTimestamp
-  ) {
-    syncBrands(
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-      lastSync: $lastSync
-    ) {
       items {
         id
         name

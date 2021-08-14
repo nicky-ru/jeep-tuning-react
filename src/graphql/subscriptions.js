@@ -93,15 +93,15 @@ export const onCreateUzel = /* GraphQL */ `
     onCreateUzel {
       id
       name
+      Services {
+        nextToken
+        startedAt
+      }
       _version
       _deleted
       _lastChangedAt
       createdAt
       updatedAt
-      Services {
-        nextToken
-        startedAt
-      }
     }
   }
 `;
@@ -110,15 +110,15 @@ export const onUpdateUzel = /* GraphQL */ `
     onUpdateUzel {
       id
       name
+      Services {
+        nextToken
+        startedAt
+      }
       _version
       _deleted
       _lastChangedAt
       createdAt
       updatedAt
-      Services {
-        nextToken
-        startedAt
-      }
     }
   }
 `;
@@ -127,15 +127,15 @@ export const onDeleteUzel = /* GraphQL */ `
     onDeleteUzel {
       id
       name
+      Services {
+        nextToken
+        startedAt
+      }
       _version
       _deleted
       _lastChangedAt
       createdAt
       updatedAt
-      Services {
-        nextToken
-        startedAt
-      }
     }
   }
 `;
@@ -186,16 +186,16 @@ export const onCreateBrand = /* GraphQL */ `
     onCreateBrand {
       id
       name
+      Cars {
+        nextToken
+        startedAt
+      }
       image
       _version
       _deleted
       _lastChangedAt
       createdAt
       updatedAt
-      Cars {
-        nextToken
-        startedAt
-      }
     }
   }
 `;
@@ -204,16 +204,16 @@ export const onUpdateBrand = /* GraphQL */ `
     onUpdateBrand {
       id
       name
+      Cars {
+        nextToken
+        startedAt
+      }
       image
       _version
       _deleted
       _lastChangedAt
       createdAt
       updatedAt
-      Cars {
-        nextToken
-        startedAt
-      }
     }
   }
 `;
@@ -222,16 +222,16 @@ export const onDeleteBrand = /* GraphQL */ `
     onDeleteBrand {
       id
       name
+      Cars {
+        nextToken
+        startedAt
+      }
       image
       _version
       _deleted
       _lastChangedAt
       createdAt
       updatedAt
-      Cars {
-        nextToken
-        startedAt
-      }
     }
   }
 `;
