@@ -6,7 +6,6 @@ describe('The Home Page', () => {
         cy.visit('/')
     })
     it('should have all sections loaded', function () {
-        cy.get("#services-accordion")
         cy.get("#advantages-section")
         cy.get("#brands-section")
         cy.get("#contacts-section")

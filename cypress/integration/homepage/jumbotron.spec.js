@@ -36,4 +36,24 @@ describe("Jumbotron", () => {
             cy.get('.chakra-modal__content-container').click(0,0);
         });
     })
+    describe("Modal", () => {
+        beforeEach(() => {
+            cy.get("@jumbotron").within(() => {
+                cy.contains("button", "Найти услугу и записаться").click();
+            })
+        })
+        afterEach(() => {
+            cy.get('.chakra-modal__content-container').click(0,0);
+        })
+        it('focuces input on open', function () {
+            cy.focused()
+                .should('have.class', 'chakra-input')
+        });
+        it('accepts input', () => {
+            const typedText = 'замена масла';
+            cy.get('.chakra-input')
+                .type(typedText)
+                .should('have.value', typedText)
+        })
+    })
 })
