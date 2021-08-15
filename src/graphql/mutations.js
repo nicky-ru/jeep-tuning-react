@@ -58,8 +58,9 @@ export const createService = /* GraphQL */ `
       id
       name
       description
-      price
       uzelID
+      prices
+      pricesInfo
       _version
       _deleted
       _lastChangedAt
@@ -77,8 +78,9 @@ export const updateService = /* GraphQL */ `
       id
       name
       description
-      price
       uzelID
+      prices
+      pricesInfo
       _version
       _deleted
       _lastChangedAt
@@ -96,8 +98,9 @@ export const deleteService = /* GraphQL */ `
       id
       name
       description
-      price
       uzelID
+      prices
+      pricesInfo
       _version
       _deleted
       _lastChangedAt
@@ -114,15 +117,15 @@ export const createUzel = /* GraphQL */ `
     createUzel(input: $input, condition: $condition) {
       id
       name
-      Services {
-        nextToken
-        startedAt
-      }
       _version
       _deleted
       _lastChangedAt
       createdAt
       updatedAt
+      Services {
+        nextToken
+        startedAt
+      }
     }
   }
 `;
@@ -134,15 +137,15 @@ export const updateUzel = /* GraphQL */ `
     updateUzel(input: $input, condition: $condition) {
       id
       name
-      Services {
-        nextToken
-        startedAt
-      }
       _version
       _deleted
       _lastChangedAt
       createdAt
       updatedAt
+      Services {
+        nextToken
+        startedAt
+      }
     }
   }
 `;
@@ -154,15 +157,15 @@ export const deleteUzel = /* GraphQL */ `
     deleteUzel(input: $input, condition: $condition) {
       id
       name
-      Services {
-        nextToken
-        startedAt
-      }
       _version
       _deleted
       _lastChangedAt
       createdAt
       updatedAt
+      Services {
+        nextToken
+        startedAt
+      }
     }
   }
 `;
@@ -225,16 +228,16 @@ export const createBrand = /* GraphQL */ `
     createBrand(input: $input, condition: $condition) {
       id
       name
-      Cars {
-        nextToken
-        startedAt
-      }
       image
       _version
       _deleted
       _lastChangedAt
       createdAt
       updatedAt
+      Cars {
+        nextToken
+        startedAt
+      }
     }
   }
 `;
@@ -246,16 +249,16 @@ export const updateBrand = /* GraphQL */ `
     updateBrand(input: $input, condition: $condition) {
       id
       name
-      Cars {
-        nextToken
-        startedAt
-      }
       image
       _version
       _deleted
       _lastChangedAt
       createdAt
       updatedAt
+      Cars {
+        nextToken
+        startedAt
+      }
     }
   }
 `;
@@ -267,16 +270,16 @@ export const deleteBrand = /* GraphQL */ `
     deleteBrand(input: $input, condition: $condition) {
       id
       name
-      Cars {
-        nextToken
-        startedAt
-      }
       image
       _version
       _deleted
       _lastChangedAt
       createdAt
       updatedAt
+      Cars {
+        nextToken
+        startedAt
+      }
     }
   }
 `;
