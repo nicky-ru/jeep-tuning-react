@@ -1,6 +1,7 @@
 import {Badge, Box, Center, Heading, Text} from "@chakra-ui/layout";
-import {Tabs, TabList, Tab, TabPanels, TabPanel} from '@chakra-ui/react'
+import {Tabs, TabList, Tab, TabPanels, TabPanel, Tooltip, List, ListIcon, ListItem} from '@chakra-ui/react'
 import {useColorModeValue} from "@chakra-ui/react";
+import {CheckCircleIcon} from "@chakra-ui/icons"
 
 const ServiceInfo = ({service={}, uzel={}}) => {
     const bg = useColorModeValue("light.100", 'dark.100');
@@ -36,12 +37,34 @@ const ServiceInfo = ({service={}, uzel={}}) => {
                                 <p>{service?.description?.[1]}</p>
                             </TabPanel>
                             <TabPanel>
-                                <p>{service?.description?.[2]}</p>
+                                <List>
+                                    {service?.description?.[2].split('.')
+                                        .filter(todo => {
+                                            return todo.length > 0
+                                        })
+                                        .map(todo => (
+                                            <ListItem>
+                                                <ListIcon as={CheckCircleIcon} color="green.500" />
+                                                {todo}
+                                            </ListItem>
+                                            )
+                                        )}
+                                </List>
                             </TabPanel>
                         </TabPanels>
                     </Tabs>
                 </Box>
-                <Text>Цена от: <Badge ml={1} colorScheme="green">{service.price} руб.</Badge></Text>
+                <Text>Цена:
+                    <Tooltip textTransform={'capitalize'} label={service?.pricesInfo?.[0]} aria-label="A tooltip">
+                        <Badge ml={1} colorScheme="green">{service?.prices?.[0]} руб.</Badge>
+                    </Tooltip>
+                    <Tooltip textTransform={'capitalize'} label={service?.pricesInfo?.[1]} aria-label="A tooltip">
+                        <Badge ml={1} colorScheme="yellow">{service?.prices?.[1]} руб.</Badge>
+                    </Tooltip>
+                    <Tooltip textTransform={'capitalize'} label={service?.pricesInfo?.[2]} aria-label="A tooltip">
+                        <Badge ml={1} colorScheme="pink">{service?.prices?.[2]} руб.</Badge>
+                    </Tooltip>
+                </Text>
             </Box>
         </Center>
     )
