@@ -7,8 +7,9 @@ type Service @model @auth(rules: [{allow: public}]) @key(name: "byUzel", fields:
   id: ID!
   name: String!
   description: [String]
-  price: Float
   uzelID: ID
+  prices: [Float]
+  pricesInfo: [String]
 }
 
 type Uzel @model @auth(rules: [{allow: public}]) {

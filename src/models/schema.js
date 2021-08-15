@@ -84,19 +84,28 @@ export const schema = {
                     "attributes": [],
                     "isArrayNullable": true
                 },
-                "price": {
-                    "name": "price",
-                    "isArray": false,
-                    "type": "Float",
-                    "isRequired": false,
-                    "attributes": []
-                },
                 "uzelID": {
                     "name": "uzelID",
                     "isArray": false,
                     "type": "ID",
                     "isRequired": false,
                     "attributes": []
+                },
+                "prices": {
+                    "name": "prices",
+                    "isArray": true,
+                    "type": "Float",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true
+                },
+                "pricesInfo": {
+                    "name": "pricesInfo",
+                    "isArray": true,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true
                 },
                 "createdAt": {
                     "name": "createdAt",
@@ -380,5 +389,5 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "version": "522ca3368861bc75d177770b5bdb8310"
+    "version": "b50ca1f5f229bc7169368e739f7f1216"
 };
