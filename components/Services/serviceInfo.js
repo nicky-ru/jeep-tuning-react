@@ -42,8 +42,8 @@ const ServiceInfo = ({service={}, uzel={}}) => {
                                         .filter(todo => {
                                             return todo.length > 0
                                         })
-                                        .map(todo => (
-                                            <ListItem>
+                                        .map((todo, i) => (
+                                            <ListItem key={i}>
                                                 <ListIcon as={CheckCircleIcon} color="green.500" />
                                                 {todo}
                                             </ListItem>
