@@ -1,21 +1,9 @@
 import {Badge, Box, Center, Heading, Text} from "@chakra-ui/layout";
-import {useColorModeValue, useControllableState} from "@chakra-ui/react";
-import {useEffect} from "react";
-import {getServiceDescription} from "../../lib/service_descriptions";
-import styles from './serviceInfo.module.css'
+import {Tabs, TabList, Tab, TabPanels, TabPanel} from '@chakra-ui/react'
+import {useColorModeValue} from "@chakra-ui/react";
 
 const ServiceInfo = ({service={}, uzel={}}) => {
     const bg = useColorModeValue("light.100", 'dark.100');
-    const [des, setDes] = useControllableState({defaultValue: ""})
-
-
-    useEffect(() => {
-        const getDes = async () => {
-            const desc = await getServiceDescription(service.description);
-            setDes(desc);
-        }
-        getDes();
-    }, [service]);
 
     return (
         <Center h={"full"}>
@@ -33,7 +21,25 @@ const ServiceInfo = ({service={}, uzel={}}) => {
                     p={5}
                     borderRadius={"md"}
                 >
-                    <div className={styles.description} dangerouslySetInnerHTML={{ __html: des }} />
+                    <Tabs>
+                        <TabList>
+                            <Tab>Что?</Tab>
+                            <Tab>Зачем?</Tab>
+                            <Tab>Как?</Tab>
+                        </TabList>
+
+                        <TabPanels>
+                            <TabPanel>
+                                <p>{service?.description?.[0]}</p>
+                            </TabPanel>
+                            <TabPanel>
+                                <p>{service?.description?.[1]}</p>
+                            </TabPanel>
+                            <TabPanel>
+                                <p>{service?.description?.[2]}</p>
+                            </TabPanel>
+                        </TabPanels>
+                    </Tabs>
                 </Box>
                 <Text>Цена от: <Badge ml={1} colorScheme="green">{service.price} руб.</Badge></Text>
             </Box>
