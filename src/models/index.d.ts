@@ -36,7 +36,7 @@ export declare class Advantage {
 export declare class Service {
   readonly id: string;
   readonly name: string;
-  readonly description?: string;
+  readonly description?: (string | null)[];
   readonly price?: number;
   readonly uzelID?: string;
   readonly createdAt?: string;

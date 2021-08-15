@@ -78,10 +78,11 @@ export const schema = {
                 },
                 "description": {
                     "name": "description",
-                    "isArray": false,
+                    "isArray": true,
                     "type": "String",
                     "isRequired": false,
-                    "attributes": []
+                    "attributes": [],
+                    "isArrayNullable": true
                 },
                 "price": {
                     "name": "price",
@@ -379,5 +380,5 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "version": "e30d30358bb3b83e90d24b61050b68a4"
+    "version": "522ca3368861bc75d177770b5bdb8310"
 };
