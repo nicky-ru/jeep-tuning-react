@@ -49,15 +49,15 @@ const ServiceList = ({services = [], uzelId = "", serviceName = "", withPrice = 
                                 </Text>
                             </a>
                         </Link>
-                        {withPrice &&
-                        <Badge
-                            ml={1}
-                            colorScheme="green"
-                            display={["none", null, "flex"]}
-                        >
-                            {">"} {service.price} руб.
-                        </Badge>
-                        }
+                        {/*{withPrice &&*/}
+                        {/*<Badge*/}
+                        {/*    ml={1}*/}
+                        {/*    colorScheme="green"*/}
+                        {/*    display={["none", null, "flex"]}*/}
+                        {/*>*/}
+                        {/*    {">"} {service.price} руб.*/}
+                        {/*</Badge>*/}
+                        {/*}*/}
                     </HStack>
                     <Button
                         rightIcon={<CalendarIcon/>}
