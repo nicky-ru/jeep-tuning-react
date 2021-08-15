@@ -19,19 +19,20 @@ const ServiceInfo = ({service={}, uzel={}}) => {
                 <Box
                     mb={4}
                     bg={bg}
-                    p={5}
+                    // p={5}
                     borderRadius={"md"}
                 >
-                    <Tabs>
+                    <Tabs isFitted>
                         <TabList>
-                            <Tab>Что?</Tab>
-                            <Tab>Зачем?</Tab>
-                            <Tab>Как?</Tab>
+                            {service?.description ? <></> : <Tab>В работе</Tab>}
+                            {service?.description?.[0] ? <Tab>Что?</Tab> : <></>}
+                            {service?.description?.[1] ? <Tab>Зачем?</Tab> : <></>}
+                            {service?.description?.[2] ? <Tab>Как?</Tab> : <></>}
                         </TabList>
 
                         <TabPanels>
                             <TabPanel>
-                                <p>{service?.description?.[0]}</p>
+                                <p>{service?.description? service.description[0] : "Здесь будет описание данной услуги"}</p>
                             </TabPanel>
                             <TabPanel>
                                 <p>{service?.description?.[1]}</p>
@@ -54,7 +55,7 @@ const ServiceInfo = ({service={}, uzel={}}) => {
                         </TabPanels>
                     </Tabs>
                 </Box>
-                <Text>Цена:
+                <Text>Цена от:
                     <Tooltip textTransform={'capitalize'} label={service?.pricesInfo?.[0]} aria-label="A tooltip">
                         <Badge ml={1} colorScheme="green">{service?.prices?.[0]} руб.</Badge>
                     </Tooltip>
