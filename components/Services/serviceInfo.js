@@ -56,15 +56,16 @@ const ServiceInfo = ({service={}, uzel={}}) => {
                     </Tabs>
                 </Box>
                 <Text>Цена от:
-                    <Tooltip textTransform={'capitalize'} label={service?.pricesInfo?.[0]} aria-label="A tooltip">
-                        <Badge ml={1} colorScheme="green">{service?.prices?.[0]} руб.</Badge>
-                    </Tooltip>
-                    <Tooltip textTransform={'capitalize'} label={service?.pricesInfo?.[1]} aria-label="A tooltip">
-                        <Badge ml={1} colorScheme="yellow">{service?.prices?.[1]} руб.</Badge>
-                    </Tooltip>
-                    <Tooltip textTransform={'capitalize'} label={service?.pricesInfo?.[2]} aria-label="A tooltip">
-                        <Badge ml={1} colorScheme="pink">{service?.prices?.[2]} руб.</Badge>
-                    </Tooltip>
+                    {service?.prices?.map((price, i) => (
+                        <Tooltip
+                            key={price}
+                            textTransform={'capitalize'}
+                            label={service?.pricesInfo?.[i]}
+                            aria-label="A tooltip"
+                        >
+                            <Badge ml={1} colorScheme="green">{price} руб.</Badge>
+                        </Tooltip>
+                    ))}
                 </Text>
             </Box>
         </Center>
