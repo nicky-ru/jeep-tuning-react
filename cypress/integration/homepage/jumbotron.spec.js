@@ -15,7 +15,7 @@ describe("Jumbotron", () => {
     });
     it("should have heading", () => {
         cy.get("@jumbotron").within(() => {
-            cy.contains("Лучший сервис внедорожников и кроссоверов")
+            cy.contains("Сервис внедорожников и кроссоверов c гарантией")
         })
     })
     it("should have appointment button", () => {
