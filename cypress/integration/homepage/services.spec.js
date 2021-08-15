@@ -43,7 +43,7 @@ describe('Service section', () => {
                     .click()
             })
 
-            cy.url()
+            cy.url({timeout: 10000})
                 .should("contain", "/serviceSearch")
 
             cy.contains('На главную').click()
