@@ -38,7 +38,7 @@ const ServiceInfo = ({service={}, uzel={}}) => {
                             </TabPanel>
                             <TabPanel>
                                 <List>
-                                    {service?.description?.[2].split('.')
+                                    {service?.description?.[2]?.split('.')
                                         .filter(todo => {
                                             return todo.length > 0
                                         })
