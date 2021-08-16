@@ -41,6 +41,7 @@ describe("Jumbotron", () => {
             cy.get("@jumbotron").within(() => {
                 cy.contains("button", "Найти услугу и записаться").click();
             })
+
         })
         afterEach(() => {
             cy.get('.chakra-modal__content-container').click(0,0);
@@ -54,6 +55,27 @@ describe("Jumbotron", () => {
             cy.get('.chakra-input')
                 .type(typedText)
                 .should('have.value', typedText)
+        })
+        it('should search items', () => {
+            const typedText = 'замена масла';
+            cy.get('.chakra-input').type(typedText)
+            cy.contains('.css-bvabkc', typedText)
+        })
+        it('should open service page on click', () => {
+            const typedText = 'замена масла';
+            cy.get('.chakra-input').type(typedText)
+            cy.get('.css-bvabkc')
+                .contains('a',typedText)
+                .click()
+
+            cy.url({timeout: 10000})
+                .should('contain', '/service')
+            cy.contains('h2', typedText)
+            cy.contains('JeepService').click()
+            cy.wait(6000)
+            cy.get("@jumbotron").within(() => {
+                cy.contains("button", "Найти услугу и записаться").click();
+            })
         })
     })
 })
