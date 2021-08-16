@@ -1,5 +1,6 @@
 import {Container, Stack, Box, StackDivider, Divider} from "@chakra-ui/layout";
 import {Breadcrumb, BreadcrumbItem, Button, useBreakpointValue} from "@chakra-ui/react";
+import {ChevronRightIcon} from "@chakra-ui/icons";
 import {useRouter} from "next/router";
 
 import {getAllServicesIds, getServiceData} from "../../lib/services";
@@ -21,7 +22,7 @@ const Service = ({service={}, uzel={}}) => {
             </Head>
 
             <Container maxW="container.lg" mt={16} mb={5}>
-                <Breadcrumb>
+                <Breadcrumb spacing="8px" separator={<ChevronRightIcon color="gray.500" />}>
                     <BreadcrumbItem>
                         <Button
                             variant={"link"}

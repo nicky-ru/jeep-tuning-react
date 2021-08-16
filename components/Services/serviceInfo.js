@@ -31,7 +31,14 @@ const ServiceInfo = ({service={}, uzel={}}) => {
 
                         <TabPanels>
                             <TabPanel>
-                                <p>{service?.description?.[0] ? service.description[0] : "Здесь будет описание данной услуги"}</p>
+                                <p>
+                                    {service?.description?.[0]
+                                    ? service.description[0]
+                                    :
+                                        "Здесь будет описание данной услуги Здесь будет описание данной услуги " +
+                                        "Здесь будет описание данной услуги Здесь будет описание данной услуги"
+                                    }
+                                </p>
                             </TabPanel>
                             <TabPanel>
                                 <p>{service?.description?.[1]}</p>
