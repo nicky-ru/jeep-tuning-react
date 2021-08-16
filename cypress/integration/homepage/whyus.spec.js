@@ -8,9 +8,11 @@ describe('Advantages section', () => {
     it('should have title', function () {
         cy.contains('Почему выбирают нас')
     });
-    it('should contain 9 advantages', () => {
+    it('should contain advantages', () => {
         cy.get('#advantages-section').within(() => {
-            cy.get('.chakra-wrap__list li').should('have.length', '9')
+            cy.get('.chakra-wrap__list li')
+                .its('length')
+                .should('be.gt', 0)
         })
     })
 })
