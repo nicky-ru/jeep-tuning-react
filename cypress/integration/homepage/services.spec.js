@@ -28,8 +28,19 @@ describe('Service section', () => {
                 cy.get('.chakra-accordion__panel').within(() => {
                     cy.get('a')
                 })
+                cy.get('button:first').click()
             })
         })
+        it('should open appointment page on button click', function () {
+            cy.get('@accordion').find('button:first').click()
+            cy.get('.chakra-accordion__panel').within(() => {
+                cy.contains('button:first', 'Записаться').click()
+            });
+            cy.url({timeout: 10000})
+                .should('contain', 'appointment')
+            cy.contains('JeepService').click()
+            cy.wait(6000)
+        });
     })
     context('All services button', () => {
         it('should exist', function () {
