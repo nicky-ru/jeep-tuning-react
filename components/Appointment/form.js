@@ -142,16 +142,6 @@ const AppointmentForm = ({serviceId = "", uzels = [], services = [], brands = []
 
     return(
         <Container borderColor={border} size={"container.md"}>
-            <Button
-                variant={"link"}
-                my={5}
-                leftIcon={<ArrowBackIcon/>}
-                onClick={() => {
-                    router.push("/serviceSearch")
-                }}
-            >
-                Ко всем услугам
-            </Button>
             <Stack p={4} borderRadius={"md"} bg={bg} divider={<StackDivider borderColor={border} />}>
 
                 <FormControl id="uzel">
