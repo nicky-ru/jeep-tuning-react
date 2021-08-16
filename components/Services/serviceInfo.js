@@ -24,7 +24,6 @@ const ServiceInfo = ({service={}, uzel={}}) => {
                 >
                     <Tabs isFitted>
                         <TabList>
-                            {service?.description ? <></> : <Tab>В работе</Tab>}
                             {service?.description?.[0] ? <Tab>Что?</Tab> : <></>}
                             {service?.description?.[1] ? <Tab>Зачем?</Tab> : <></>}
                             {service?.description?.[2] ? <Tab>Как?</Tab> : <></>}
@@ -32,7 +31,7 @@ const ServiceInfo = ({service={}, uzel={}}) => {
 
                         <TabPanels>
                             <TabPanel>
-                                <p>{service?.description? service.description[0] : "Здесь будет описание данной услуги"}</p>
+                                <p>{service?.description?.[0] ? service.description[0] : "Здесь будет описание данной услуги"}</p>
                             </TabPanel>
                             <TabPanel>
                                 <p>{service?.description?.[1]}</p>
