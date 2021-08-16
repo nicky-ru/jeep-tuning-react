@@ -11,6 +11,8 @@ import {
 } from "@chakra-ui/react";
 import {SearchIcon} from "@chakra-ui/icons";
 import Image from "next/image"
+import smoke_dark from "../../public/images/smoke.png"
+import smoke_light from "../../public/images/smoke_light.png"
 import React from "react";
 import JumbotronModalContent from "./modalContent";
 
@@ -18,7 +20,10 @@ const Jumbotron = ({services = []}) => {
     const bg = useColorModeValue("dark.500", "light.500");
     const textCol = useColorModeValue("light.400", "dark.400");
     const variant = useColorModeValue("solid", "outline");
+    const bg_img = useColorModeValue(smoke_light, smoke_dark);
     const modalSize = useBreakpointValue({base: "xs", md: "xl", lg: "3xl"})
+    const headingSize = useBreakpointValue({base: "lg", sm: "lg", md: "xl", lg: "xl"})
+    const secHeadingSize = useBreakpointValue({base: "xs", sm: "xs", md: "md", lg: "md"})
     const jumbotronSize = useBreakpointValue({base: "xs", md: "2xl", lg: "4xl"});
     const {onOpen, onClose, isOpen} = useDisclosure();
 
@@ -27,13 +32,13 @@ const Jumbotron = ({services = []}) => {
             <Box
                 id={"jumbotron"}
                 mt={16}
-                h={["2xs", "md"]}
-                bg={'dark.100'}
+                h={'2xs'}
+                bg={'light.400'}
                 position={"relative"}
                 zIndex={0}
             >
                 <Image
-                    src={'/images/bkg.webp'}
+                    src={bg_img}
                     alt={'background'}
                     placeholder={'blur'}
                     blurDataURL={"https://via.placeholder.com/100"}
@@ -55,8 +60,8 @@ const Jumbotron = ({services = []}) => {
                             backdropFilter: 'saturate(180%) blur(5px)',
                         }}
                     >
-                        <Heading>Сервис внедорожников и кроссоверов c гарантией</Heading>
-                        <Heading size={'md'}>Какая услуга вас интересует?</Heading>
+                        <Heading size={headingSize}>Сервис внедорожников и кроссоверов c гарантией</Heading>
+                        <Heading size={secHeadingSize}>Какая услуга вас интересует?</Heading>
                         <Button
                             leftIcon={<SearchIcon />}
                             onClick={onOpen}
