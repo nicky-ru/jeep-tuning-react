@@ -1,12 +1,12 @@
 import {Container, Stack, Box, StackDivider, Divider} from "@chakra-ui/layout";
-import {Button, useBreakpointValue} from "@chakra-ui/react";
-import {ArrowBackIcon} from "@chakra-ui/icons";
+import {Breadcrumb, BreadcrumbItem, Button, useBreakpointValue} from "@chakra-ui/react";
 import {useRouter} from "next/router";
 
 import {getAllServicesIds, getServiceData} from "../../lib/services";
 import {getUzelData} from "../../lib/uzels";
 import Head from "next/head";
 import ServiceInfo from "../../components/Services/serviceInfo";
+import React from "react";
 
 const Service = ({service={}, uzel={}}) => {
     const router = useRouter();
@@ -21,17 +21,33 @@ const Service = ({service={}, uzel={}}) => {
             </Head>
 
             <Container maxW="container.lg" mt={16} mb={5}>
+                <Breadcrumb>
+                    <BreadcrumbItem>
+                        <Button
+                            variant={"link"}
+                            my={5}
+                            leftIcon={""}
+                            onClick={() => {
+                                router.push("/")
+                            }}
+                        >
+                            Главная
+                        </Button>
+                    </BreadcrumbItem>
 
-                <Button
-                    variant={"link"}
-                    my={5}
-                    leftIcon={<ArrowBackIcon/>}
-                    onClick={() => {
-                        router.push("/serviceSearch")
-                    }}
-                >
-                    Ко всем услугам
-                </Button>
+                    <BreadcrumbItem>
+                        <Button
+                            variant={"link"}
+                            my={5}
+                            leftIcon={""}
+                            onClick={() => {
+                                router.push("/serviceSearch")
+                            }}
+                        >
+                            Все услуги
+                        </Button>
+                    </BreadcrumbItem>
+                </Breadcrumb>
 
                 <Stack
                     direction={["column", "row"]}
