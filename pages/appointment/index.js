@@ -6,7 +6,9 @@ import {getAllUzels} from "../../lib/uzels";
 import {getAllBrands} from "../../lib/brands";
 import {getAllModels} from "../../lib/models";
 import AppointmentForm from "../../components/Appointment/form";
-import {useBreakpointValue} from "@chakra-ui/react";
+import {ChevronRightIcon} from "@chakra-ui/icons";
+import {Breadcrumb, BreadcrumbItem, Button, useBreakpointValue} from "@chakra-ui/react";
+import React from "react";
 
 export default function Appointment({uzels = [], services = [], brands = [], models = []}) {
     const router = useRouter();
@@ -21,7 +23,46 @@ export default function Appointment({uzels = [], services = [], brands = [], mod
             </Head>
 
             <Container mt={16} mb={4} size={containerW}>
-                {/*<Heading>Запись на услугу</Heading>*/}
+                <Breadcrumb spacing="8px" separator={<ChevronRightIcon color="gray.500" />}>
+                    <BreadcrumbItem>
+                        <Button
+                            variant={"link"}
+                            my={5}
+                            leftIcon={""}
+                            onClick={() => {
+                                router.push("/")
+                            }}
+                        >
+                            Главная
+                        </Button>
+                    </BreadcrumbItem>
+
+                    <BreadcrumbItem>
+                        <Button
+                            variant={"link"}
+                            my={5}
+                            leftIcon={""}
+                            onClick={() => {
+                                router.push("/serviceSearch")
+                            }}
+                        >
+                            Все услуги
+                        </Button>
+                    </BreadcrumbItem>
+
+                    <BreadcrumbItem>
+                        <Button
+                            variant={"link"}
+                            my={5}
+                            leftIcon={""}
+                            onClick={() => {
+                                router.push(`/service/${router.query.serviceId}`)
+                            }}
+                        >
+                            Описание услуги
+                        </Button>
+                    </BreadcrumbItem>
+                </Breadcrumb>
                 <AppointmentForm
                     serviceId={router.query.serviceId}
                     uzels={uzels}
