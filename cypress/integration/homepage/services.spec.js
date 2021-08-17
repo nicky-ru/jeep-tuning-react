@@ -38,8 +38,7 @@ describe('Service section', () => {
             });
             cy.url({timeout: 10000})
                 .should('contain', 'appointment')
-            cy.contains('JeepService').click()
-            cy.wait(6000)
+            cy.contains("a", "Джипсервис в Ярославле").click()
         });
     })
     context('All services button', () => {

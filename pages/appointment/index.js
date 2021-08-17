@@ -1,7 +1,7 @@
 import Head from "next/head";
 import {Container, Divider, Heading} from "@chakra-ui/layout";
 import {useRouter} from "next/router";
-import {getAllServices} from "../../lib/services";
+import {getAllServices, getAllServicesNames} from "../../lib/services";
 import {getAllUzels} from "../../lib/uzels";
 import {getAllBrands} from "../../lib/brands";
 import {getAllModels} from "../../lib/models";
@@ -83,7 +83,7 @@ export async function getStaticProps(context) {
             props: context.previewData
         }
     }
-    const serviceData = await getAllServices();
+    const serviceData = await getAllServicesNames();
     const uzelsData = await getAllUzels();
     const brandsData = await getAllBrands();
     const modelsData = await getAllModels();

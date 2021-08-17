@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import {Divider, Container} from "@chakra-ui/layout";
 import ServiceList from "../../components/Services/serviceList"
-import {getAllServices} from "../../lib/services";
+import {getAllServices, getAllServicesNames} from "../../lib/services";
 import {Input, Stack, useControllableState, Select, Button, InputLeftElement, InputGroup} from "@chakra-ui/react";
 import React from "react";
 import {ArrowBackIcon, SearchIcon} from "@chakra-ui/icons";
@@ -77,7 +77,7 @@ export async function getStaticProps(context) {
             props: context.previewData
         }
     }
-    const serviceData = await getAllServices();
+    const serviceData = await getAllServicesNames();
     const services = serviceData.map(service => {return service.params.service;})
     const uzelData = await getAllUzels();
     const uzels = uzelData.map(uzel => {return uzel.params.uzel;})

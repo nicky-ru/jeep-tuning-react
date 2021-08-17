@@ -34,7 +34,7 @@ describe("Header", () => {
     })
     describe("Brand name", () => {
         beforeEach(() => {
-            cy.contains("h1", "JeepService").as("brandName")
+            cy.contains("a", "Джипсервис в Ярославле").as("brandName")
         })
         context("On large devices", () => {
             it('should be visible', function () {

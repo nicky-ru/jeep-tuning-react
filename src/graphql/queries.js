@@ -24,14 +24,7 @@ export const listAdvantages = /* GraphQL */ `
       items {
         id
         name
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
       }
-      nextToken
-      startedAt
     }
   }
 `;
@@ -71,11 +64,6 @@ export const getService = /* GraphQL */ `
       uzelID
       prices
       pricesInfo
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
     }
   }
 `;
@@ -93,14 +81,35 @@ export const listServices = /* GraphQL */ `
         uzelID
         prices
         pricesInfo
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
       }
-      nextToken
-      startedAt
+    }
+  }
+`;
+export const listServicesNames = /* GraphQL */ `
+  query ListServices(
+    $filter: ModelServiceFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listServices(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        name
+        uzelID
+      }
+    }
+  }
+`;
+export const listServicesIds = /* GraphQL */ `
+  query ListServices(
+    $filter: ModelServiceFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listServices(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+      }
     }
   }
 `;
@@ -140,11 +149,6 @@ export const getUzel = /* GraphQL */ `
     getUzel(id: $id) {
       id
       name
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
       Services {
         nextToken
         startedAt
@@ -162,14 +166,27 @@ export const listUzels = /* GraphQL */ `
       items {
         id
         name
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
       }
-      nextToken
-      startedAt
+    }
+  }
+`;
+export const listUzelsWithServices = /* GraphQL */ `
+  query ListUzels(
+    $filter: ModelUzelFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listUzels(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+          Services {
+            items {
+              id
+              name
+            }
+          }
+          id
+          name
+        }
     }
   }
 `;
@@ -225,14 +242,7 @@ export const listModels = /* GraphQL */ `
         id
         brandID
         name
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
       }
-      nextToken
-      startedAt
     }
   }
 `;
@@ -293,14 +303,7 @@ export const listBrands = /* GraphQL */ `
         id
         name
         image
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
       }
-      nextToken
-      startedAt
     }
   }
 `;

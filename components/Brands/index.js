@@ -2,6 +2,7 @@ import {Container, Heading, Wrap, WrapItem, Center, Stack} from "@chakra-ui/layo
 import {keyframes, useBreakpointValue, useColorModeValue} from "@chakra-ui/react";
 import Image from 'next/image'
 import React from "react";
+import logo_black from "../../public/logo/Black.svg"
 
 const slideSm = keyframes`
     from {opacity: 10%;}
@@ -41,7 +42,7 @@ const Brands = ({brands = []}) => {
                                 position={'relative'}
                             >
                                 <Image
-                                    src={brand.image}
+                                    src={brand.image? brand.image : logo_black}
                                     alt={brand.name}
                                     placeholder={'blur'}
                                     blurDataURL={"https://via.placeholder.com/100"}

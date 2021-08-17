@@ -1,5 +1,5 @@
 import {Container, Stack, Box, StackDivider, Divider} from "@chakra-ui/layout";
-import {Breadcrumb, BreadcrumbItem, Button, useBreakpointValue} from "@chakra-ui/react";
+import {Breadcrumb, BreadcrumbItem, Button, useBreakpointValue, Heading} from "@chakra-ui/react";
 import {ChevronRightIcon} from "@chakra-ui/icons";
 import {useRouter} from "next/router";
 
@@ -12,6 +12,17 @@ import React from "react";
 const Service = ({service={}, uzel={}}) => {
     const router = useRouter();
     const height = useBreakpointValue({base: 20, md: "full"})
+
+    // console.log("service", service);
+    // console.log("uzel", uzel);
+
+    if (router.isFallback) {
+        return (
+            <Container>
+                <Heading>Loading&hellip;</Heading>
+            </Container>
+        );
+    }
 
     return (
         <>
@@ -86,13 +97,15 @@ export async function getStaticPaths() {
     const paths = await getAllServicesIds();
     return {
         paths,
-        fallback: false
+        fallback: true
     }
 }
 
 export async function getStaticProps({ params }) {
     const serviceData = await getServiceData(params.id)
     const uzelData = await getUzelData(serviceData.data.uzelID)
+    console.log("service", serviceData);
+    console.log("uzel", uzelData)
     return {
         props: {
             service: serviceData.data,

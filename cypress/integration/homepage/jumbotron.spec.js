@@ -71,8 +71,7 @@ describe("Jumbotron", () => {
             cy.url({timeout: 10000})
                 .should('contain', '/service')
             cy.contains('h2', typedText)
-            cy.contains('JeepService').click()
-            cy.wait(6000)
+            cy.contains("a", "Джипсервис в Ярославле").click()
             cy.get("@jumbotron").within(() => {
                 cy.contains("button", "Найти услугу и записаться").click();
             })

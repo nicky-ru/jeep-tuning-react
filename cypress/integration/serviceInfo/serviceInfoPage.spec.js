@@ -1,6 +1,6 @@
 describe('Service Info page', () => {
     before(() => {
-        cy.visit('/service/4db00b8d-3ef0-4768-aafd-6e46a5c84515')
+        cy.visit('/service/be5e127d-6446-48fd-b1dd-3df6e21985ad')
     })
     context('BreadCrumb', () => {
         it('should have to homepage link', function () {

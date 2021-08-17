@@ -8,7 +8,7 @@ import Advantages from "../components/Advantages";
 import Brands from "../components/Brands";
 import Contacts from "../components/Contacts";
 // amplify
-import {getAllServices} from "../lib/services";
+import {getAllServices, getAllServicesNames} from "../lib/services";
 import {getAllUzels} from "../lib/uzels";
 import {getAllAdvantages} from "../lib/advantages";
 import {getAllBrands} from "../lib/brands";
@@ -42,8 +42,8 @@ export async function getStaticProps(context) {
             props: context.previewData
         }
     }
-    const serviceData = await getAllServices();
     const uzelsData = await getAllUzels();
+    const serviceData = await getAllServicesNames();
     const advantagesData = await getAllAdvantages();
     const brandsData = await getAllBrands();
 

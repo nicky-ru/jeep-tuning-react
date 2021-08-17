@@ -1,6 +1,6 @@
 describe('Info box', () => {
     before(() => {
-        cy.visit('/service/4db00b8d-3ef0-4768-aafd-6e46a5c84515')
+        cy.visit('/service/be5e127d-6446-48fd-b1dd-3df6e21985ad')
     })
     it('should contain service name', function () {
         cy.contains('Замена ступичных подшипников')
