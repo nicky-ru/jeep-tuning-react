@@ -16,5 +16,23 @@
         "jeeptuningreact22e6b77a": {}
       }
     }
+  },
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-jeeptuningreact-dev-124559-authRole",
+      "UnauthRoleArn": "arn:aws:iam::889939058670:role/amplify-jeeptuningreact-dev-124559-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::889939058670:role/amplify-jeeptuningreact-dev-124559-authRole",
+      "Region": "eu-central-1",
+      "DeploymentBucketName": "amplify-jeeptuningreact-dev-124559-deployment",
+      "UnauthRoleName": "amplify-jeeptuningreact-dev-124559-unauthRole",
+      "StackName": "amplify-jeeptuningreact-dev-124559",
+      "StackId": "arn:aws:cloudformation:eu-central-1:889939058670:stack/amplify-jeeptuningreact-dev-124559/073e0300-ff16-11eb-b8ea-02b065204e02",
+      "AmplifyAppId": "dyixl22k86xs5"
+    },
+    "categories": {
+      "auth": {
+        "jeeptuningreact22e6b77a": {}
+      }
+    }
   }
 }
