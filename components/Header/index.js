@@ -19,19 +19,12 @@ import {
     MenuList,
     MenuItem
 } from '@chakra-ui/react'
-import Image from "next/image"
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import Link from 'next/link'
 import { IoMoon, IoSunny } from 'react-icons/io5';
 import {EmailIcon, PhoneIcon} from "@chakra-ui/icons";
 import {SocialIcon} from 'react-social-icons';
 import {FaHome} from "react-icons/fa";
-import logo_black from "../../public/logo/Black.svg"
-import logo_grayscale from "../../public/logo/Grayscale.svg"
-import logo_monochrome from "../../public/logo/Monochrome.svg"
-import logo_original from "../../public/logo/Original.svg"
-import logo_white from "../../public/logo/White.svg"
-import smoke_dark from "../../public/images/smoke.png";
 
 const Header = () => {
     const { toggleColorMode } = useColorMode();
