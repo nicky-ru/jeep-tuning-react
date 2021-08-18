@@ -35,7 +35,7 @@ const Brands = ({brands = []}) => {
                 // position={"relative"}
             >
                 {brands.map((brand) => (
-                        <WrapItem key={brand.name} animation={`${slideSm} 5s infinite linear alternate`}>
+                        <WrapItem key={brand.name} animation={`${slideSm} 3s infinite linear alternate`}>
                             <Center
                                 h={logoSize}
                                 w={logoSize}
