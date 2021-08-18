@@ -3,8 +3,11 @@ import React from "react";
 import styles from "./mdtextcontainer.module.css"
 import {Button} from "@chakra-ui/react";
 import {ArrowBackIcon} from "@chakra-ui/icons";
+import {useRouter} from "next/router";
 
 const TextContainer = ({ policyData }) => {
+    const router = useRouter()
+
     return(
         <Container mt={16} mb={4} maxW={"container.lg"}>
             <Button
