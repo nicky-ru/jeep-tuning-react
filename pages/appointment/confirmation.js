@@ -3,7 +3,6 @@ import {Container, Divider, Button, Stack, Heading, Box, Table, TableCaption, Tr
 import {useRouter} from "next/router";
 import {ArrowBackIcon} from "@chakra-ui/icons";
 import React from "react";
-import {StackDivider} from "@chakra-ui/layout";
 import {FaHome} from "react-icons/fa";
 
 export default function Appointment() {
@@ -17,7 +16,7 @@ export default function Appointment() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <Container mt={16} mb={4} size={"container.lg"}>
+            <Container mt={16} mb={4} maxW={"container.lg"}>
                 <Box textAlign={"center"}>
                     <Heading>Мы получили Вашу заявку</Heading>
                 </Box>
