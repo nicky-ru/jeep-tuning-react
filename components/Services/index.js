@@ -9,7 +9,6 @@ import {
     Button
 } from '@chakra-ui/react';
 import ServiceList from "./serviceList";
-import Link from 'next/link'
 import {useRouter} from "next/router";
 
 const ServiceAccordion = ({uzels = [], services = []}) => {
