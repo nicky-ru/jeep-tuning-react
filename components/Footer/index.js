@@ -1,6 +1,7 @@
 import {Container, Center} from "@chakra-ui/layout";
 import {Stack} from "@chakra-ui/react";
 import {SocialIcon} from "react-social-icons";
+import Link from "next/link";
 
 const Footer = () => {
 
@@ -14,6 +15,7 @@ const Footer = () => {
             </Stack>
 
             <Center>2021 Все права защищены</Center>
+            <Center><Link href={'/confidentiality'}>Политика конфиденциальности</Link></Center>
         </Container>
     )
 }
