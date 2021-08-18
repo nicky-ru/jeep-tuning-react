@@ -15,7 +15,7 @@ const Footer = () => {
             </Stack>
 
             <Center>2021 Все права защищены</Center>
-            <Center><Link href={'/confidentiality'}>Политика конфиденциальности</Link></Center>
+            <Center><Link href={'/privacyPolicy'}>Политика конфиденциальности</Link></Center>
         </Container>
     )
 }

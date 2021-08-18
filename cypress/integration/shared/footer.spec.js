@@ -10,10 +10,10 @@ describe('Footer', () => {
                 .should('be.at.least', 4)
         });
     })
-    it.only('should contain confidentiality page link', function () {
+    it.only('should contain privacyPolicy page link', function () {
         cy.get('#footer').within(() => {
             cy.contains('a', 'Политика конфиденциальности')
-                .should('have.attr', 'href', '/confidentiality')
+                .should('have.attr', 'href', '/privacyPolicy')
         })
     });
 })
