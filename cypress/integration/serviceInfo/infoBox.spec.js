@@ -1,89 +1,82 @@
 describe('Info box', () => {
-    before(() => {
-        cy.visit('/service/be5e127d-6446-48fd-b1dd-3df6e21985ad')
-    })
-    it('should contain service name', function () {
-        cy.contains('Замена ступичных подшипников')
-    });
-    it('should contain uzel name', () => {
-        cy.contains('.chakra-badge', 'Трансмиссия')
-    })
-    context('Description tabs', () => {
-        context('Tablist', () => {
-            beforeEach(() => {
-                cy.get('.chakra-tabs__tablist').as('tablist')
-            })
-            it('should have active what tab', () => {
-                cy.get('@tablist').within(() => {
-                    cy.contains('Что?')
-                        .should('have.attr', 'aria-selected', 'true')
-                })
-            })
-            it('should have clickable why tab', () => {
-                cy.get('@tablist').within(() => {
-                    cy.contains('Зачем?')
-                        .click()
-                        .should('have.attr', 'aria-selected', 'true')
-                })
-            })
-            it('should have clickable how tab', () => {
-                cy.get('@tablist').within(() => {
-                    cy.contains('Как?')
-                        .click()
-                        .should('have.attr', 'aria-selected', 'true')
-                })
-            })
+    context('there is no service description and prices', () => {
+        const serviceName = 'замена масла раздатки';
+        const uzelName = 'Техническое обслуживание';
+        before(() => {
+            cy.visit('/')
+            cy.contains('button', uzelName).click()
+            cy.contains('a', serviceName).click()
+            cy.url({timeout: 10000}).should('contain', 'service')
         })
-        context('Tabs', () => {
-            beforeEach(() => {
-                cy.get('.chakra-tabs').as('tabs')
-                cy.get('.chakra-tabs__tablist').as('tablist')
-            })
-            it('should contain what description', function () {
-                cy.get('@tablist').within(() => {
-                    cy.contains('Что?').click()
-                })
-
-                cy.get('@tabs').within(() => {
-                    cy.contains('Все хорошо знают')
-                        .should('be.visible')
-                })
-            });
-            it('should contain why description', () => {
-                cy.get('@tablist').within(() => {
-                    cy.contains('Зачем?').click()
-                })
-
-                cy.get('@tabs').within(() => {
-                    cy.contains('Первым признаком')
-                        .should('be.visible')
-                })
-            })
-            it('should contain how description', () => {
-                cy.get('@tablist').within(() => {
-                    cy.contains('Как?').click()
-                })
-
-                cy.get('@tabs').within(() => {
-                    cy.contains('Вывешивается автомобиль')
-                        .should('be.visible')
-                })
-            })
-        })
-
-    })
-    context('Price', () => {
-        it('should exist', function () {
-            cy.contains('Цена')
+        it('should contain service name', function () {
+            cy.contains(serviceName)
         });
-        it('should contain first price', function () {
+        it('should contain uzel name', () => {
+            cy.contains(uzelName)
+        })
+        it('should have inWork tab', () => {
+            cy.get('.chakra-tabs__tablist').within(() => {
+                cy.contains('В работе')
+                    .should('have.attr', 'aria-selected', 'true')
+            })
+        })
+        it('should have description placeholder', () => {
+            cy.get('.chakra-tabs').within(() => {
+                cy.contains('Здесь будет описание данной услуги').should('be.visible')
+            })
+        })
+    })
+    context('service description and prices', () => {
+        const serviceName = 'Замена томозных колодок барабанных';
+        const uzelName = 'Тормозная система';
+        before(() => {
+            cy.visit('/')
+            cy.contains('button', uzelName).click()
+            cy.contains('a', serviceName).click()
+            cy.url({timeout: 10000}).should('contain', 'service')
+        })
+        it('should contain service name', function () {
+            cy.contains(serviceName)
+        });
+        it('should contain uzel name', () => {
+            cy.contains(uzelName)
+        })
+        it('should have active what tab', () => {
+            cy.get('.chakra-tabs__tablist').within(() => {
+                cy.contains('Что?')
+                    .should('have.attr', 'aria-selected', 'true')
+            })
+            cy.get('.chakra-tabs').within(() => {
+                cy.contains('1')
+                    .should('be.visible')
+            })
+        })
+        it('should have clickable why tab', () => {
+            cy.get('.chakra-tabs__tablist').within(() => {
+                cy.contains('Зачем?')
+                    .click()
+                    .should('have.attr', 'aria-selected', 'true')
+            })
+            cy.get('.chakra-tabs').within(() => {
+                cy.contains('2')
+                    .should('be.visible')
+            })
+        })
+        it('should have clickable how tab', () => {
+            cy.get('.chakra-tabs__tablist').within(() => {
+                cy.contains('Как?')
+                    .click()
+                    .should('have.attr', 'aria-selected', 'true')
+            })
+            cy.get('.chakra-tabs').within(() => {
+                cy.contains('3')
+                    .should('be.visible')
+            })
+        })
+        it('should contain price', function () {
+            cy.contains('.chakra-badge', '100 руб.')
             cy.contains('.chakra-badge', '200 руб.')
-        });
-        it('should contain second price', function () {
             cy.contains('.chakra-badge', '300 руб.')
-        });
-        it('should contain third price', function () {
-            cy.contains('.chakra-badge', '500 руб.')
         });
     })
 })
