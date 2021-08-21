@@ -1,3 +1,10 @@
+type Appointment @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  Model: Model @connection
+  Service: Service @connection
+  ContactInfo: String
+}
+
 type Advantage @model @auth(rules: [{allow: public}]) {
   id: ID!
   name: String!
