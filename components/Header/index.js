@@ -12,6 +12,7 @@ import {
     useOutsideClick,
     Portal,
     Heading,
+    Text,
     Link as ChakraLink,
     Button,
     Menu,
@@ -56,7 +57,13 @@ const Header = () => {
                     backdropFilter: 'saturate(180%) blur(5px)',
                 }}
             >
-                <Box>Внимание! Сайт находится в тестовом режиме. В случае неполадок, просьба писать на эл. почту: nikitkaruban@gmail.com</Box>
+                <Box maxW={'full'}>
+                    <Text isTruncated>
+                        Внимание! Сайт находится в тестовом режиме.
+                        В случае неполадок, просьба писать на эл. почту:
+                        nikitkaruban@gmail.com
+                    </Text>
+                </Box>
             </Flex>
             <Flex
                 as={'header'}
@@ -88,8 +95,8 @@ const Header = () => {
                             <Portal>
                                 <MenuList>
                                     <MenuItem
-                                        icon={<SocialIcon url={"//api.whatsapp.com/send?phone=79108210003"} network={'whatsapp'}/>}
-                                        onClick={() => window.location = "//api.whatsapp.com/send?phone=8615651921699"}
+                                        icon={<SocialIcon url={`//api.whatsapp.com/send?phone=${tel}`} network={'whatsapp'}/>}
+                                        onClick={() => window.location = `//api.whatsapp.com/send?phone=${tel}`}
                                     >
                                         <a>Написать в Вотсапп</a>
                                     </MenuItem>
