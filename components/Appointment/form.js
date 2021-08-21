@@ -7,11 +7,21 @@ import {
     FormControl,
     FormLabel,
     FormHelperText,
-    useColorModeValue
+    useColorModeValue,
+    Popover,
+    PopoverTrigger,
+    Portal,
+    PopoverContent,
+    PopoverArrow,
+    PopoverHeader,
+    PopoverCloseButton,
+    PopoverBody,
+    PopoverFooter
 } from "@chakra-ui/react";
 import {useEffect} from "react";
 import {useRouter} from "next/router";
 import {ArrowBackIcon} from "@chakra-ui/icons";
+import {SocialIcon} from "react-social-icons";
 
 
 const AppointmentForm = ({serviceId = "", uzels = [], services = [], brands = [], models = []}) => {
@@ -211,17 +221,38 @@ const AppointmentForm = ({serviceId = "", uzels = [], services = [], brands = []
                     </Select>
                     <FormHelperText>Выберите модель авто</FormHelperText>
                 </FormControl>
-                <Button
-                    colorScheme={"orange"}
-                    variant={variant}
-                    onClick={() => {
-                        router.replace(
-                            `/appointment/confirmation?uzel=${uzel.name}&service=${service.name}&brand=${brand.name}&model=${model.name}`
-                        )
-                    }}
-                >
-                    Записаться
-                </Button>
+                <Popover>
+                    <PopoverTrigger>
+                        <Button
+                            colorScheme={"orange"}
+                            variant={variant}
+                            // onClick={() => {
+                            //     router.replace(
+                            //         `/appointment/confirmation?uzel=${uzel.name}&service=${service.name}&brand=${brand.name}&model=${model.name}`
+                            //     )
+                            // }}
+                        >
+                            Записаться
+                        </Button>
+                    </PopoverTrigger>
+                    <Portal>
+                        <PopoverContent>
+                            <PopoverArrow />
+                            <PopoverHeader>Записаться через:</PopoverHeader>
+                            <PopoverCloseButton />
+                            <PopoverBody>
+                                <Stack direction={'row'} align={'center'} spacing={2} flex={[1, null, 'auto']} justify={'center'} mb={5}>
+                                    <SocialIcon
+                                        url={
+                                            `//api.whatsapp.com/send?phone=79108210003&text=Хочу записаться на услугу:%0A%0AУзел:%0A${uzel.name}%0A%0AУслуга:%0A${service.name}%0A%0AМарка:%0A${brand.name}%0A%0AМодель:%0A${model.name}`
+                                        }
+                                        network={'whatsapp'}
+                                    />
+                                </Stack>
+                            </PopoverBody>
+                        </PopoverContent>
+                    </Portal>
+                </Popover>
             </Stack>
         </Container>
     )
