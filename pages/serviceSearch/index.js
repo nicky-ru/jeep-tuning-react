@@ -87,6 +87,6 @@ export async function getStaticProps(context) {
             services,
             uzels,
         },
-        revalidate: 600,
+        revalidate: 10,
     };
 }

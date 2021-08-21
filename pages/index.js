@@ -59,6 +59,6 @@ export async function getStaticProps(context) {
             brands,
             services,
         },
-        revalidate: 600,
+        revalidate: 10,
     };
 }
