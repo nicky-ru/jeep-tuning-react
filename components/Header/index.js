@@ -88,7 +88,7 @@ const Header = () => {
                             <Portal>
                                 <MenuList>
                                     <MenuItem
-                                        icon={<SocialIcon url={"//api.whatsapp.com/send?phone=8615651921699"} network={'whatsapp'}/>}
+                                        icon={<SocialIcon url={"//api.whatsapp.com/send?phone=79108210003"} network={'whatsapp'}/>}
                                         onClick={() => window.location = "//api.whatsapp.com/send?phone=8615651921699"}
                                     >
                                         <a>Написать в Вотсапп</a>
