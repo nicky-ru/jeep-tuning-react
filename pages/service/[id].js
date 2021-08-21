@@ -32,7 +32,7 @@ const Service = ({service={}, uzel={}}) => {
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
 
-            <Container maxW="container.lg" mt={16} mb={5}>
+            <Container maxW="container.lg" mt={24} mb={5}>
                 <Breadcrumb spacing="8px" separator={<ChevronRightIcon color="gray.500" />}>
                     <BreadcrumbItem>
                         <Button

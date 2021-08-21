@@ -9,7 +9,7 @@ const TextContainer = ({ policyData }) => {
     const router = useRouter()
 
     return(
-        <Container mt={16} mb={4} maxW={"container.lg"}>
+        <Container mt={24} mb={4} maxW={"container.lg"}>
             <Button
                 variant={"link"}
                 my={5}

@@ -16,7 +16,7 @@ export default function Appointment() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <Container mt={16} mb={4} maxW={"container.lg"}>
+            <Container mt={24} mb={4} maxW={"container.lg"}>
                 <Box textAlign={"center"}>
                     <Heading>Мы получили Вашу заявку</Heading>
                 </Box>

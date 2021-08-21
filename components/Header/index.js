@@ -45,13 +45,27 @@ const Header = () => {
     return(
         <Box>
             <Flex
+                w={"full"}
+                boxShadow={'sm'}
+                justify={'center'}
+                position={'fixed'}
+                top="0"
+                zIndex={1}
+                bg={'tomato.300'}
+                sx={{
+                    backdropFilter: 'saturate(180%) blur(5px)',
+                }}
+            >
+                <Box>Внимание! Сайт находится в тестовом режиме. В случае неполадок, просьба писать на эл. почту: nikitkaruban@gmail.com</Box>
+            </Flex>
+            <Flex
                 as={'header'}
                 minH={16}
                 w={"full"}
                 boxShadow={'sm'}
                 justify={'center'}
                 position={'fixed'}
-                top="0"
+                top="6"
                 zIndex={1}
                 bg={bg}
                 sx={{
@@ -121,8 +135,6 @@ const Header = () => {
                             </Link>
                         </Stack>
                     </Flex>
-
-
 
                     <Stack direction={'row'} align={'center'} spacing={2} flex={[1, null, "auto"]} justify={'flex-end'}>
                         <Button

@@ -29,7 +29,7 @@ const Jumbotron = ({services = []}) => {
         <>
             <Box
                 id={"jumbotron"}
-                mt={16}
+                mt={24}
                 h={'2xs'}
                 bg={'light.400'}
                 position={"relative"}
