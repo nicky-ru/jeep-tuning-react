@@ -104,8 +104,6 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
     const serviceData = await getServiceData(params.id)
     const uzelData = await getUzelData(serviceData.data.uzelID)
-    console.log("service", serviceData);
-    console.log("uzel", uzelData)
     return {
         props: {
             service: serviceData.data,
