@@ -13,4 +13,24 @@ describe('Service Info page', () => {
             cy.contains('.chakra-breadcrumb', 'Описание услуги')
         });
     })
+    context('Form', () => {
+        it('should have uzel dropbox', function () {
+
+        });
+        it('should have service dropbox', function () {
+
+        });
+        it('should have brand dropbox', function () {
+
+        });
+        it('should have model dropbox', function () {
+
+        });
+        it('should have make appointment button', function () {
+            cy.contains('button', 'Быстрая запись через Whatsapp')
+        });
+        it.only('should have form link', function () {
+            cy.contains('button', 'Форму')
+        });
+    })
 })
