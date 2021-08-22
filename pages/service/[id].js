@@ -13,9 +13,6 @@ const Service = ({service={}, uzel={}}) => {
     const router = useRouter();
     const height = useBreakpointValue({base: 20, md: "full"})
 
-    // console.log("service", service);
-    // console.log("uzel", uzel);
-
     if (router.isFallback) {
         return (
             <Container>

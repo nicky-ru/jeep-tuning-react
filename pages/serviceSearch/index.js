@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import {Divider, Container} from "@chakra-ui/layout";
 import ServiceList from "../../components/Services/serviceList"
-import {getAllServices, getAllServicesNames} from "../../lib/services";
+import {getAllServicesNames} from "../../lib/services";
 import {Input, Stack, useControllableState, Select, Button, InputLeftElement, InputGroup} from "@chakra-ui/react";
 import React from "react";
 import {ArrowBackIcon, SearchIcon} from "@chakra-ui/icons";

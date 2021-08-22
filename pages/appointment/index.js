@@ -1,7 +1,7 @@
 import Head from "next/head";
-import {Container, Divider, Heading} from "@chakra-ui/layout";
+import {Container, Divider} from "@chakra-ui/layout";
 import {useRouter} from "next/router";
-import {getAllServices, getAllServicesNames} from "../../lib/services";
+import {getAllServicesNames} from "../../lib/services";
 import {getAllUzels} from "../../lib/uzels";
 import {getAllBrands} from "../../lib/brands";
 import {getAllModels} from "../../lib/models";
