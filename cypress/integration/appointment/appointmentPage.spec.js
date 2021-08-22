@@ -29,7 +29,7 @@ describe('Service Info page', () => {
         it('should have make appointment button', function () {
             cy.contains('button', 'Быстрая запись через Whatsapp')
         });
-        it.only('should have form link', function () {
+        it('should have form link', function () {
             cy.contains('button', 'Форму')
         });
     })
