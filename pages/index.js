@@ -17,7 +17,7 @@ export default function Home(props) {
   return (
     <>
       <Head>
-        <title>ДжипСервис</title>
+        <title>Джипcервис Главная</title>
         <meta name="description" content="Сервис внедорожников и кроссоверов c гарантией в городе Ярославль" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
