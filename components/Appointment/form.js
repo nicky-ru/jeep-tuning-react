@@ -8,20 +8,13 @@ import {
     FormLabel,
     FormHelperText,
     useColorModeValue,
-    Popover,
-    PopoverTrigger,
-    Portal,
-    PopoverContent,
-    PopoverArrow,
-    PopoverHeader,
-    PopoverCloseButton,
-    PopoverBody,
-    PopoverFooter
+    Text
 } from "@chakra-ui/react";
 import {useEffect} from "react";
 import {useRouter} from "next/router";
 import {ArrowBackIcon} from "@chakra-ui/icons";
 import {SocialIcon} from "react-social-icons";
+import {AiOutlineWhatsApp} from "react-icons/ai";
 
 
 const AppointmentForm = ({serviceId = "", uzels = [], services = [], brands = [], models = []}) => {
@@ -221,38 +214,27 @@ const AppointmentForm = ({serviceId = "", uzels = [], services = [], brands = []
                     </Select>
                     <FormHelperText>Выберите модель авто</FormHelperText>
                 </FormControl>
-                <Popover>
-                    <PopoverTrigger>
-                        <Button
-                            colorScheme={"orange"}
-                            variant={variant}
-                            // onClick={() => {
-                            //     router.replace(
-                            //         `/appointment/confirmation?uzel=${uzel.name}&service=${service.name}&brand=${brand.name}&model=${model.name}`
-                            //     )
-                            // }}
-                        >
-                            Записаться
-                        </Button>
-                    </PopoverTrigger>
-                    <Portal>
-                        <PopoverContent>
-                            <PopoverArrow />
-                            <PopoverHeader>Записаться через:</PopoverHeader>
-                            <PopoverCloseButton />
-                            <PopoverBody>
-                                <Stack direction={'row'} align={'center'} spacing={2} flex={[1, null, 'auto']} justify={'center'} mb={5}>
-                                    <SocialIcon
-                                        url={
-                                            `//api.whatsapp.com/send?phone=79108210003&text=Хочу записаться на услугу:%0A%0AУзел:%0A${uzel.name}%0A%0AУслуга:%0A${service.name}%0A%0AМарка:%0A${brand.name}%0A%0AМодель:%0A${model.name}`
-                                        }
-                                        network={'whatsapp'}
-                                    />
-                                </Stack>
-                            </PopoverBody>
-                        </PopoverContent>
-                    </Portal>
-                </Popover>
+                <Button
+                    colorScheme={"orange"}
+                    variant={variant}
+                    leftIcon={<AiOutlineWhatsApp/>}
+                    // onClick={() => {
+                    //     router.replace(
+                    //         `/appointment/confirmation?uzel=${uzel.name}&service=${service.name}&brand=${brand.name}&model=${model.name}`
+                    //     )
+                    // }}
+                    onClick={() => {window.location = `//api.whatsapp.com/send?phone=79108210003&text=Хочу записаться на услугу:%0A%0AУзел:%0A${uzel.name}%0A%0AУслуга:%0A${service.name}%0A%0AМарка:%0A${brand.name}%0A%0AМодель:%0A${model.name}`}}
+                >
+                    Быстрая запись через Whatsapp
+                </Button>
+                <Text>Или заполните {' '}
+                    <Button
+                        variant={'link'}
+                        onClick={() => {window.location = 'https://docs.google.com/forms/d/e/1FAIpQLSexg6e732G-NAjd4-zv66A14MsKMnGfU--2U7_l7fXclF818Q/viewform?usp=sf_link'}}
+                    >
+                        Форму
+                    </Button>
+                </Text>
             </Stack>
         </Container>
     )
