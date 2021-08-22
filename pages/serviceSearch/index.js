@@ -16,7 +16,7 @@ export default function Services({services = [], uzels = []}) {
     return(
         <>
             <Head>
-                <title>Service List</title>
+                <title>Все услуги</title>
                 <meta name="description" content="Список всех услуг нашего джипсервиса" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
