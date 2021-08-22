@@ -14,8 +14,7 @@ import {SearchIcon} from "@chakra-ui/icons";
 import Image from "next/image"
 import smoke_dark from "../../public/images/smoke.png"
 import React from "react";
-import dynamic from "next/dynamic";
-const JumbotronModalContent = dynamic(() => import('./modalContent'));
+import JumbotronModalContent from "./modalContent";
 
 const Jumbotron = ({services = []}) => {
     const bg = useColorModeValue("dark.500", "light.500");

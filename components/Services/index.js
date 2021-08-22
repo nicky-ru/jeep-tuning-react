@@ -8,9 +8,8 @@ import {
     useColorModeValue,
     Button
 } from '@chakra-ui/react';
-const ServiceList = dynamic(() => import("./serviceList"))
+import ServiceList from "./serviceList";
 import {useRouter} from "next/router";
-import dynamic from "next/dynamic";
 
 const ServiceAccordion = ({uzels = [], services = []}) => {
     const router = useRouter();

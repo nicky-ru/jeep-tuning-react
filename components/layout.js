@@ -3,9 +3,8 @@ import Header from "./Header";
 import Footer from "./Footer";
 import {useEffect} from "react";
 import {useToast} from "@chakra-ui/react";
-const PolicyToaster = dynamic(() => import("./Shared/PolicyToaster"))
+import PolicyToaster from "./Shared/PolicyToaster";
 import {useRouter} from "next/router";
-import dynamic from "next/dynamic";
 
 export default function Layout({ children }) {
     const router = useRouter();
