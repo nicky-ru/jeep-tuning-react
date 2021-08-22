@@ -12,8 +12,6 @@ import {
 } from "@chakra-ui/react";
 import {useEffect} from "react";
 import {useRouter} from "next/router";
-import {ArrowBackIcon} from "@chakra-ui/icons";
-import {SocialIcon} from "react-social-icons";
 import {AiOutlineWhatsApp} from "react-icons/ai";
 
 
@@ -218,11 +216,6 @@ const AppointmentForm = ({serviceId = "", uzels = [], services = [], brands = []
                     colorScheme={"orange"}
                     variant={variant}
                     leftIcon={<AiOutlineWhatsApp/>}
-                    // onClick={() => {
-                    //     router.replace(
-                    //         `/appointment/confirmation?uzel=${uzel.name}&service=${service.name}&brand=${brand.name}&model=${model.name}`
-                    //     )
-                    // }}
                     onClick={() => {window.location = `//api.whatsapp.com/send?phone=79108210003&text=Хочу записаться на услугу:%0A%0AУзел:%0A${uzel.name}%0A%0AУслуга:%0A${service.name}%0A%0AМарка:%0A${brand.name}%0A%0AМодель:%0A${model.name}`}}
                 >
                     Быстрая запись через Whatsapp
